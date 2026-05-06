@@ -32,7 +32,7 @@ def fetch_kalshi_trades(ticker: str, max_pages: int = 4) -> list[dict]:
     recent ~4000 trades are far more than enough to find the last
     non-trivial pre-resolution price for any market in our universe.
     """
-    import kalshi_client as kalshi
+    from src import kalshi_client as kalshi
 
     trades: list[dict] = []
     cursor = None

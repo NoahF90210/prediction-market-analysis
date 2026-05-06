@@ -6,7 +6,7 @@ import time
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import kalshi_client as kalshi
+from src import kalshi_client as kalshi
 from src.accuracy import normalize_resolution, to_float
 from src.category_mapping import classify_market
 RAW_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "raw")
