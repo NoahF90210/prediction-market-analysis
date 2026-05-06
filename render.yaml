@@ -3,5 +3,5 @@ services:
     name: prediction-market-accuracy
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:server
+    startCommand: gunicorn app:server --bind 0.0.0.0:$PORT
     plan: free
