@@ -6,6 +6,7 @@ plotly
 flask
 streamlit
 statsmodels
+scikit-learn
 jupyter
 pytest
 requests

@@ -397,6 +397,14 @@ function App() {
                   label="vs. category base-rate baseline"
                   accent={accent} ink={theme.ink} muted={theme.muted}
                 />
+                {headline.baseline_logistic_brier ? (
+                  <ImprovementBar
+                    baseline={headline.baseline_logistic_brier}
+                    market={headline.brier_overall}
+                    label="vs. logistic regression on volume + lead time + category (5-fold OOF)"
+                    accent={accent} ink={theme.ink} muted={theme.muted}
+                  />
+                ) : null}
               </div>
             </div>
 
@@ -568,6 +576,10 @@ function App() {
                 n: headline.n_polymarket,
                 source: "history-based",
                 color: theme.ink,
+                subBrier: null,
+                subN: null,
+                subCi: null,
+                subLabel: null,
               },
               {
                 name: "Kalshi",
@@ -576,6 +588,10 @@ function App() {
                 n: headline.n_kalshi,
                 source: "snapshot fallback (mostly)",
                 color: accent,
+                subBrier: headline.brier_kalshi_history_only,
+                subN: headline.n_kalshi_history,
+                subCi: headline.kalshi_history_ci,
+                subLabel: "history-only subset",
               },
             ].map((p) => (
               <div key={p.name} style={{
@@ -624,6 +640,60 @@ function App() {
                 }}>
                   95% CI: [{p.ci[0].toFixed(3)}, {p.ci[1].toFixed(3)}]
                 </div>
+                {p.name === "Kalshi" ? (
+                  <div style={{
+                    marginTop: 14, paddingTop: 14,
+                    borderTop: `1px dashed ${theme.rule}`,
+                  }}>
+                    <div style={{
+                      fontFamily: "'Inter Tight', sans-serif",
+                      fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase",
+                      color: accent, fontWeight: 700,
+                    }}>
+                      Methodology caveat
+                    </div>
+                    {p.subBrier != null && p.subN > 0 ? (
+                      <>
+                        <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 8 }}>
+                          <span style={{
+                            fontFamily: "'Instrument Serif', serif",
+                            fontSize: 32, color: theme.ink,
+                            fontVariantNumeric: "tabular-nums",
+                          }}>
+                            {p.subBrier.toFixed(4)}
+                          </span>
+                          <span style={{
+                            fontFamily: "'JetBrains Mono', monospace",
+                            fontSize: 11, color: theme.muted,
+                          }}>
+                            apples-to-apples · n = {fmt.count(p.subN)}
+                            {p.subCi && p.subCi[0] != null ? ` · 95% CI [${p.subCi[0].toFixed(3)}, ${p.subCi[1].toFixed(3)}]` : ""}
+                          </span>
+                        </div>
+                        <div style={{
+                          marginTop: 8,
+                          fontFamily: "'Inter Tight', sans-serif",
+                          fontSize: 12, color: theme.inkSoft, lineHeight: 1.45,
+                        }}>
+                          Restricting to Kalshi rows with cached pre-resolution price history removes the
+                          settlement-snapshot rows that arguably measure convergence rather than skill.
+                        </div>
+                      </>
+                    ) : (
+                      <div style={{
+                        marginTop: 8,
+                        fontFamily: "'Inter Tight', sans-serif",
+                        fontSize: 13, color: theme.inkSoft, lineHeight: 1.5,
+                      }}>
+                        All {fmt.count(p.n)} Kalshi rows in this build use a non-trivial snapshot from the
+                        cached settled-market record (not full pre-resolution history). That snapshot is
+                        sometimes close to the settlement price, so the Kalshi number partly reflects
+                        convergence rather than pure forecast skill. Treat the cross-platform comparison
+                        as directional until full Kalshi history is backfilled.
+                      </div>
+                    )}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
