@@ -1,2 +1,12 @@
 .env
 venv/
+.venv/
+__pycache__/
+.DS_Store
+.home/
+.ipython/
+.matplotlib/
+.claude/
+data/raw/
+data/cleaned/polymarket_markets.csv
+data/cleaned/markets.csv

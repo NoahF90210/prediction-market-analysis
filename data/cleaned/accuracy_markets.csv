@@ -1,0 +1,693 @@
+platform,market_id,title,category,open_time,close_time,resolution,forecast_prob,forecast_source,volume
+polymarket,568634,Will Xander Schauffele win the 2026 Masters tournament?,sports,2025-08-29T04:14:31.945889Z,2026-04-13T00:00:00Z,NO,0.0215,history,9561874.596762056
+polymarket,568642,Will Joaquin Niemann win the 2026 Masters tournament?,sports,2025-08-29T04:14:41.975127Z,2026-04-13T00:00:00Z,NO,0.0005,history,1078254.8618879998
+polymarket,568649,Will Sungjae Im win the 2026 Masters tournament?,sports,2025-08-29T04:14:50.745525Z,2026-04-13T00:00:00Z,NO,0.0005,history,528587.1383969998
+polymarket,568656,Will Akshay Bhatia win the 2026 Masters tournament?,sports,2025-08-29T04:15:00.083549Z,2026-04-13T00:00:00Z,NO,0.02,history,871375.8503929984
+polymarket,568663,Will Tom Kim win the 2026 Masters tournament?,sports,2025-08-29T04:15:06.574397Z,2026-04-13T00:00:00Z,NO,0.0005,history,1171784.6176650007
+polymarket,568668,Will Cameron Young win the 2026 Masters tournament?,sports,2025-08-29T04:15:13.715736Z,2026-04-13T00:00:00Z,NO,0.0265,history,5467848.877346976
+polymarket,568673,Will Billy Horschel win the 2026 Masters tournament?,sports,2025-08-29T04:15:17.740055Z,2026-04-13T00:00:00Z,NO,0.0005,history,888696.3563910011
+polymarket,568680,Will Brian Harman win the 2026 Masters tournament?,sports,2025-08-29T04:15:26.240576Z,2026-04-13T00:00:00Z,NO,0.0005,history,605663.063845
+polymarket,568681,Will Rasmus Hojgaard win the 2026 Masters tournament?,sports,2025-08-29T04:15:25.889931Z,2026-04-13T00:00:00Z,NO,0.0005,history,515374.3245260004
+polymarket,568691,Will Si Woo Kim win the 2026 Masters tournament?,sports,2025-08-29T04:15:33.474Z,2026-04-13T00:00:00Z,NO,0.0005,history,449533.24093300046
+polymarket,568696,Will Harris English win the 2026 Masters tournament?,sports,2025-08-29T04:15:39.261Z,2026-04-13T00:00:00Z,NO,0.02,history,333199.2884790005
+polymarket,568699,Will Ben Griffin win the 2026 Masters tournament?,sports,2025-08-29T04:15:45.423Z,2026-04-13T00:00:00Z,NO,0.02,history,450956.9955940005
+polymarket,568709,Will Harry Hall win the 2026 Masters tournament?,sports,2025-08-29T04:15:56.537Z,2026-04-13T00:00:00Z,NO,0.0295,history,221765.81531100033
+polymarket,568635,Will Ludvig Aberg win the 2026 Masters tournament?,sports,2025-08-29T04:14:36.011107Z,2026-04-13T00:00:00Z,NO,0.022,history,1516179.2081359993
+polymarket,568643,Will Tyrrell Hatton win the 2026 Masters tournament?,sports,2025-08-29T04:14:42.815245Z,2026-04-13T00:00:00Z,NO,0.026,history,3142293.6456169966
+polymarket,568650,Will Robert MacIntyre win the 2026 Masters tournament?,sports,2025-08-29T04:14:53.293174Z,2026-04-13T00:00:00Z,NO,0.025,history,4567581.745855995
+polymarket,568657,Will Russell Henley win the 2026 Masters tournament?,sports,2025-08-29T04:15:02.274503Z,2026-04-13T00:00:00Z,NO,0.1245,history,2245013.036768003
+polymarket,568636,Will Justin Thomas win the 2026 Masters tournament?,sports,2025-08-29T04:14:35.747677Z,2026-04-13T00:00:00Z,NO,0.0005,history,535426.9642749996
+polymarket,568644,Will Cameron Smith win the 2026 Masters tournament?,sports,2025-08-29T04:14:46.959948Z,2026-04-13T00:00:00Z,NO,0.0005,history,458645.8581409992
+polymarket,568651,Will Corey Conners win the 2026 Masters tournament?,sports,2025-08-29T04:14:52.892275Z,2026-04-13T00:00:00Z,NO,0.0005,history,572073.4383919998
+polymarket,568658,Will Wyndham Clark win the 2026 Masters tournament?,sports,2025-08-29T04:15:01.68102Z,2026-04-13T00:00:00Z,NO,0.029,history,794961.6703199996
+polymarket,568664,Will Keegan Bradley win the 2026 Masters tournament?,sports,2025-08-29T04:15:09.666679Z,2026-04-13T00:00:00Z,NO,0.0005,history,755699.721478002
+polymarket,568674,Will Phil Mickelson win the 2026 Masters tournament?,sports,2025-08-29T04:15:19.625158Z,2026-04-13T00:00:00Z,NO,0.0005,history,531692.138289999
+polymarket,568682,Will Byeong Hun An win the 2026 Masters tournament?,sports,2025-08-29T04:15:28.265279Z,2026-04-13T00:00:00Z,NO,0.0005,history,1129838.7912270022
+polymarket,568685,Will Charl Schwartzel win the 2026 Masters tournament?,sports,2025-08-29T04:15:30.486585Z,2026-04-13T00:00:00Z,NO,0.0005,history,797774.9562850035
+polymarket,568687,Will Fred Couples win the 2026 Masters tournament?,sports,2025-08-29T04:15:32.249546Z,2026-04-13T00:00:00Z,NO,0.0005,history,1610727.576632007
+polymarket,568693,Will J.J. Spaun win the 2026 Masters tournament?,sports,2025-08-29T04:15:37.341Z,2026-04-13T00:00:00Z,NO,0.043,history,478724.3971009991
+polymarket,568697,Will Gary Woodland win the 2026 Masters tournament?,sports,2025-08-29T04:15:39.527Z,2026-04-13T00:00:00Z,NO,0.055,history,995777.012137
+polymarket,568701,Will Ryan Fox win the 2026 Masters tournament?,sports,2025-08-29T04:15:49.463Z,2026-04-13T00:00:00Z,NO,0.46,history,284314.01033100026
+polymarket,568708,Will Sam Stevens win the 2026 Masters tournament?,sports,2025-08-29T04:15:55.482Z,2026-04-13T00:00:00Z,NO,0.455,history,313660.3613820002
+polymarket,568712,Will Rasmus Neergaard-Petersen win the 2026 Masters tournament?,sports,2025-08-29T04:15:59.448Z,2026-04-13T00:00:00Z,NO,0.455,history,245921.411661
+polymarket,568714,Will Michael Kim win the 2026 Masters tournament?,sports,2025-08-29T04:16:01.353Z,2026-04-13T00:00:00Z,NO,0.46,history,259568.61316600023
+polymarket,568637,Will Viktor Hovland win the 2026 Masters tournament?,sports,2025-08-29T04:14:38.116208Z,2026-04-13T00:00:00Z,NO,0.02,history,5759506.741625008
+polymarket,568645,Will Will Zalatoris win the 2026 Masters tournament?,sports,2025-08-29T04:14:46.678721Z,2026-04-13T00:00:00Z,NO,0.0005,history,881554.3782859996
+polymarket,568652,Will Justin Rose win the 2026 Masters tournament?,sports,2025-08-29T04:14:55.787077Z,2026-04-13T00:00:00Z,NO,0.0615,history,2926978.8103390047
+polymarket,568659,Will Sepp Straka win the 2026 Masters tournament?,sports,2025-08-29T04:15:03.753492Z,2026-04-13T00:00:00Z,NO,0.02,history,809231.6390920009
+polymarket,568665,Will Sam Burns win the 2026 Masters tournament?,sports,2025-08-29T04:15:09.961459Z,2026-04-13T00:00:00Z,NO,0.1165,history,1856203.3438530017
+polymarket,568671,Will Aaron Rai win the 2026 Masters tournament?,sports,2025-08-29T04:15:15.657817Z,2026-04-13T00:00:00Z,NO,0.0005,history,918462.1113080004
+polymarket,568675,Will Tiger Woods win the 2026 Masters tournament?,sports,2025-08-29T04:15:19.885891Z,2026-04-13T00:00:00Z,NO,0.0005,history,1632046.0455729978
+polymarket,568686,Will Zach Johnson win the 2026 Masters tournament?,sports,2025-08-29T04:15:29.966789Z,2026-04-13T00:00:00Z,NO,0.0005,history,957176.4953820008
+polymarket,568692,Will Jacob Bridgeman win the 2026 Masters tournament?,sports,2025-08-29T04:15:34.985Z,2026-04-13T00:00:00Z,NO,0.225,history,381564.3399940002
+polymarket,568694,Will Marco Penge win the 2026 Masters tournament?,sports,2025-08-29T04:15:37.08Z,2026-04-13T00:00:00Z,NO,0.46,history,464365.3739490005
+polymarket,568702,Will Casey Jarvis win the 2026 Masters tournament?,sports,2025-08-29T04:15:49.85Z,2026-04-13T00:00:00Z,NO,0.455,history,286540.0210560002
+polymarket,568713,Will Johnny Keefer win the 2026 Masters tournament?,sports,2025-08-29T04:16:01.622Z,2026-04-13T00:00:00Z,NO,0.46,history,224114.03800000003
+polymarket,568629,Will Scottie Scheffler win the 2026 Masters tournament?,sports,2025-08-29T04:14:27.927648Z,2026-04-13T00:00:00Z,NO,0.1285,history,4841375.889859983
+polymarket,568638,Will Brooks Koepka win the 2026 Masters tournament?,sports,2025-08-29T04:14:37.838411Z,2026-04-13T00:00:00Z,NO,0.0335,history,985393.122964
+polymarket,568646,Will Tommy Fleetwood win the 2026 Masters tournament?,sports,2025-08-29T04:14:47.236194Z,2026-04-13T00:00:00Z,NO,0.045,history,1249678.3123440018
+polymarket,568653,Will Jason Day win the 2026 Masters tournament?,sports,2025-08-29T04:14:56.345467Z,2026-04-13T00:00:00Z,NO,0.032,history,4359190.267304947
+polymarket,568660,Will Tony Finau win the 2026 Masters tournament?,sports,2025-08-29T04:15:04.128584Z,2026-04-13T00:00:00Z,NO,0.0005,history,769779.175852
+polymarket,568666,Will Matt Fitzpatrick win the 2026 Masters tournament?,sports,2025-08-29T04:15:11.762203Z,2026-04-13T00:00:00Z,NO,0.0255,history,5488560.050949971
+polymarket,568672,Will Maverick McNealy win the 2026 Masters tournament?,sports,2025-08-29T04:15:18.065273Z,2026-04-13T00:00:00Z,NO,0.0005,history,468990.2217289994
+polymarket,568676,Will Nicolai Hojgaard win the 2026 Masters tournament?,sports,2025-08-29T04:15:24.395235Z,2026-04-13T00:00:00Z,NO,0.023,history,672604.9620659996
+polymarket,568684,Will Bubba Watson win the 2026 Masters tournament?,sports,2025-08-29T04:15:30.230317Z,2026-04-13T00:00:00Z,NO,0.0005,history,695867.9656470021
+polymarket,568689,Will Aldrich Potgieter win the 2026 Masters tournament?,sports,2025-08-29T04:15:32.938Z,2026-04-13T00:00:00Z,NO,0.46,history,303021.1334830002
+polymarket,568700,Will Kurt Kitayama win the 2026 Masters tournament?,sports,2025-08-29T04:15:47.398Z,2026-04-13T00:00:00Z,NO,0.023,history,545792.9113870007
+polymarket,568703,Will Max Greyserman win the 2026 Masters tournament?,sports,2025-08-29T04:15:50.413Z,2026-04-13T00:00:00Z,NO,0.455,history,229759.90839000017
+polymarket,568704,Will Nick Taylor win the 2026 Masters tournament?,sports,2025-08-29T04:15:50.794Z,2026-04-13T00:00:00Z,NO,0.46,history,443786.1177550004
+polymarket,568705,Will Nicolas Echavarria win the 2026 Masters tournament?,sports,2025-08-29T04:15:53.628Z,2026-04-13T00:00:00Z,NO,0.46,history,179000.0950000003
+polymarket,568630,Will Rory McIlroy win the 2026 Masters tournament?,sports,2025-08-29T04:14:27.67091Z,2026-04-13T00:00:00Z,YES,0.76,history,7423340.925850005
+polymarket,568639,Will Hideki Matsuyama win the 2026 Masters tournament?,sports,2025-08-29T04:14:40.077833Z,2026-04-13T00:00:00Z,NO,0.0205,history,1194025.3962989969
+polymarket,568647,Will Shane Lowry win the 2026 Masters tournament?,sports,2025-08-29T04:14:47.63136Z,2026-04-13T00:00:00Z,NO,0.0625,history,7598077.229271018
+polymarket,568654,Will Max Homa win the 2026 Masters tournament?,sports,2025-08-29T04:14:56.055453Z,2026-04-13T00:00:00Z,NO,0.0005,history,891215.4369120009
+polymarket,568661,Will Dustin Johnson win the 2026 Masters tournament?,sports,2025-08-29T04:15:06.248038Z,2026-04-13T00:00:00Z,NO,0.0005,history,573484.0370590001
+polymarket,568669,Will Adam Scott win the 2026 Masters tournament?,sports,2025-08-29T04:15:13.985672Z,2026-04-13T00:00:00Z,NO,0.0005,history,2237066.4707290046
+polymarket,568677,Will Denny McCarthy win the 2026 Masters tournament?,sports,2025-08-29T04:15:24.654136Z,2026-04-13T00:00:00Z,NO,0.0005,history,947523.2182610031
+polymarket,568679,Will Taylor Pendrith win the 2026 Masters tournament?,sports,2025-08-29T04:15:24.136653Z,2026-04-13T00:00:00Z,NO,0.0005,history,582188.3581820007
+polymarket,568706,Will Matt McCarty win the 2026 Masters tournament?,sports,2025-08-29T04:15:53.368Z,2026-04-13T00:00:00Z,NO,0.46,history,308261.79933300026
+polymarket,568707,Will Ryan Gerard win the 2026 Masters tournament?,sports,2025-08-29T04:15:55.741Z,2026-04-13T00:00:00Z,NO,0.46,history,451055.9510690004
+polymarket,568631,Will Bryson Dechambeau win the 2026 Masters tournament?,sports,2025-08-29T04:14:29.93339Z,2026-04-13T00:00:00Z,NO,0.065,history,1569577.5352900098
+polymarket,568640,Will Jordan Spieth win the 2026 Masters tournament?,sports,2025-08-29T04:14:39.81096Z,2026-04-13T00:00:00Z,NO,0.0215,history,5306332.59418096
+polymarket,568632,Will Jon Rahm win the 2026 Masters tournament?,sports,2025-08-29T04:14:29.675023Z,2026-04-13T00:00:00Z,NO,0.054,history,1881078.5618490055
+polymarket,568633,Will Collin Morikawa win the 2026 Masters tournament?,sports,2025-08-29T04:14:31.689939Z,2026-04-13T00:00:00Z,NO,0.0205,history,1129955.4745210025
+polymarket,568641,Will Patrick Cantlay win the 2026 Masters tournament?,sports,2025-08-29T04:14:41.710114Z,2026-04-13T00:00:00Z,NO,0.0005,history,920688.939882001
+polymarket,568648,Will Patrick Reed win the 2026 Masters tournament?,sports,2025-08-29T04:14:47.887715Z,2026-04-13T00:00:00Z,NO,0.0255,history,1397383.283195008
+polymarket,568655,Will Min Woo Lee win the 2026 Masters tournament?,sports,2025-08-29T04:14:59.66707Z,2026-04-13T00:00:00Z,NO,0.0255,history,1103074.7774110003
+polymarket,568662,Will Sahith Theegala win the 2026 Masters tournament?,sports,2025-08-29T04:15:05.724765Z,2026-04-13T00:00:00Z,NO,0.0005,history,796646.7811199995
+polymarket,568667,Will Davis Thompson win the 2026 Masters tournament?,sports,2025-08-29T04:15:12.018594Z,2026-04-13T00:00:00Z,NO,0.0005,history,968946.3214280016
+polymarket,568670,Will Sergio Garcia win the 2026 Masters tournament?,sports,2025-08-29T04:15:15.973461Z,2026-04-13T00:00:00Z,NO,0.0005,history,920043.5369050024
+polymarket,568678,Will Thomas Detry win the 2026 Masters tournament?,sports,2025-08-29T04:15:23.874332Z,2026-04-13T00:00:00Z,NO,0.0005,history,571599.4874439999
+polymarket,568683,Will Danny Willett win the 2026 Masters tournament?,sports,2025-08-29T04:15:27.952505Z,2026-04-13T00:00:00Z,NO,0.0005,history,1218533.498652001
+polymarket,568690,Will Chris Gotterup win the 2026 Masters tournament?,sports,2025-08-29T04:15:33.21Z,2026-04-13T00:00:00Z,NO,0.46,history,501056.24420599994
+polymarket,568698,Will Daniel Berger win the 2026 Masters tournament?,sports,2025-08-29T04:15:43.394Z,2026-04-13T00:00:00Z,NO,0.46,history,276067.37689300027
+polymarket,568711,Will Hao-Tong Li win the 2026 Masters tournament?,sports,2025-08-29T04:15:59.713Z,2026-04-13T00:00:00Z,NO,0.0235,history,990938.6408990022
+polymarket,575823,Will Andrew Novak win the 2026 Masters tournament?,sports,2025-08-29T04:16:03.905Z,2026-04-13T00:00:00Z,NO,0.46,history,205870.3020000002
+polymarket,575824,Will Michael Brennan win the 2026 Masters tournament?,sports,2025-08-29T04:16:04.162Z,2026-04-13T00:00:00Z,NO,0.0005,history,364101.6819990002
+polymarket,575825,Will Kristoffer Reitan win the 2026 Masters tournament?,sports,2025-08-29T04:16:03.373Z,2026-04-13T00:00:00Z,NO,0.46,history,407557.0621600009
+polymarket,575826,Will Davis Riley win the 2026 Masters tournament?,sports,2025-08-29T04:16:03.646Z,2026-04-13T00:00:00Z,NO,0.0005,history,112050.0
+polymarket,575827,Will Alexander Noren win the 2026 Masters tournament?,sports,2025-08-29T04:16:05.377Z,2026-04-13T00:00:00Z,NO,0.46,history,326026.69990100054
+polymarket,575828,Will Brian Campbell win the 2026 Masters tournament?,sports,2025-08-29T04:16:05.692Z,2026-04-13T00:00:00Z,NO,0.46,history,273849.598
+polymarket,575832,Will Jake Knapp win the 2026 Masters tournament?,sports,2025-08-29T04:16:09.211Z,2026-04-13T00:00:00Z,NO,0.0025,history,579167.3622110002
+polymarket,1466150,Iran x Israel/US conflict ends by March 31?,sports,2026-02-28T14:39:27.496215Z,2026-03-31T00:00:00Z,NO,0.02,history,5162924.802599977
+polymarket,1571571,Iran x Israel/US conflict ends by December 31?,sports,2026-03-12T21:35:16.83Z,2026-06-30T00:00:00Z,YES,0.971,history,3954777.875154008
+polymarket,1567747,Iran x Israel/US conflict ends by April 30?,sports,2026-03-12T17:07:12.531Z,2026-04-30T00:00:00Z,YES,0.972,history,5780137.474477969
+polymarket,1567746,Iran x Israel/US conflict ends by April 15?,sports,2026-03-12T16:49:29.582Z,2026-04-15T00:00:00Z,YES,0.969,history,17450416.216830038
+polymarket,1484915,Iran x Israel/US conflict ends by June 30?,sports,2026-03-02T17:20:31.241Z,2026-06-30T00:00:00Z,YES,0.9795,history,5872191.781835967
+polymarket,1484914,Iran x Israel/US conflict ends by May 15?,sports,2026-03-02T17:18:07.028Z,2026-05-15T00:00:00Z,YES,0.979,history,13670502.108909989
+polymarket,1706766,Iran x Israel/US conflict ends by April 7?,sports,2026-03-24T17:52:18.787227Z,2026-04-07T00:00:00Z,YES,0.9625,history,48720376.31273075
+polymarket,948040,Will the Democratic Coalition (DK) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:31.315Z,2026-04-12T00:00:00Z,NO,0.0005,history,7636388.892528013
+polymarket,948043,Will TISZA – Respect and Freedom Party (TISZA) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:32.086Z,2026-04-12T00:00:00Z,YES,0.815,history,4782714.49172103
+polymarket,948046,Will LMP – Hungary’s Green Party (LMP) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:32.651Z,2026-04-12T00:00:00Z,NO,0.0005,history,15379379.627399104
+polymarket,948041,Will the Hungarian Socialist Party (MSZP) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:33.165Z,2026-04-12T00:00:00Z,NO,0.0005,history,583310.379666
+polymarket,948044,Will the Momentum Movement (Momentum) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:33.422Z,2026-04-12T00:00:00Z,NO,0.0005,history,976956.7617470002
+polymarket,948047,Will Our Homeland Movement (Mi Hazánk) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:33.679Z,2026-04-12T00:00:00Z,NO,0.0005,history,1602436.1108239994
+polymarket,948038,Will Fidesz–KDNP win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:32.907Z,2026-04-12T00:00:00Z,NO,0.175,history,4467769.916728955
+polymarket,948042,Will Dialogue for Hungary (Párbeszéd) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:31.83Z,2026-04-12T00:00:00Z,NO,0.0005,history,7139482.6455000155
+polymarket,948045,Will Movement for a Better Hungary (Jobbik) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:32.395Z,2026-04-12T00:00:00Z,NO,0.0005,history,16550425.532013956
+polymarket,948039,Will the Christian Democratic People’s Party (KDNP) win the most seats in the next Hungarian parliamentary election?,elections,2025-12-16T20:28:31.573Z,2026-04-12T00:00:00Z,NO,0.0005,history,4623626.88936499
+polymarket,1235512,Will Lương Cường be the next President of Vietnam?,elections,2026-01-21T18:48:26.498419Z,2026-01-25T00:00:00Z,NO,0.0005,history,2534218.111369004
+polymarket,1235513,Will Phan Văn Giang be the next President of Vietnam?,elections,2026-01-21T18:48:36.788782Z,2026-01-25T00:00:00Z,NO,0.024,history,2697079.067629992
+polymarket,1235514,Will Tô Lâm be the next President of Vietnam?,elections,2026-01-21T18:48:36.535158Z,2026-01-25T00:00:00Z,YES,0.9665,history,4348032.177655002
+polymarket,1235515,Will Trần Cẩm Tú be the next President of Vietnam?,elections,2026-01-21T18:48:37.573436Z,2026-01-25T00:00:00Z,NO,0.0215,history,2754865.479145004
+polymarket,1235516,Will Nguyễn Duy Ngọc be the next President of Vietnam?,elections,2026-01-21T18:48:37.826647Z,2026-01-25T00:00:00Z,NO,0.001,history,1285990.495182998
+polymarket,1235517,Will Phạm Minh Chính be the next President of Vietnam?,elections,2026-01-21T18:48:40.614676Z,2026-01-25T00:00:00Z,NO,0.0005,history,15557300.26332597
+polymarket,1235518,Will Trần Thanh Mẫn be the next President of Vietnam?,elections,2026-01-21T18:48:40.867807Z,2026-01-25T00:00:00Z,NO,0.0215,history,2841256.3337300383
+polymarket,658931,Will Michigan win the 2026 NCAA Tournament?,sports,2025-10-31T23:51:59.467883Z,2026-04-04T00:00:00Z,YES,0.945,history,2354609.012351991
+polymarket,658941,Will Arizona win the 2026 NCAA Tournament?,sports,2025-10-31T23:52:02.120195Z,2026-04-04T00:00:00Z,NO,0.273,history,2091515.7602039955
+polymarket,658945,Will Connecticut win the 2026 NCAA Tournament?,sports,2025-10-31T23:52:03.136612Z,2026-04-04T00:00:00Z,NO,0.0555,history,4218808.458640993
+polymarket,658928,Will Purdue win the 2026 NCAA Tournament?,sports,2025-10-31T23:51:55.612671Z,2026-04-04T00:00:00Z,NO,0.1015,history,3394009.0987429987
+polymarket,658944,Will Duke win the 2026 NCAA Tournament?,sports,2025-10-31T23:52:02.628299Z,2026-04-04T00:00:00Z,NO,0.185,history,1059051.1404149942
+polymarket,658946,Will Illinois win the 2026 NCAA Tournament?,sports,2025-10-31T23:52:02.373741Z,2026-04-04T00:00:00Z,NO,0.0755,history,1998991.4914599897
+polymarket,658948,Will Tennessee win the 2026 NCAA Tournament?,sports,2025-10-31T23:52:04.314855Z,2026-04-04T00:00:00Z,NO,0.024,history,1184613.8839499978
+polymarket,658966,Will Iowa win the 2026 NCAA Tournament?,sports,2025-10-31T23:52:12.117Z,2026-04-04T00:00:00Z,NO,0.0235,history,998161.4390240014
+polymarket,1501205,Will PH win the third most seats in the 2026 Colombian Chamber of Representatives election?,elections,2026-03-04T20:57:19.584016Z,2026-03-08T00:00:00Z,NO,0.0215,history,6194175.486324031
+polymarket,1501206,Will Conservative win the third most seats in the 2026 Colombian Chamber of Representatives election?,elections,2026-03-04T20:57:25.175396Z,2026-03-08T00:00:00Z,NO,0.0015,history,1224213.4217790118
+polymarket,1501208,Will Green Alliance win the third most seats in the 2026 Colombian Chamber of Representatives election?,elections,2026-03-04T20:57:37.541412Z,2026-03-08T00:00:00Z,NO,0.0205,history,1349999.3011670017
+polymarket,1501210,Will CR win the third most seats in the 2026 Colombian Chamber of Representatives election?,elections,2026-03-04T20:57:49.420664Z,2026-03-08T00:00:00Z,NO,0.0205,history,1439223.1953229986
+polymarket,1501211,Will La U win the third most seats in the 2026 Colombian Chamber of Representatives election?,elections,2026-03-04T20:57:55.624742Z,2026-03-08T00:00:00Z,NO,0.0215,history,6469917.215593102
+polymarket,1501212,Will MIRA-CJL win the third most seats in the 2026 Colombian Chamber of Representatives election?,elections,2026-03-04T20:58:01.661908Z,2026-03-08T00:00:00Z,NO,0.0005,history,592182.2284599995
+polymarket,1223254,Will Phạm Minh Chính be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:14.719832Z,2026-01-25T00:00:00Z,NO,0.0005,history,661739.8604049999
+polymarket,1223255,Will Lê Minh Hưng be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:17.172153Z,2026-01-25T00:00:00Z,YES,0.978,history,3832957.988554992
+polymarket,1223256,Will Nguyễn Hòa Bình be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:16.918053Z,2026-01-25T00:00:00Z,NO,0.0005,history,1381157.4622140017
+polymarket,1223257,Will Lương Tam Quang be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:19.043184Z,2026-01-25T00:00:00Z,NO,0.0005,history,380961.41850600013
+polymarket,1223258,Will Phạm Thị Thanh Trà be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:18.788636Z,2026-01-25T00:00:00Z,NO,0.0005,history,6063918.863911996
+polymarket,1223259,Will Lê Hoài Trung be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:20.750823Z,2026-01-25T00:00:00Z,NO,0.0005,history,258653.75720300028
+polymarket,1223261,Will Tran Luu Quang be the next Prime Minister of Vietnam?,elections,2026-01-20T16:00:23.132Z,2026-01-25T00:00:00Z,NO,0.0455,history,4087576.304636003
+polymarket,666860,Trump out as President by March 31?,elections,2025-11-05T21:55:57.250512Z,2026-03-31T00:00:00Z,NO,0.0005,history,13448709.655509828
+polymarket,1972550,Counter-Strike: Vitality vs G2 - Map 1 Winner,sports,2026-04-13T18:34:23.33729Z,2026-04-14T17:00:00Z,NO,0.785,history,503891.7404020004
+polymarket,1972548,Counter-Strike: Vitality vs G2 (BO3) - IEM Rio Group A,sports,2026-04-13T18:33:01.34817Z,2026-04-14T19:00:00Z,YES,0.745,history,4598565.809931974
+polymarket,1972552,Counter-Strike: Vitality vs G2 - Map 2 Winner,sports,2026-04-13T18:32:42.001278Z,2026-04-14T17:00:00Z,YES,0.705,history,968585.051282
+polymarket,1972556,Map Handicap: VIT (-1.5) vs G2 (+1.5),sports,2026-04-13T18:33:59.596527Z,2026-04-14T19:00:00Z,NO,0.655,history,953312.5309600006
+polymarket,1947793,Rolex Monte Carlo Masters: Carlos Alcaraz vs Jannik Sinner,sports,2026-04-11T16:06:49.691831Z,2026-04-19T13:00:00Z,NO,0.495,history,6103030.877868031
+polymarket,1948620,Carlos Alcaraz vs. Jannik Sinner: Total Sets O/U 2.5,sports,2026-04-11T17:06:07.451461Z,2026-04-19T13:00:00Z,NO,0.47,history,428217.480695
+polymarket,1984614,Map Handicap: VIT (-1.5) vs Team Falcons (+1.5),sports,2026-04-14T18:42:54.934312Z,2026-04-16T00:00:00Z,NO,0.355,history,495066.43451300025
+polymarket,1984612,Counter-Strike: Vitality vs Team Falcons - Map 2 Winner,sports,2026-04-14T18:42:48.466844Z,2026-04-15T22:00:00Z,YES,0.675,history,376199.28578999976
+polymarket,1984610,Counter-Strike: Vitality vs Team Falcons (BO3) - IEM Rio Group A,sports,2026-04-14T18:43:32.348732Z,2026-04-16T00:00:00Z,NO,0.33,history,4301008.500412006
+polymarket,1984611,Counter-Strike: Vitality vs Team Falcons - Map 1 Winner,sports,2026-04-14T18:42:48.21307Z,2026-04-15T22:00:00Z,NO,0.575,history,477370.9392749999
+polymarket,1939797,Counter-Strike: Astralis vs FUT Esports - Map 4 Winner,sports,2026-04-10T19:42:57.214078Z,2026-04-11T20:00:00Z,NO,0.455,history,416985.81359900086
+polymarket,1939793,Counter-Strike: Astralis vs FUT Esports (BO5) - PGL Bucharest Playoffs,sports,2026-04-10T19:42:54.424526Z,2026-04-11T20:00:00Z,NO,0.445,history,3697969.807713991
+polymarket,1939794,Counter-Strike: Astralis vs FUT Esports - Map 1 Winner,sports,2026-04-10T19:42:43.387358Z,2026-04-11T20:00:00Z,NO,0.45,history,181510.9754099998
+polymarket,1939795,Counter-Strike: Astralis vs FUT Esports - Map 2 Winner,sports,2026-04-10T19:42:45.530864Z,2026-04-11T20:00:00Z,NO,0.17,history,358018.5504649995
+polymarket,1939796,Counter-Strike: Astralis vs FUT Esports - Map 3 Winner,sports,2026-04-10T19:43:09.740721Z,2026-04-11T20:00:00Z,YES,0.47,history,710266.990110001
+polymarket,2016481,Counter-Strike: Spirit vs Vitality (BO5) - IEM Rio Playoffs,sports,2026-04-18T20:44:06.040642Z,2026-04-19T23:00:00Z,NO,0.0205,history,2591089.2503639995
+polymarket,2016482,Counter-Strike: Spirit vs Vitality - Map 1 Winner,sports,2026-04-18T20:43:38.626178Z,2026-04-19T21:00:00Z,NO,0.385,history,609047.7329849976
+polymarket,2016483,Counter-Strike: Spirit vs Vitality - Map 2 Winner,sports,2026-04-18T20:42:40.285738Z,2026-04-19T21:00:00Z,NO,0.335,history,843659.6152770008
+polymarket,2016484,Counter-Strike: Spirit vs Vitality - Map 3 Winner,sports,2026-04-18T20:43:11.464239Z,2026-04-19T22:00:00Z,NO,0.345,history,633201.2763190005
+polymarket,2016490,Map Handicap: VIT (-1.5) vs Spirit (+1.5),sports,2026-04-18T20:42:51.667972Z,2026-04-19T23:00:00Z,YES,0.575,history,430572.60344000097
+polymarket,2016492,Map Handicap: VIT (-2.5) vs Spirit (+2.5),sports,2026-04-18T20:43:13.99202Z,2026-04-19T23:00:00Z,YES,0.305,history,246765.01177299992
+polymarket,1776897,Dota 2: Tundra Esports vs Team Yandex (BO5) - ESL One Birmingham Playoffs,sports,2026-03-29T14:32:39.600108Z,2026-03-29T21:15:00Z,YES,0.91,history,1219249.1321349998
+polymarket,1776898,Dota 2: Tundra Esports vs Team Yandex - Game 1 Winner,sports,2026-03-29T14:33:16.602537Z,2026-03-29T21:15:00Z,NO,0.1,history,913230.9380789998
+polymarket,1776899,Dota 2: Tundra Esports vs Team Yandex - Game 2 Winner,sports,2026-03-29T14:32:44.67455Z,2026-03-29T21:15:00Z,YES,0.6,history,1342253.6900030014
+polymarket,1776901,Dota 2: Tundra Esports vs Team Yandex - Game 3 Winner,sports,2026-03-29T14:32:54.784666Z,2026-03-29T21:15:00Z,YES,0.57,history,823777.492618
+polymarket,1776903,Dota 2: Tundra Esports vs Team Yandex - Game 4 Winner,sports,2026-03-29T14:33:25.096719Z,2026-03-29T21:15:00Z,YES,0.755,history,623694.456869
+polymarket,1776907,Game Handicap: Tundra (-1.5) vs Team Yandex (+1.5),sports,2026-03-29T14:33:18.764753Z,2026-03-29T21:15:00Z,YES,0.57,history,116020.698776
+polymarket,561368,Will Dylan Harper win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:40:55.426Z,2026-05-18T00:00:00Z,NO,0.0005,history,235617.897093
+polymarket,561365,Will Cooper Flagg win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:40:54.921Z,2026-05-18T00:00:00Z,YES,0.7345,history,938369.8072940008
+polymarket,561366,Will Tre Johnson win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:40:55.174Z,2026-05-18T00:00:00Z,NO,0.0005,history,193443.833528
+polymarket,561367,Will Ace Bailey win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:40:55.931Z,2026-05-18T00:00:00Z,NO,0.0005,history,135631.47228800005
+polymarket,561369,Will V.J. Edgecombe win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:40:55.679Z,2026-05-18T00:00:00Z,NO,0.0005,history,364046.90831500007
+polymarket,561370,Will Kon Knueppel win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:41:00.027Z,2026-05-18T00:00:00Z,NO,0.2505,history,1130584.4613119983
+polymarket,561371,Will Derik Queen win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:41:00.28Z,2026-05-18T00:00:00Z,NO,0.0005,history,886916.9905020003
+polymarket,561373,Will Cedric Coward win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:41:05.257Z,2026-05-18T00:00:00Z,NO,0.0005,history,570744.708313
+polymarket,561377,Will Jase Richardson win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:41:05.004Z,2026-05-18T00:00:00Z,NO,0.0005,history,102602.24133000002
+polymarket,561379,Will Walter Clayton Jr. win the 2025–26 NBA Rookie of the Year award?,sports,2025-07-09T20:41:04.011Z,2026-05-18T00:00:00Z,NO,0.0005,history,128337.43215100004
+polymarket,1955423,LoL: KT Rolster vs Dplus KIA (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:56:28.388045Z,2026-04-15T16:00:00Z,YES,0.595,history,2844336.016917997
+polymarket,1955424,LoL: KT Rolster vs Dplus KIA - Game 1 Winner,sports,2026-04-12T07:54:33.322711Z,2026-04-15T14:00:00Z,NO,0.575,history,717940.9274979995
+polymarket,1955425,LoL: KT Rolster vs Dplus KIA - Game 2 Winner,sports,2026-04-12T07:52:45.642381Z,2026-04-15T14:00:00Z,YES,0.565,history,1081132.332447998
+polymarket,1955427,Game Handicap: KT (-1.5) vs Dplus KIA (+1.5),sports,2026-04-12T07:55:06.563566Z,2026-04-15T16:00:00Z,NO,0.345,history,144039.58726599996
+polymarket,1765555,Counter-Strike: Vitality vs Natus Vincere (BO5) - BLAST Open Rotterdam Playoffs,sports,2026-03-28T20:13:26.028369Z,2026-03-29T16:30:00Z,YES,0.96,history,1837414.1430489984
+polymarket,1765556,Counter-Strike: Vitality vs Natus Vincere - Map 1 Winner,sports,2026-03-28T20:12:46.641097Z,2026-03-29T14:30:00Z,YES,0.82,history,709885.4591400004
+polymarket,1765557,Counter-Strike: Vitality vs Natus Vincere - Map 2 Winner,sports,2026-03-28T20:12:44.821912Z,2026-03-29T14:30:00Z,YES,0.66,history,645410.5671640004
+polymarket,1765558,Counter-Strike: Vitality vs Natus Vincere - Map 3 Winner,sports,2026-03-28T20:13:06.094206Z,2026-03-29T15:30:00Z,YES,0.725,history,712558.4987250001
+polymarket,1765562,Map Handicap: VIT (-2.5) vs Natus Vincere (+2.5),sports,2026-03-28T20:12:44.568413Z,2026-03-29T16:30:00Z,YES,0.71,history,459471.0458499917
+polymarket,1765563,Map Handicap: VIT (-1.5) vs Natus Vincere (+1.5),sports,2026-03-28T20:12:56.047841Z,2026-03-29T16:30:00Z,YES,0.675,history,169257.41336999982
+polymarket,954518,Will the Slovenian Democratic Party (SDS) win the most seats in the 2026 Slovenian parliamentary election?,elections,2025-12-23T21:45:53.447Z,2026-03-22T00:00:00Z,NO,0.137,history,2529733.7614079975
+polymarket,954519,Will the Freedom Movement (GS) win the most seats in the 2026 Slovenian parliamentary election?,elections,2025-12-23T21:45:55.157Z,2026-03-22T00:00:00Z,YES,0.902,history,2160198.95847501
+polymarket,1955515,LoL: Dplus KIA vs T1 (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:58:11.030112Z,2026-04-17T16:00:00Z,YES,0.685,history,2518500.8439020156
+polymarket,1955516,LoL: Dplus KIA vs T1 - Game 1 Winner,sports,2026-04-12T07:53:39.719728Z,2026-04-17T14:00:00Z,YES,0.44,history,1175999.1404250015
+polymarket,1955517,LoL: Dplus KIA vs T1 - Game 2 Winner,sports,2026-04-12T07:53:43.985508Z,2026-04-17T14:00:00Z,NO,0.435,history,676459.4018750014
+polymarket,643550,Will Victor Wembanyama win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:19.604677Z,2026-06-30T00:00:00Z,YES,0.9655,history,1484830.889460005
+polymarket,643551,Will Chet Holmgren win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:21.708384Z,2026-06-30T00:00:00Z,NO,0.027,history,231173.20144899993
+polymarket,643553,Will Amen Thompson win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:22.487113Z,2026-06-30T00:00:00Z,NO,0.0005,history,508433.283486
+polymarket,643569,Will Walker Kessler win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:27.83809Z,2026-06-30T00:00:00Z,NO,0.0005,history,460379.1563159997
+polymarket,643570,Will Rudy Gobert win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:28.092687Z,2026-06-30T00:00:00Z,NO,0.0005,history,306243.71080600005
+polymarket,643573,Will Donovan Clingan win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:28.860675Z,2026-06-30T00:00:00Z,NO,0.0005,history,576619.2959999999
+polymarket,643574,Will Joel Embiid win the 2025–2026 NBA Defensive Player of the Year?,sports,2025-10-22T05:45:29.115233Z,2026-06-30T00:00:00Z,NO,0.0005,history,183057.7032209998
+polymarket,1747201,Counter-Strike: Natus Vincere vs PARIVISION (BO3) - BLAST Open Rotterdam Playoffs,sports,2026-03-27T20:42:39.357606Z,2026-03-28T22:50:00Z,YES,0.525,history,2632840.5127709927
+polymarket,1747202,Counter-Strike: Natus Vincere vs PARIVISION - Map 1 Winner,sports,2026-03-27T20:42:38.849246Z,2026-03-28T22:50:00Z,YES,0.9995,history,601647.0984689993
+polymarket,1747203,Counter-Strike: Natus Vincere vs PARIVISION - Map 2 Winner,sports,2026-03-27T20:42:39.103552Z,2026-03-28T22:50:00Z,NO,0.0005,history,712126.2318210007
+polymarket,1747204,Games Total: O/U 2.5,sports,2026-03-27T20:42:34.301889Z,2026-03-28T22:50:00Z,YES,0.445,history,217660.11787999977
+polymarket,1702395,LoL: Gen.G vs KT Rolster (BO3) - LCK Rounds 1-2,sports,2026-03-24T10:37:47.449897Z,2026-04-03T14:00:00Z,NO,0.865,history,2184399.388790003
+polymarket,1702396,LoL: Gen.G vs KT Rolster - Game 1 Winner,sports,2026-03-24T10:38:13.768145Z,2026-04-03T12:00:00Z,NO,0.745,history,613202.0495370004
+polymarket,1702397,LoL: Gen.G vs KT Rolster - Game 2 Winner,sports,2026-03-24T10:39:38.909051Z,2026-04-03T12:00:00Z,YES,0.74,history,951670.1497530012
+polymarket,1702399,Game Handicap: GEN (-1.5) vs KT Rolster (+1.5),sports,2026-03-24T10:34:48.356834Z,2026-04-03T14:00:00Z,NO,0.555,history,211519.39228099992
+polymarket,1632626,Will Fabiano Caruana win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:00.96271Z,2026-04-17T00:00:00Z,NO,0.0225,history,491982.8266899993
+polymarket,1632628,Will Anish Giri win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:14.19486Z,2026-04-17T00:00:00Z,NO,0.0315,history,515249.90897699987
+polymarket,1632629,Will Javokhir Sindarov win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:22.426087Z,2026-04-17T00:00:00Z,YES,0.9675,history,720861.7982040019
+polymarket,1632625,Will Hikaru Nakamura win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:02:53.855163Z,2026-04-17T00:00:00Z,NO,0.045,history,504603.1358100003
+polymarket,1632627,Will Wei Yi win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:06.034158Z,2026-04-17T00:00:00Z,NO,0.021,history,483914.57108499995
+polymarket,1632630,Will Praggnanandhaa R win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:30.626258Z,2026-04-17T00:00:00Z,NO,0.022,history,314602.1332700001
+polymarket,1632631,Will Matthias Bluebaum win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:36.652576Z,2026-04-17T00:00:00Z,NO,0.02,history,350938.37609499955
+polymarket,1632632,Will Andrey Esipenko win the 2026 FIDE Candidates Tournament?,sports,2026-03-18T16:03:42.566577Z,2026-04-17T00:00:00Z,NO,0.022,history,659103.5587439995
+polymarket,1767125,Dota 2: Team Yandex vs Xtreme Gaming (BO3) - ESL One Birmingham Playoffs,sports,2026-03-28T22:32:39.807815Z,2026-03-29T17:00:00Z,YES,0.655,history,1938349.2895229952
+polymarket,1767126,Dota 2: Team Yandex vs Xtreme Gaming - Game 1 Winner,sports,2026-03-28T22:32:26.134301Z,2026-03-29T17:00:00Z,YES,0.5,history,957646.422612
+polymarket,1767127,Dota 2: Team Yandex vs Xtreme Gaming - Game 2 Winner,sports,2026-03-28T22:32:25.626618Z,2026-03-29T17:00:00Z,NO,0.021,history,1038334.1364339996
+polymarket,1974869,Counter-Strike: Natus Vincere vs FURIA (BO3) - IEM Rio Group B,sports,2026-04-13T22:53:04.112138Z,2026-04-15T00:30:00Z,NO,0.725,history,2950113.4437119933
+polymarket,1974870,Counter-Strike: Natus Vincere vs FURIA - Map 1 Winner,sports,2026-04-13T22:52:44.477914Z,2026-04-15T00:30:00Z,YES,0.57,history,210356.99044100003
+polymarket,1974871,Counter-Strike: Natus Vincere vs FURIA - Map 2 Winner,sports,2026-04-13T22:52:46.533931Z,2026-04-15T00:30:00Z,NO,0.525,history,333816.9002849997
+polymarket,1974873,Map Handicap: NAVI (-1.5) vs FURIA (+1.5),sports,2026-04-13T22:52:57.768082Z,2026-04-15T00:30:00Z,NO,0.305,history,141187.99677300008
+polymarket,2054026,Dota 2: Team Liquid vs Team Falcons (BO3) - PGL Wallachia Playoffs,sports,2026-04-22T17:49:23.102562Z,2026-04-23T19:25:00Z,YES,0.685,history,1025858.4180760012
+polymarket,2054027,Dota 2: Team Liquid vs Team Falcons - Game 1 Winner,sports,2026-04-22T17:47:51.895482Z,2026-04-23T19:25:00Z,YES,0.335,history,1652816.617214998
+polymarket,2054028,Dota 2: Team Liquid vs Team Falcons - Game 2 Winner,sports,2026-04-22T17:46:20.242202Z,2026-04-23T19:25:00Z,YES,0.445,history,929368.119441999
+polymarket,1503856,Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 9%+?,elections,2026-03-05T22:02:51.399Z,2026-04-12T00:00:00Z,YES,0.9785,history,1028655.3138439986
+polymarket,1503859,Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 0-3%?,elections,2026-03-05T22:03:16.551Z,2026-04-12T00:00:00Z,NO,0.0865,history,167631.97214199996
+polymarket,1503862,Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 6-9%?,elections,2026-03-05T22:03:18.451Z,2026-04-12T00:00:00Z,NO,0.0315,history,665020.0219130011
+polymarket,1503857,Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 6-9%?,elections,2026-03-05T22:02:47.33Z,2026-04-12T00:00:00Z,NO,0.021,history,187073.58654900003
+polymarket,1503858,Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 3-6%?,elections,2026-03-05T22:02:52.421Z,2026-04-12T00:00:00Z,NO,0.075,history,167861.8302229998
+polymarket,1503860,Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 0-3%?,elections,2026-03-05T22:03:04.535Z,2026-04-12T00:00:00Z,NO,0.036,history,239041.99565899983
+polymarket,1503861,Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 3-6%?,elections,2026-03-05T22:03:26.194Z,2026-04-12T00:00:00Z,NO,0.037,history,251018.21003099976
+polymarket,1503863,Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 9%+?,elections,2026-03-05T22:03:28.366Z,2026-04-12T00:00:00Z,NO,0.0205,history,793502.437988002
+polymarket,1503864,Will another outcome occur in the 2026 Hungarian Parliamentary election?,elections,2026-03-05T22:03:36.731Z,2026-04-12T00:00:00Z,NO,0.0005,history,114359.56292500002
+polymarket,2008450,Counter-Strike: Team Falcons vs Spirit (BO3) - IEM Rio Playoffs,sports,2026-04-17T21:02:29.757514Z,2026-04-18T21:00:00Z,NO,0.595,history,2508596.949701994
+polymarket,2008451,Counter-Strike: Team Falcons vs Spirit - Map 1 Winner,sports,2026-04-17T21:02:27.462929Z,2026-04-18T19:00:00Z,NO,0.505,history,380654.6808650001
+polymarket,2008452,Counter-Strike: Team Falcons vs Spirit - Map 2 Winner,sports,2026-04-17T21:03:02.293562Z,2026-04-18T19:00:00Z,NO,0.605,history,609025.2653180016
+polymarket,1994998,Counter-Strike: Vitality vs Natus Vincere (BO3) - IEM Rio Playoffs,sports,2026-04-16T00:29:11.744013Z,2026-04-18T00:15:00Z,YES,0.925,history,1940264.0178679975
+polymarket,1994999,Counter-Strike: Vitality vs Natus Vincere - Map 1 Winner,sports,2026-04-16T00:28:57.793783Z,2026-04-17T22:15:00Z,YES,0.645,history,374734.39129399945
+polymarket,1995000,Counter-Strike: Vitality vs Natus Vincere - Map 2 Winner,sports,2026-04-16T00:57:19.974125Z,2026-04-17T22:15:00Z,YES,0.775,history,760977.866059
+polymarket,1995002,Map Handicap: VIT (-1.5) vs Natus Vincere (+1.5),sports,2026-04-16T00:57:12.928165Z,2026-04-18T00:15:00Z,YES,0.765,history,430687.42255399976
+polymarket,1955538,LoL: Hanwha Life Esports vs Gen.G (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:53:55.079576Z,2026-04-18T14:00:00Z,YES,0.625,history,748471.0839770008
+polymarket,1955539,LoL: Hanwha Life Esports vs Gen.G - Game 1 Winner,sports,2026-04-12T07:56:18.234842Z,2026-04-18T12:00:00Z,YES,0.375,history,1317694.301365001
+polymarket,1955540,LoL: Hanwha Life Esports vs Gen.G - Game 2 Winner,sports,2026-04-12T07:54:03.330461Z,2026-04-18T12:00:00Z,YES,0.365,history,1136121.6564330005
+polymarket,1955542,Game Handicap: GEN (-1.5) vs Hanwha Life Esports (+1.5),sports,2026-04-12T07:56:04.335095Z,2026-04-18T14:00:00Z,NO,0.415,history,136743.56403100005
+polymarket,1374257,Will annual inflation increase by 2.2% in March?,sports,2026-02-13T22:00:53.159051Z,2026-04-10T00:00:00Z,NO,0.0005,history,107931.530178
+polymarket,1374259,Will annual inflation increase by 2.4% in March?,sports,2026-02-13T22:01:08.477214Z,2026-04-10T00:00:00Z,NO,0.0005,history,208604.7803999999
+polymarket,1374262,Will annual inflation increase by 2.7% in March?,sports,2026-02-13T22:01:30.575146Z,2026-04-10T00:00:00Z,NO,0.0005,history,188599.10314200012
+polymarket,1374263,Will annual inflation increase by ≥2.8% in March?,sports,2026-02-13T22:01:36.524067Z,2026-04-10T00:00:00Z,YES,0.98,history,1900362.231388996
+polymarket,1374260,Will annual inflation increase by 2.5% in March?,sports,2026-02-13T22:01:14.612154Z,2026-04-10T00:00:00Z,NO,0.0005,history,205962.1168079998
+polymarket,1374255,Will annual inflation increase by ≤2.0% in March?,sports,2026-02-13T22:00:39.344959Z,2026-04-10T00:00:00Z,NO,0.0005,history,213921.53973199977
+polymarket,1374258,Will annual inflation increase by 2.3% in March?,sports,2026-02-13T22:01:01.245577Z,2026-04-10T00:00:00Z,NO,0.0005,history,239085.96158999973
+polymarket,1374256,Will annual inflation increase by 2.1% in March?,sports,2026-02-13T22:00:47.10724Z,2026-04-10T00:00:00Z,NO,0.0005,history,103331.59775500002
+polymarket,1374261,Will annual inflation increase by 2.6% in March?,sports,2026-02-13T22:01:22.642553Z,2026-04-10T00:00:00Z,NO,0.0005,history,176981.18702199982
+polymarket,2045483,Dota 2: South America Rejects vs MOUZ (BO3) - PGL Wallachia Group Stage,sports,2026-04-21T16:52:46.185278Z,2026-04-22T15:45:00Z,YES,0.65,history,1437933.181652
+polymarket,2045484,Dota 2: South America Rejects vs MOUZ - Game 1 Winner,sports,2026-04-21T16:54:38.396497Z,2026-04-22T15:45:00Z,YES,0.685,history,763909.6498939985
+polymarket,2045485,Dota 2: South America Rejects vs MOUZ - Game 2 Winner,sports,2026-04-21T16:57:06.581488Z,2026-04-22T15:45:00Z,NO,0.505,history,1048065.7586399966
+polymarket,566536,Will Bayern Munich win the 2025–26 Bundesliga?,sports,2025-07-28T16:53:35.741124Z,2026-05-28T00:00:00Z,YES,0.9995,history,210563.48595300008
+polymarket,566538,Will Dortmund win the 2025–26 Bundesliga?,sports,2025-07-28T16:53:37.808922Z,2026-05-28T00:00:00Z,NO,0.0005,history,383029.3842110001
+polymarket,566539,Will RB Leipzig win the 2025–26 Bundesliga?,sports,2025-07-28T16:53:40.116555Z,2026-05-28T00:00:00Z,NO,0.0005,history,395919.8814069999
+polymarket,566543,Will Stuttgart win the 2025–26 Bundesliga?,sports,2025-07-28T16:53:44.687043Z,2026-05-28T00:00:00Z,NO,0.0005,history,374352.5564459995
+polymarket,566547,Will Hoffenheim win the 2025–26 Bundesliga?,sports,2025-07-28T16:53:45.202693Z,2026-05-28T00:00:00Z,NO,0.0005,history,334377.94421099965
+polymarket,1721296,"UFC 327: Jirí Procházka vs. Carlos Ulberg (Light Heavyweight, Main Card)",sports,2026-03-25T22:06:42.489Z,2026-04-12T03:59:59.999Z,NO,0.485,history,3170749.1446089935
+polymarket,2015213,Indian Premier League: Delhi Capitals vs Punjab Kings,sports,2026-04-18T16:08:24.330426Z,2026-05-02T06:00:00Z,NO,0.095,history,3211985.322908996
+polymarket,2008462,Counter-Strike: FURIA vs Vitality (BO3) - IEM Rio Playoffs,sports,2026-04-17T21:03:04.272503Z,2026-04-19T00:15:00Z,NO,0.205,history,1702170.815202997
+polymarket,2008463,Counter-Strike: FURIA vs Vitality - Map 1 Winner,sports,2026-04-17T21:02:52.265403Z,2026-04-18T22:15:00Z,NO,0.275,history,676813.2908559996
+polymarket,2008464,Counter-Strike: FURIA vs Vitality - Map 2 Winner,sports,2026-04-17T21:02:33.840324Z,2026-04-18T22:15:00Z,NO,0.475,history,507755.4921910004
+polymarket,2008466,Map Handicap: VIT (-1.5) vs FURIA (+1.5),sports,2026-04-17T21:02:29.501855Z,2026-04-19T00:15:00Z,YES,0.57,history,266539.7170180035
+polymarket,1986945,Counter-Strike: FURIA vs MOUZ (BO3) - IEM Rio Group B,sports,2026-04-14T23:45:48.215492Z,2026-04-16T03:35:00Z,YES,0.755,history,2419550.3260499905
+polymarket,1986948,Counter-Strike: FURIA vs MOUZ - Map 1 Winner,sports,2026-04-14T23:46:26.792282Z,2026-04-16T03:35:00Z,YES,0.795,history,245106.1033579998
+polymarket,1986950,Counter-Strike: FURIA vs MOUZ - Map 2 Winner,sports,2026-04-14T23:45:45.069178Z,2026-04-16T03:35:00Z,YES,0.535,history,340720.4022689996
+polymarket,1867168,LoL: HANJIN BRION vs Kiwoom DRX (BO3) - LCK Rounds 1-2,sports,2026-04-04T22:04:33.190872Z,2026-04-09T14:00:00Z,NO,0.5785,history,1497472.3700950008
+polymarket,1867173,LoL: HANJIN BRION vs Kiwoom DRX - Game 1 Winner,sports,2026-04-04T22:16:21.343854Z,2026-04-09T12:00:00Z,YES,0.54,history,535384.0871660002
+polymarket,1867176,LoL: HANJIN BRION vs Kiwoom DRX - Game 2 Winner,sports,2026-04-04T22:06:42.252556Z,2026-04-09T12:00:00Z,NO,0.555,history,923684.0638779995
+polymarket,1919489,Indian Premier League: Sunrisers Hyderabad vs Rajasthan Royals,sports,2026-04-08T16:11:07.735388Z,2026-04-20T10:00:00Z,YES,0.455,history,3036538.960442997
+polymarket,1831591,Indian Premier League: Kolkata Knight Riders vs Lucknow Super Giants,sports,2026-04-02T16:19:16.993894Z,2026-04-16T10:00:00Z,NO,0.325,history,3037959.0196839976
+polymarket,2045503,Dota 2: Xtreme Gaming vs Team Spirit (BO3) - PGL Wallachia Group Stage,sports,2026-04-21T16:57:09.607359Z,2026-04-22T19:40:00Z,NO,0.405,history,1306789.469821999
+polymarket,2045504,Dota 2: Xtreme Gaming vs Team Spirit - Game 1 Winner,sports,2026-04-21T16:53:24.794658Z,2026-04-22T19:40:00Z,NO,0.255,history,900695.5160219987
+polymarket,2045505,Dota 2: Xtreme Gaming vs Team Spirit - Game 2 Winner,sports,2026-04-21T16:55:10.916444Z,2026-04-22T19:40:00Z,NO,0.735,history,772771.1623699998
+polymarket,1761287,Dota 2: Xtreme Gaming vs PARIVISION (BO3) - ESL One Birmingham Playoffs,sports,2026-03-28T14:32:40.557812Z,2026-03-29T01:00:00Z,YES,0.74,history,1396422.553089998
+polymarket,1761288,Dota 2: Xtreme Gaming vs PARIVISION - Game 1 Winner,sports,2026-03-28T14:32:53.619017Z,2026-03-28T23:00:00Z,NO,0.385,history,556748.523267001
+polymarket,1761289,Dota 2: Xtreme Gaming vs PARIVISION - Game 2 Winner,sports,2026-03-28T14:32:54.722213Z,2026-03-28T23:00:00Z,YES,0.355,history,1011556.4778779992
+polymarket,1919501,Indian Premier League: Chennai Super Kings vs Kolkata Knight Riders,sports,2026-04-08T16:16:05.197591Z,2026-04-21T10:00:00Z,YES,0.555,history,2967113.042723003
+polymarket,2006577,LoL: Weibo Gaming vs Anyone's Legend (BO3) - LPL Group Ascend,sports,2026-04-17T15:02:49.467664Z,2026-04-25T17:20:00Z,NO,0.375,history,1069526.0547280014
+polymarket,2006578,LoL: Weibo Gaming vs Anyone's Legend - Game 1 Winner,sports,2026-04-17T15:03:46.011289Z,2026-04-25T17:20:00Z,NO,0.395,history,428292.4058669994
+polymarket,2006579,LoL: Weibo Gaming vs Anyone's Legend - Game 2 Winner,sports,2026-04-17T15:06:04.029489Z,2026-04-25T17:20:00Z,YES,0.395,history,1410885.5784510009
+polymarket,1930386,Counter-Strike: FUT Esports vs TheMongolz (BO3) - PGL Bucharest Playoffs,sports,2026-04-09T19:52:38.150616Z,2026-04-10T22:45:00Z,YES,0.775,history,2012040.2426729992
+polymarket,1930388,Counter-Strike: FUT Esports vs TheMongolz - Map 1 Winner,sports,2026-04-09T19:52:45.461106Z,2026-04-10T22:45:00Z,YES,0.465,history,299127.33305399976
+polymarket,1930390,Counter-Strike: FUT Esports vs TheMongolz - Map 2 Winner,sports,2026-04-09T19:52:45.966927Z,2026-04-10T22:45:00Z,YES,0.605,history,549248.3226619997
+polymarket,1919698,Counter-Strike: TheMongolz vs PARIVISION (BO3) - PGL Bucharest Playoffs,sports,2026-04-08T16:17:30.022831Z,2026-04-09T22:15:00Z,YES,0.235,history,2175737.009487999
+polymarket,1919699,Counter-Strike: TheMongolz vs PARIVISION - Map 1 Winner,sports,2026-04-08T16:13:12.196577Z,2026-04-09T22:15:00Z,NO,0.47,history,245205.0083750002
+polymarket,1919700,Counter-Strike: TheMongolz vs PARIVISION - Map 2 Winner,sports,2026-04-08T16:17:42.11244Z,2026-04-09T22:15:00Z,YES,0.525,history,332936.9861699997
+polymarket,1919703,Games Total: O/U 2.5,sports,2026-04-08T16:17:29.110832Z,2026-04-09T22:15:00Z,YES,0.495,history,128381.61846300002
+polymarket,2014350,LoL: T1 vs BNK FEARX (BO3) - LCK Rounds 1-2,sports,2026-04-18T13:36:34.655819Z,2026-04-26T14:00:00Z,YES,0.955,history,1401710.9331389912
+polymarket,2014351,LoL: T1 vs BNK FEARX - Game 1 Winner,sports,2026-04-18T13:39:49.702633Z,2026-04-26T12:00:00Z,YES,0.635,history,416848.27685400035
+polymarket,2014352,LoL: T1 vs BNK FEARX - Game 2 Winner,sports,2026-04-18T13:37:55.899424Z,2026-04-26T12:00:00Z,YES,0.875,history,948135.6834259992
+polymarket,2037460,Dota 2: Virtus.pro vs MOUZ (BO3) - PGL Wallachia Group Stage,sports,2026-04-20T21:44:05.874055Z,2026-04-21T18:30:00Z,NO,0.575,history,1987009.8580219944
+polymarket,2037461,Dota 2: Virtus.pro vs MOUZ - Game 1 Winner,sports,2026-04-20T21:44:21.384641Z,2026-04-21T18:30:00Z,YES,0.455,history,323319.9532779999
+polymarket,2037462,Dota 2: Virtus.pro vs MOUZ - Game 2 Winner,sports,2026-04-20T21:43:49.710617Z,2026-04-21T18:30:00Z,NO,0.245,history,571201.1489959998
+polymarket,1919477,Indian Premier League: Mumbai Indians vs Royal Challengers Bangalore,sports,2026-04-08T16:10:44.133972Z,2026-04-19T10:00:00Z,NO,0.285,history,2874228.1241700104
+polymarket,1867310,LoL: Hanwha Life Esports vs BNK FEARX (BO3) - LCK Rounds 1-2,sports,2026-04-04T22:04:05.427742Z,2026-04-10T16:00:00Z,YES,0.865,history,1835401.2645510072
+polymarket,1867311,LoL: Hanwha Life Esports vs BNK FEARX - Game 1 Winner,sports,2026-04-04T22:10:10.767704Z,2026-04-10T14:00:00Z,YES,0.64,history,382018.5936880006
+polymarket,1867312,LoL: Hanwha Life Esports vs BNK FEARX - Game 2 Winner,sports,2026-04-04T22:06:03.543357Z,2026-04-10T14:00:00Z,NO,0.705,history,510710.0062829992
+polymarket,1846224,Indian Premier League: Rajasthan Royals vs Royal Challengers Bangalore,sports,2026-04-03T16:04:56.696396Z,2026-04-17T10:00:00Z,YES,0.565,history,2830607.4244069704
+polymarket,2053983,Dota 2: PARIVISION vs South America Rejects (BO3) - PGL Wallachia Playoffs,sports,2026-04-22T17:46:51.574449Z,2026-04-23T13:00:00Z,YES,0.945,history,1328258.3511319982
+polymarket,2053985,Dota 2: PARIVISION vs South America Rejects - Game 1 Winner,sports,2026-04-22T17:49:31.478629Z,2026-04-23T13:00:00Z,NO,0.76,history,650503.7179070001
+polymarket,2053987,Dota 2: PARIVISION vs South America Rejects - Game 2 Winner,sports,2026-04-22T17:54:25.031831Z,2026-04-23T13:00:00Z,YES,0.965,history,799387.349926999
+polymarket,1801815,LoL: Team Vitality vs Movistar KOI (BO3) - LEC Regular Season,sports,2026-03-31T07:13:58.795974Z,2026-04-06T23:45:00Z,YES,0.435,history,1324386.6771830006
+polymarket,1801817,LoL: Team Vitality vs Movistar KOI - Game 1 Winner,sports,2026-03-31T07:14:11.152026Z,2026-04-06T23:45:00Z,YES,0.815,history,591303.3011180001
+polymarket,1801819,LoL: Team Vitality vs Movistar KOI - Game 2 Winner,sports,2026-03-31T07:13:55.15314Z,2026-04-06T23:45:00Z,NO,0.36,history,799762.1690449996
+polymarket,1842221,Counter-Strike: Gentle Mates vs G2 (BO3) - IEM Rio Group A,sports,2026-04-03T08:55:05.283524Z,2026-04-13T19:00:00Z,NO,0.345,history,1357594.5059879932
+polymarket,1842222,Counter-Strike: Gentle Mates vs G2 - Map 1 Winner,sports,2026-04-03T08:53:17.537992Z,2026-04-13T19:00:00Z,YES,0.41,history,228863.000761
+polymarket,1842223,Counter-Strike: Gentle Mates vs G2 - Map 2 Winner,sports,2026-04-03T08:53:47.181629Z,2026-04-13T19:00:00Z,NO,0.345,history,831650.1872959996
+polymarket,1842225,Map Handicap: G2 (-1.5) vs Gentle Mates (+1.5),sports,2026-04-03T08:54:24.411633Z,2026-04-13T19:00:00Z,NO,0.5,history,364144.0170779998
+polymarket,1919665,Counter-Strike: MIBR vs 3DMAX (BO3) - PGL Bucharest Playoffs,sports,2026-04-08T16:14:33.317337Z,2026-04-09T13:00:00Z,NO,0.2645,history,1761373.373452997
+polymarket,1919668,Games Total: O/U 2.5,sports,2026-04-08T16:17:41.034926Z,2026-04-09T13:00:00Z,YES,0.515,history,150128.6123800004
+polymarket,1919666,Counter-Strike: MIBR vs 3DMAX - Map 1 Winner,sports,2026-04-08T16:17:25.977985Z,2026-04-09T11:00:00Z,YES,0.415,history,407951.203061
+polymarket,1919667,Counter-Strike: MIBR vs 3DMAX - Map 2 Winner,sports,2026-04-08T16:14:14.928162Z,2026-04-09T11:00:00Z,NO,0.485,history,448393.09206200106
+polymarket,1994987,Counter-Strike: Spirit vs MOUZ (BO3) - IEM Rio Playoffs,sports,2026-04-16T00:28:57.026855Z,2026-04-17T21:00:00Z,YES,0.785,history,1577180.5213369988
+polymarket,1994988,Counter-Strike: Spirit vs MOUZ - Map 1 Winner,sports,2026-04-16T00:57:13.185936Z,2026-04-17T19:00:00Z,YES,0.615,history,472276.6394790001
+polymarket,1994989,Counter-Strike: Spirit vs MOUZ - Map 2 Winner,sports,2026-04-16T00:28:58.048673Z,2026-04-17T19:00:00Z,YES,0.515,history,563704.8641789997
+polymarket,1994991,Map Handicap: TS (-1.5) vs MOUZ (+1.5),sports,2026-04-16T00:29:09.800054Z,2026-04-17T21:00:00Z,YES,0.325,history,124463.02748299994
+polymarket,1893865,LoL: G2 Esports vs Team Vitality (BO3) - LEC Regular Season,sports,2026-04-06T18:04:15.402934Z,2026-04-11T19:55:00Z,NO,0.715,history,1210150.763156999
+polymarket,1893866,LoL: G2 Esports vs Team Vitality - Game 1 Winner,sports,2026-04-06T18:04:18.355519Z,2026-04-11T19:55:00Z,NO,0.665,history,793728.8397009998
+polymarket,1893867,LoL: G2 Esports vs Team Vitality - Game 2 Winner,sports,2026-04-06T18:05:00.948624Z,2026-04-11T19:55:00Z,YES,0.635,history,653661.0702860003
+polymarket,1702326,LoL: T1 vs KT Rolster (BO3) - LCK Rounds 1-2,sports,2026-03-24T10:46:56.757827Z,2026-04-01T16:00:00Z,NO,0.475,history,923486.5880740002
+polymarket,1702327,LoL: T1 vs KT Rolster - Game 1 Winner,sports,2026-03-24T10:51:11.519307Z,2026-04-01T14:00:00Z,NO,0.745,history,550467.0558609994
+polymarket,1702328,LoL: T1 vs KT Rolster - Game 2 Winner,sports,2026-03-24T10:51:30.075972Z,2026-04-01T14:00:00Z,NO,0.675,history,1151876.4782350038
+polymarket,2001263,Dota 2: Xtreme Gaming vs Natus Vincere (BO3) - PGL Wallachia Group Stage,sports,2026-04-16T18:54:13.649438Z,2026-04-18T13:00:00Z,YES,0.968,history,2073397.7646649992
+polymarket,2001264,Dota 2: Xtreme Gaming vs Natus Vincere - Game 1 Winner,sports,2026-04-16T18:53:21.903735Z,2026-04-18T13:00:00Z,YES,0.53,history,226440.8942559999
+polymarket,2001265,Dota 2: Xtreme Gaming vs Natus Vincere - Game 2 Winner,sports,2026-04-16T18:53:19.620552Z,2026-04-18T13:00:00Z,YES,0.525,history,393171.4412009999
+polymarket,2001429,Dota 2: Team Liquid vs GamerLegion (BO3) - PGL Wallachia Group Stage,sports,2026-04-16T19:03:42.563955Z,2026-04-18T15:20:00Z,YES,0.735,history,1229789.1602369985
+polymarket,2001430,Dota 2: Team Liquid vs GamerLegion - Game 1 Winner,sports,2026-04-16T19:03:17.134253Z,2026-04-18T15:20:00Z,YES,0.615,history,233253.1625120001
+polymarket,2001431,Dota 2: Team Liquid vs GamerLegion - Game 2 Winner,sports,2026-04-16T19:02:50.117864Z,2026-04-18T15:20:00Z,NO,0.62,history,1231877.4043510002
+polymarket,1659870,LoL: Natus Vincere vs SK Gaming (BO3) - LEC Group Stage,sports,2026-03-20T06:34:11.611235Z,2026-03-30T21:00:00Z,YES,0.805,history,1139907.4540710011
+polymarket,1659871,LoL: Natus Vincere vs SK Gaming - Game 1 Winner,sports,2026-03-20T06:34:49.381836Z,2026-03-30T19:00:00Z,NO,0.765,history,577995.9126190009
+polymarket,1659872,LoL: Natus Vincere vs SK Gaming - Game 2 Winner,sports,2026-03-20T06:33:43.504341Z,2026-03-30T19:00:00Z,YES,0.725,history,854986.4332200006
+polymarket,1955446,LoL: HANJIN BRION vs Gen.G (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:55:53.911716Z,2026-04-16T14:00:00Z,NO,0.07,history,597638.5323110007
+polymarket,1955447,LoL: HANJIN BRION vs Gen.G - Game 1 Winner,sports,2026-04-12T07:53:11.527828Z,2026-04-16T12:00:00Z,NO,0.155,history,967361.601214001
+polymarket,1955448,LoL: HANJIN BRION vs Gen.G - Game 2 Winner,sports,2026-04-12T07:53:45.764839Z,2026-04-16T12:00:00Z,NO,0.115,history,558949.3151360004
+polymarket,1955450,Game Handicap: GEN (-1.5) vs HANJIN BRION (+1.5),sports,2026-04-12T07:56:18.487936Z,2026-04-16T14:00:00Z,YES,0.82,history,495139.5478470003
+polymarket,1981948,Indian Premier League: Sunrisers Hyderabad vs Delhi Capitals,sports,2026-04-14T16:11:21.429124Z,2026-04-28T10:00:00Z,YES,0.815,history,2651647.015909996
+polymarket,1955584,LoL: HANJIN BRION vs Nongshim Red Force (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:55:13.336387Z,2026-04-19T14:00:00Z,NO,0.385,history,1348224.7618800008
+polymarket,1955585,LoL: HANJIN BRION vs Nongshim Red Force - Game 1 Winner,sports,2026-04-12T07:55:06.310194Z,2026-04-19T12:00:00Z,YES,0.335,history,516833.3556750008
+polymarket,1955586,LoL: HANJIN BRION vs Nongshim Red Force - Game 2 Winner,sports,2026-04-12T07:57:55.07748Z,2026-04-19T12:00:00Z,NO,0.375,history,660625.1699369989
+polymarket,1928924,Indian Premier League: Mumbai Indians vs Punjab Kings,sports,2026-04-09T16:05:20.171749Z,2026-04-23T10:00:00Z,NO,0.545,history,2583644.7603089977
+polymarket,2014161,LoL: KT Rolster vs Kiwoom DRX (BO3) - LCK Rounds 1-2,sports,2026-04-18T13:39:46.580169Z,2026-04-22T14:00:00Z,YES,0.945,history,601257.187896999
+polymarket,2014162,LoL: KT Rolster vs Kiwoom DRX - Game 1 Winner,sports,2026-04-18T13:32:31.856857Z,2026-04-22T12:00:00Z,YES,0.81,history,1127764.6531820002
+polymarket,2014163,LoL: KT Rolster vs Kiwoom DRX - Game 2 Winner,sports,2026-04-18T13:32:34.685577Z,2026-04-22T12:00:00Z,YES,0.785,history,561740.4808340002
+polymarket,2014165,Game Handicap: KT (-1.5) vs Kiwoom DRX (+1.5),sports,2026-04-18T13:32:54.026438Z,2026-04-22T14:00:00Z,YES,0.755,history,247677.47346499993
+polymarket,2024079,Indian Premier League: Lucknow Super Giants vs Kolkata Knight Riders,sports,2026-04-19T16:11:48.06047Z,2026-05-03T10:00:00Z,NO,0.4605,history,2543782.188152008
+polymarket,2014207,LoL: HANJIN BRION vs Dplus KIA (BO3) - LCK Rounds 1-2,sports,2026-04-18T13:33:40.340085Z,2026-04-23T14:00:00Z,NO,0.065,history,617634.9561009998
+polymarket,2014208,LoL: HANJIN BRION vs Dplus KIA - Game 1 Winner,sports,2026-04-18T13:37:02.210191Z,2026-04-23T12:00:00Z,NO,0.235,history,1047704.2311139985
+polymarket,2014209,LoL: HANJIN BRION vs Dplus KIA - Game 2 Winner,sports,2026-04-18T13:39:40.713311Z,2026-04-23T12:00:00Z,NO,0.255,history,628521.9380610004
+polymarket,2014211,Game Handicap: DK (-1.5) vs HANJIN BRION (+1.5),sports,2026-04-18T13:33:52.606597Z,2026-04-23T14:00:00Z,YES,0.745,history,176297.86248799996
+polymarket,2037380,Dota 2: Team Spirit vs Natus Vincere (BO3) - PGL Wallachia Group Stage,sports,2026-04-20T21:43:43.821493Z,2026-04-21T13:00:00Z,YES,0.285,history,1284575.367676
+polymarket,2037381,Dota 2: Team Spirit vs Natus Vincere - Game 1 Winner,sports,2026-04-20T21:44:49.962412Z,2026-04-21T13:00:00Z,NO,0.565,history,545116.4172780003
+polymarket,2037382,Dota 2: Team Spirit vs Natus Vincere - Game 2 Winner,sports,2026-04-20T21:44:56.127676Z,2026-04-21T13:00:00Z,YES,0.545,history,690567.154997999
+polymarket,1973327,Counter-Strike: Spirit vs Team Falcons (BO3) - IEM Rio Group A,sports,2026-04-13T19:34:44.804285Z,2026-04-14T22:40:00Z,NO,0.055,history,1363177.5713700044
+polymarket,1973329,Counter-Strike: Spirit vs Team Falcons - Map 1 Winner,sports,2026-04-13T19:36:26.798927Z,2026-04-14T22:40:00Z,NO,0.525,history,587927.1092909996
+polymarket,1973331,Counter-Strike: Spirit vs Team Falcons - Map 2 Winner,sports,2026-04-13T19:34:40.848211Z,2026-04-14T22:40:00Z,NO,0.145,history,540073.7919710005
+polymarket,1938263,Indian Premier League: Gujarat Titans vs Kolkata Knight Riders,sports,2026-04-10T16:04:27.242231Z,2026-04-24T10:00:00Z,YES,0.945,history,2505777.309993992
+polymarket,1959740,Indian Premier League: Kolkata Knight Riders vs Rajasthan Royals,sports,2026-04-12T16:13:32.536118Z,2026-04-26T06:00:00Z,YES,0.385,history,2502812.387225998
+polymarket,2054046,Dota 2: BetBoom Team vs Team Spirit (BO3) - PGL Wallachia Playoffs,sports,2026-04-22T17:54:27.04616Z,2026-04-23T22:10:00Z,YES,0.845,history,776673.7736620002
+polymarket,2054047,Dota 2: BetBoom Team vs Team Spirit - Game 1 Winner,sports,2026-04-22T17:49:28.430196Z,2026-04-23T22:10:00Z,YES,0.615,history,900619.1745609994
+polymarket,2054048,Dota 2: BetBoom Team vs Team Spirit - Game 2 Winner,sports,2026-04-22T17:47:52.149868Z,2026-04-23T22:10:00Z,YES,0.595,history,811769.6599600001
+polymarket,2042668,LoL: Shifters vs Natus Vincere - Game 2 Winner,sports,2026-04-21T11:45:17.688071Z,2026-04-26T21:00:00Z,YES,0.275,history,296538.280678
+polymarket,2042670,Game Handicap: Navi (-1.5) vs Shifters (+1.5),sports,2026-04-21T11:45:01.357893Z,2026-04-26T21:00:00Z,NO,0.71,history,137631.68889500006
+polymarket,2042667,LoL: Shifters vs Natus Vincere - Game 1 Winner,sports,2026-04-21T11:43:37.452564Z,2026-04-26T21:00:00Z,NO,0.039,history,624884.446106001
+polymarket,2042666,LoL: Shifters vs Natus Vincere (BO3) - LEC Regular Season,sports,2026-04-21T11:44:41.982672Z,2026-04-26T21:00:00Z,NO,0.295,history,1400138.8397930022
+polymarket,1955400,LoL: Nongshim Red Force vs BNK FEARX (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:52:57.547491Z,2026-04-15T14:00:00Z,YES,0.465,history,924825.1648990004
+polymarket,1955401,LoL: Nongshim Red Force vs BNK FEARX - Game 1 Winner,sports,2026-04-12T07:52:43.659145Z,2026-04-15T12:00:00Z,YES,0.485,history,464247.1710259998
+polymarket,1955402,LoL: Nongshim Red Force vs BNK FEARX - Game 2 Winner,sports,2026-04-12T07:57:09.400283Z,2026-04-15T12:00:00Z,YES,0.485,history,924878.886709
+polymarket,1919513,Indian Premier League: Royal Challengers Bangalore vs Lucknow Super Giants,sports,2026-04-08T16:10:18.262599Z,2026-04-22T10:00:00Z,YES,0.625,history,2441321.742450997
+polymarket,1702372,LoL: Kiwoom DRX vs DN SOOPers (BO3) - LCK Rounds 1-2,sports,2026-03-24T10:40:07.028727Z,2026-04-02T16:10:00Z,NO,0.405,history,694279.4952220027
+polymarket,1702373,LoL: Kiwoom DRX vs DN SOOPers - Game 1 Winner,sports,2026-03-24T10:38:47.507357Z,2026-04-02T16:10:00Z,NO,0.425,history,615151.9410190012
+polymarket,1702374,LoL: Kiwoom DRX vs DN SOOPers - Game 2 Winner,sports,2026-03-24T10:37:51.799574Z,2026-04-02T16:10:00Z,NO,0.405,history,958269.8335950008
+polymarket,1702376,Game Handicap: DNS (-1.5) vs Kiwoom DRX (+1.5),sports,2026-03-24T10:51:24.538657Z,2026-04-02T16:10:00Z,YES,0.605,history,137810.06813199996
+polymarket,1702441,LoL: T1 vs Hanwha Life Esports (BO3) - LCK Rounds 1-2,sports,2026-03-24T10:50:58.748491Z,2026-04-04T14:00:00Z,YES,0.765,history,1004834.978881
+polymarket,1702442,LoL: T1 vs Hanwha Life Esports - Game 1 Winner,sports,2026-03-24T10:49:43.190664Z,2026-04-04T12:00:00Z,YES,0.485,history,620871.599354999
+polymarket,1702443,LoL: T1 vs Hanwha Life Esports - Game 2 Winner,sports,2026-03-24T10:38:03.458679Z,2026-04-04T12:00:00Z,YES,0.5,history,779641.1802669998
+polymarket,1702303,LoL: Hanwha Life Esports vs HANJIN BRION (BO3) - LCK Rounds 1-2,sports,2026-03-24T10:51:32.320827Z,2026-04-01T14:00:00Z,YES,0.9655,history,1383117.551069999
+polymarket,1702304,LoL: Hanwha Life Esports vs HANJIN BRION - Game 1 Winner,sports,2026-03-24T10:33:20.731003Z,2026-04-01T12:00:00Z,YES,0.825,history,405462.4847109999
+polymarket,1702305,LoL: Hanwha Life Esports vs HANJIN BRION - Game 2 Winner,sports,2026-03-24T10:36:07.108692Z,2026-04-01T12:00:00Z,YES,0.845,history,553063.1086789995
+polymarket,1867282,LoL: DN SOOPers vs T1 (BO3) - LCK Rounds 1-2,sports,2026-04-04T22:10:49.270254Z,2026-04-10T14:00:00Z,NO,0.195,history,815662.0448820014
+polymarket,1867283,LoL: DN SOOPers vs T1 - Game 1 Winner,sports,2026-04-04T22:04:42.304319Z,2026-04-10T12:00:00Z,NO,0.255,history,644076.4341420006
+polymarket,1867284,LoL: DN SOOPers vs T1 - Game 2 Winner,sports,2026-04-04T22:08:54.775594Z,2026-04-10T12:00:00Z,NO,0.265,history,625862.6311330002
+polymarket,1867286,Game Handicap: T1 (-1.5) vs DN SOOPers (+1.5),sports,2026-04-04T22:05:55.358795Z,2026-04-10T14:00:00Z,YES,0.72,history,286407.3204
+polymarket,1844502,LoL: Weibo Gaming vs Bilibili Gaming (BO3) - LPL Group Ascend,sports,2026-04-03T12:55:58.860196Z,2026-04-12T17:50:00Z,NO,0.085,history,531836.7645189996
+polymarket,1844503,LoL: Weibo Gaming vs Bilibili Gaming - Game 1 Winner,sports,2026-04-03T12:56:59.53196Z,2026-04-12T17:50:00Z,NO,0.245,history,1043491.1382000004
+polymarket,1844504,LoL: Weibo Gaming vs Bilibili Gaming - Game 2 Winner,sports,2026-04-03T12:54:12.824972Z,2026-04-12T17:50:00Z,NO,0.265,history,690138.8330999999
+polymarket,1844506,Game Handicap: BLG (-1.5) vs Weibo Gaming (+1.5),sports,2026-04-03T12:54:35.279438Z,2026-04-12T17:50:00Z,YES,0.745,history,124352.78540099991
+polymarket,1893965,LoL: Team Vitality vs Shifters (BO3) - LEC Regular Season,sports,2026-04-06T18:04:06.462516Z,2026-04-12T21:00:00Z,YES,0.825,history,1159475.6665559977
+polymarket,1893966,LoL: Team Vitality vs Shifters - Game 1 Winner,sports,2026-04-06T18:09:06.835533Z,2026-04-12T19:00:00Z,NO,0.745,history,439283.12890000007
+polymarket,1893967,LoL: Team Vitality vs Shifters - Game 2 Winner,sports,2026-04-06T18:08:14.669107Z,2026-04-12T19:00:00Z,YES,0.755,history,718953.0470780004
+polymarket,1955492,LoL: Kiwoom DRX vs BNK FEARX (BO3) - LCK Rounds 1-2,sports,2026-04-12T07:56:24.336498Z,2026-04-17T14:00:00Z,NO,0.425,history,821025.9484620029
+polymarket,1955493,LoL: Kiwoom DRX vs BNK FEARX - Game 1 Winner,sports,2026-04-12T07:54:53.550784Z,2026-04-17T12:00:00Z,NO,0.425,history,447041.24254200095
+polymarket,1955494,LoL: Kiwoom DRX vs BNK FEARX - Game 2 Winner,sports,2026-04-12T07:59:31.382078Z,2026-04-17T12:00:00Z,NO,0.425,history,763711.3258400015
+polymarket,1955496,Game Handicap: BFX (-1.5) vs Kiwoom DRX (+1.5),sports,2026-04-12T07:54:55.741304Z,2026-04-17T14:00:00Z,YES,0.335,history,264378.6646749998
+polymarket,1702418,LoL: BNK FEARX vs HANJIN BRION (BO3) - LCK Rounds 1-2,sports,2026-03-24T10:39:04.088287Z,2026-04-03T17:00:00Z,NO,0.525,history,721503.3229960003
+polymarket,1702419,LoL: BNK FEARX vs HANJIN BRION - Game 1 Winner,sports,2026-03-24T10:38:05.516144Z,2026-04-03T17:00:00Z,NO,0.705,history,788232.8774610005
+polymarket,1702422,Game Handicap: BFX (-1.5) vs HANJIN BRION (+1.5),sports,2026-03-24T10:46:34.843943Z,2026-04-03T17:00:00Z,NO,0.545,history,352145.9220870003
+polymarket,1702420,LoL: BNK FEARX vs HANJIN BRION - Game 2 Winner,sports,2026-03-24T10:46:34.336309Z,2026-04-03T17:00:00Z,NO,0.705,history,477079.5871660006
+polymarket,2002225,Porsche Tennis Grand Prix: Elena Rybakina vs Leylah Fernandez,sports,2026-04-16T22:02:43.677214Z,2026-04-24T16:30:00Z,YES,0.655,history,2324758.9319359967
+polymarket,1831579,Indian Premier League: Delhi Capitals vs Gujarat Titans,sports,2026-04-02T16:28:08.633764Z,2026-04-15T10:00:00Z,NO,0.525,history,2331271.446347009
+polymarket,2062134,Dota 2: Team Falcons vs Team Spirit - Game 1 Winner,sports,2026-04-23T18:43:15.279348Z,2026-04-24T16:45:00Z,YES,0.565,history,709511.0622030002
+polymarket,2062132,Dota 2: Team Falcons vs Team Spirit (BO3) - PGL Wallachia Playoffs,sports,2026-04-23T18:43:13.267674Z,2026-04-24T16:45:00Z,YES,0.811,history,453322.5893760001
+polymarket,2062135,Dota 2: Team Falcons vs Team Spirit - Game 2 Winner,sports,2026-04-23T18:44:39.80767Z,2026-04-24T16:45:00Z,YES,0.435,history,1109572.6075799994
+kalshi,KXWTAMATCH-26APR27BENBAP-BEN,Will Belinda Bencic win the Bencic vs Baptiste: Round Of 16 match?,sports,2026-04-26T09:06:00Z,2026-04-27T12:01:38Z,NO,0.71,snapshot_fallback,1134763.47
+kalshi,KXWTAMATCH-26APR27BENBAP-BAP,Will Hailey Baptiste win the Bencic vs Baptiste: Round Of 16 match?,sports,2026-04-26T09:06:00Z,2026-04-27T12:01:38Z,YES,0.32,snapshot_fallback,1373700.61
+kalshi,KXCS2GAME-26APR271300LEOFNC-FNC,Will fnatic win the Leo Team vs. fnatic CS2 match?,sports,2026-04-26T05:56:00Z,2026-04-27T20:10:48Z,YES,0.65,snapshot_fallback,103357.16
+kalshi,KXNBA1HSPREAD-26APR27MINDEN-DEN6,Will Denver win the 1H by over 6.5 points?,sports,2026-04-26T05:35:00Z,2026-04-28T03:45:37Z,YES,0.52,snapshot_fallback,128042.86
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268862E1B4CD9-0A85E7E6DB7,"yes Orlando,yes Minnesota,yes Phoenix",sports,2026-04-26T04:43:31.485395Z,2026-04-28T04:53:14Z,NO,0.032,snapshot_fallback,579173.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268862E1B4CD9-358DD4F90DD,"yes Orlando,yes Denver,yes Phoenix",sports,2026-04-26T04:43:27.976837Z,2026-04-28T04:53:14Z,NO,0.088,snapshot_fallback,183588.0
+kalshi,KXNBATOTAL-26APR27MINDEN-238,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:37Z,NO,0.16,snapshot_fallback,522819.25
+kalshi,KXNBATOTAL-26APR27MINDEN-235,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:37Z,YES,0.22,snapshot_fallback,352645.28
+kalshi,KXNBATOTAL-26APR27MINDEN-232,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:17:31Z,YES,0.27,snapshot_fallback,530773.04
+kalshi,KXNBATOTAL-26APR27MINDEN-229,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:17:31Z,YES,0.32,snapshot_fallback,939910.23
+kalshi,KXNBATOTAL-26APR27MINDEN-226,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:15:36Z,YES,0.38,snapshot_fallback,1145861.61
+kalshi,KXNBATOTAL-26APR27MINDEN-223,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:15:35Z,YES,0.46,snapshot_fallback,660252.97
+kalshi,KXNBATOTAL-26APR27MINDEN-220,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:13:34Z,YES,0.54,snapshot_fallback,431225.38
+kalshi,KXNBATOTAL-26APR27MINDEN-217,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:11:41Z,YES,0.6,snapshot_fallback,260222.93
+kalshi,KXNBATOTAL-26APR27MINDEN-214,Game 5: Minnesota at Denver: Total Points,sports,2026-04-26T04:06:00Z,2026-04-28T05:11:40Z,YES,0.67,snapshot_fallback,101268.24
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN8,Denver wins by over 8.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:40Z,YES,0.6,snapshot_fallback,508173.34
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN5,Denver wins by over 5.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:40Z,YES,0.69,snapshot_fallback,167933.97
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN26,Denver wins by over 26.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:39Z,NO,0.11,snapshot_fallback,147238.66
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN23,Denver wins by over 23.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:39Z,NO,0.17,snapshot_fallback,194314.17
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN20,Denver wins by over 20.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:39Z,NO,0.24,snapshot_fallback,682383.45
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN17,Denver wins by over 17.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:39Z,NO,0.32,snapshot_fallback,628911.07
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN14,Denver wins by over 14.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:39Z,NO,0.39,snapshot_fallback,989105.25
+kalshi,KXNBASPREAD-26APR27MINDEN-DEN11,Denver wins by over 11.5 points?,sports,2026-04-26T04:06:00Z,2026-04-28T05:27:40Z,YES,0.47,snapshot_fallback,3157033.93
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268862E1B4CD9-630979E3B46,"yes Detroit,yes Denver,yes Oklahoma City",sports,2026-04-26T02:16:20.683526Z,2026-04-28T04:08:15Z,NO,0.194,snapshot_fallback,297572.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026604B0B2A920-0C95C12D4EF,"yes Over 5.5 runs scored,yes Over 4.5 runs scored,yes Over 4.5 runs scored,yes Over 4.5 runs scored,yes Over 5.5 runs scored,yes Over 5.5 runs scored,yes Over 5.5 runs scored,yes Over 5.5 runs scored,yes Over 4.5 runs scored,yes Over 5.5 runs scored,yes Over 4.5 runs scored,yes Over 5.5 runs scored,yes Over 4.5 runs scored,yes Over 5.5 runs scored,yes Over 5.5 runs scored",sports,2026-04-26T02:14:17.994042Z,2026-04-26T21:09:38Z,NO,0.028,snapshot_fallback,224441.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268862E1B4CD9-9A1BDD1CAE9,"yes Detroit,yes Minnesota,yes Oklahoma City",sports,2026-04-26T01:29:58.69253Z,2026-04-28T04:08:15Z,NO,0.04,snapshot_fallback,125528.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20262031F24508A-F0F1C868D7D,"yes Boston,yes Cleveland,yes Los Angeles L,yes Jaylen Brown: 20+,yes LeBron James: 20+,yes Dylan Harper: 15+",sports,2026-04-26T01:23:21.443003Z,2026-04-26T21:03:57Z,NO,0.04,snapshot_fallback,531582.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A025C676AFA-4E9A0F5002A,"yes Cade Cunningham: 1+,yes Desmond Bane: 1+,yes Derrick White: 2+,yes Jrue Holiday: 4+,yes Jaylen Brown: 20+,yes Payton Pritchard: 10+,yes Tyrese Maxey: 20+,yes VJ Edgecombe: 10+,yes James Harden: 15+,yes RJ Barrett: 15+,yes Scottie Barnes: 15+,yes Amen Thompson: 15+,yes Jabari Smith Jr.: 10+,yes Marcus Smart: 10+,yes Dylan Harper: 10+,yes Stephon Castle: 15+,yes Tobias Harris: 10+,yes Jalen Suggs: 10+,yes Paolo Banchero: 15+,yes Chet Holmgren: 10+,yes Dillon Brooks: 15+,yes Nikola Vučević: 4+,yes Evan Mobley: 6+,yes Alperen Sengun: 6+,yes LeBron James: 4+,yes Donovan Clingan: 6+,yes Ausar Thompson: 4+,yes Tobias Harris: 4+,yes Dillon Brooks: 2+",sports,2026-04-26T00:56:00.634177Z,2026-04-26T23:35:34Z,NO,0.04,snapshot_fallback,237540.0
+kalshi,KXNBA1HSPREAD-26APR27DETORL-DET4,Will Detroit win the 1H by over 4.5 points?,sports,2026-04-26T00:35:00Z,2026-04-28T01:17:32Z,NO,0.36,snapshot_fallback,106403.98
+kalshi,KXNBA1HSPREAD-26APR27DETORL-DET1,Will Detroit win the 1H by over 1.5 points?,sports,2026-04-26T00:35:00Z,2026-04-28T01:17:32Z,NO,0.53,snapshot_fallback,211478.13
+kalshi,KXNBA1HTOTAL-26APR27DETORL-108,Detroit vs Orlando: First Half Total?,sports,2026-04-25T23:35:00Z,2026-04-28T03:05:43Z,NO,0.54,snapshot_fallback,115736.99
+kalshi,KXNBATOTAL-26APR27OKCPHX-226,Game 4: Oklahoma City at Phoenix: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T04:00:51Z,YES,0.25,snapshot_fallback,501683.39
+kalshi,KXNBATOTAL-26APR27OKCPHX-217,Game 4: Oklahoma City at Phoenix: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T04:00:49Z,YES,0.42,snapshot_fallback,171781.52
+kalshi,KXNBATOTAL-26APR27OKCPHX-214,Game 4: Oklahoma City at Phoenix: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:50:22Z,YES,0.51,snapshot_fallback,566381.83
+kalshi,KXNBATOTAL-26APR27DETORL-220,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.35,snapshot_fallback,162857.96
+kalshi,KXNBATOTAL-26APR27DETORL-217,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.43,snapshot_fallback,320249.87
+kalshi,KXNBATOTAL-26APR27DETORL-214,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.5,snapshot_fallback,1016043.76
+kalshi,KXNBATOTAL-26APR27DETORL-211,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.59,snapshot_fallback,581035.44
+kalshi,KXNBATOTAL-26APR27DETORL-208,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.65,snapshot_fallback,371510.14
+kalshi,KXNBATOTAL-26APR27DETORL-205,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.72,snapshot_fallback,318395.42
+kalshi,KXNBATOTAL-26APR27DETORL-202,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.77,snapshot_fallback,371088.14
+kalshi,KXNBATOTAL-26APR27DETORL-199,Game 4: Detroit at Orlando: Total Points,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.85,snapshot_fallback,834465.39
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC7,Oklahoma City wins by over 7.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:35Z,YES,0.63,snapshot_fallback,588749.91
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC4,Oklahoma City wins by over 4.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:35Z,YES,0.73,snapshot_fallback,287739.89
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC19,Oklahoma City wins by over 19.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:36Z,NO,0.26,snapshot_fallback,146279.35
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC16,Oklahoma City wins by over 16.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:36Z,NO,0.34,snapshot_fallback,239033.39
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC13,Oklahoma City wins by over 13.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:36Z,NO,0.43,snapshot_fallback,1071551.15
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC10,Oklahoma City wins by over 10.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:36Z,NO,0.52,snapshot_fallback,1741787.78
+kalshi,KXNBASPREAD-26APR27OKCPHX-OKC1,Oklahoma City wins by over 1.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T04:21:35Z,YES,0.8,snapshot_fallback,103592.13
+kalshi,KXNBASPREAD-26APR27DETORL-ORL9,Orlando wins by over 9.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.16,snapshot_fallback,266421.94
+kalshi,KXNBASPREAD-26APR27DETORL-ORL6,Orlando wins by over 6.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.23,snapshot_fallback,735147.71
+kalshi,KXNBASPREAD-26APR27DETORL-ORL3,Orlando wins by over 3.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,YES,0.34,snapshot_fallback,1108402.18
+kalshi,KXNBASPREAD-26APR27DETORL-ORL12,Orlando wins by over 12.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:41Z,NO,0.1,snapshot_fallback,134048.7
+kalshi,KXNBASPREAD-26APR27DETORL-DET9,Detroit wins by over 9.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.3,snapshot_fallback,137269.42
+kalshi,KXNBASPREAD-26APR27DETORL-DET6,Detroit wins by over 6.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.37,snapshot_fallback,541411.0
+kalshi,KXNBASPREAD-26APR27DETORL-DET3,Detroit wins by over 3.5 points?,sports,2026-04-25T22:05:00Z,2026-04-28T03:05:42Z,NO,0.48,snapshot_fallback,2298227.09
+kalshi,KXNBA1HWINNER-26APR27DETORL-ORL,Detroit vs Orlando: First Half Winner?,sports,2026-04-25T20:35:00Z,2026-04-28T01:25:35Z,YES,0.44,snapshot_fallback,256856.7
+kalshi,KXNBA1HWINNER-26APR27DETORL-DET,Detroit vs Orlando: First Half Winner?,sports,2026-04-25T20:35:00Z,2026-04-28T01:25:35Z,NO,0.56,snapshot_fallback,185358.83
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202666B7CBE7C0E-8AA93289A3C,"yes Denver,yes Nikola Jokić: 25+,yes Anthony Edwards: 25+,yes Julius Randle: 15+,no Over 235.5 points scored",sports,2026-04-25T14:35:03.726936Z,2026-04-26T03:49:17Z,NO,0.046,snapshot_fallback,189327.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026919849DA578-3F0E62E1C24,"yes Philadelphia,yes Toronto,yes Los Angeles L,yes San Antonio",sports,2026-04-25T11:11:46.09434Z,2026-04-27T02:48:23Z,NO,0.036,snapshot_fallback,124944.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20269CA7940B47D-236FE6359AC,"yes Anthony Edwards: 2+,yes Desmond Bane: 1+,yes CJ McCollum: 1+,yes OG Anunoby: 1+,yes Jalen Suggs: 10+,yes Paolo Banchero: 20+,yes CJ McCollum: 15+,yes OG Anunoby: 10+,yes Chet Holmgren: 10+,yes Shai Gilgeous-Alexander: 25+,yes Devin Booker: 20+,yes Dillon Brooks: 15+,yes Jalen Green: 15+,yes Kelly Oubre Jr.: 10+,yes Tyrese Maxey: 20+,yes VJ Edgecombe: 10+,yes James Harden: 15+,yes RJ Barrett: 15+,yes Dylan Harper: 10+,yes Stephon Castle: 15+,yes Rudy Gobert: 8+,yes Ausar Thompson: 4+,yes Paolo Banchero: 6+,yes Onyeka Okongwu: 4+,yes Isaiah Hartenstein: 6+,yes Dillon Brooks: 2+,yes Nikola Vučević: 4+,yes Donovan Clingan: 6+",sports,2026-04-25T09:51:57.327556Z,2026-04-25T23:35:19Z,NO,0.039,snapshot_fallback,1113684.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20269D14D138313-A90B3C742B8,"yes Yordan Alvarez: 1+,yes Elly De La Cruz: 1+,yes Matt Olson: 1+",sports,2026-04-25T09:06:46.628597Z,2026-04-26T03:55:36Z,NO,0.034,snapshot_fallback,719047.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026919849DA578-B3D331352C8,"yes Boston,yes Toronto,yes Los Angeles L,yes San Antonio",sports,2026-04-25T08:46:49.323927Z,2026-04-27T04:45:42Z,NO,0.06,snapshot_fallback,137950.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026919849DA578-27196E2FB5F,"yes Philadelphia,yes Toronto,yes Los Angeles L,yes Portland",sports,2026-04-25T08:10:47.661854Z,2026-04-26T22:36:31Z,NO,0.034,snapshot_fallback,407017.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026919849DA578-5245E46962D,"yes Philadelphia,yes Cleveland,yes Los Angeles L,yes Portland",sports,2026-04-25T08:10:43.988588Z,2026-04-26T20:51:26Z,NO,0.04,snapshot_fallback,124786.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026953D40DB914-3D69A9AAF87,"yes Philadelphia,yes Los Angeles L,yes Portland",sports,2026-04-25T08:10:35.473315Z,2026-04-26T22:36:28Z,NO,0.16,snapshot_fallback,104519.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20264E55FB02AF6-6F3FD88CF72,"yes Oklahoma City,yes Ayo Dosunmu: 10+,yes Donte DiVincenzo: 10+,yes Jaden McDaniels: 10+,yes Cade Cunningham: 25+,yes Tobias Harris: 10+,yes Franz Wagner: 10+,yes Jalen Suggs: 10+,yes CJ McCollum: 10+,yes Jalen Johnson: 15+,yes Karl-Anthony Towns: 10+,yes OG Anunoby: 10+,yes Chet Holmgren: 10+,yes Devin Booker: 20+,yes Dillon Brooks: 10+,yes Jalen Green: 15+,yes Jaylen Brown: 20+,yes Tyrese Maxey: 20+,yes VJ Edgecombe: 10+,yes Evan Mobley: 10+,yes James Harden: 10+,yes RJ Barrett: 15+,yes Scottie Barnes: 10+,yes Alperen Sengun: 10+,yes Jabari Smith Jr.: 10+,yes Rui Hachimura: 10+,yes Devin Vassell: 10+",sports,2026-04-25T07:43:42.827436Z,2026-04-25T23:34:38Z,NO,0.044,snapshot_fallback,1251919.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026953D40DB914-F29EEA26A42,"yes Philadelphia,yes Los Angeles L,yes San Antonio",sports,2026-04-25T07:39:03.927045Z,2026-04-27T02:47:56Z,NO,0.024,snapshot_fallback,120038.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026BA2049D9234-0AEBD7ADA44,"yes Jamal Murray: 2+,yes Jalen Suggs: 2+,yes Paolo Banchero: 2+,yes Josh Hart: 2+,yes Donovan Mitchell: 2+,yes Alperen Sengun: 2+,yes Amen Thompson: 2+,yes Marcus Smart: 2+,yes Jrue Holiday: 2+,yes De'Aaron Fox: 2+,yes Jamal Murray: 20+,yes Nikola Jokić: 20+,yes Jaden McDaniels: 10+,yes Tobias Harris: 10+,yes Jalen Suggs: 10+,yes CJ McCollum: 15+,yes Jonathan Kuminga: 10+,yes Karl-Anthony Towns: 15+,yes Chet Holmgren: 10+,yes Dillon Brooks: 10+,yes Jalen Green: 15+,yes Tyrese Maxey: 20+,yes VJ Edgecombe: 10+,yes James Harden: 15+,yes RJ Barrett: 15+,yes Scottie Barnes: 15+,yes Alperen Sengun: 10+,yes Jabari Smith Jr.: 10+,yes Anthony Edwards: 2+,yes Jaden McDaniels: 2+,yes Cade Cunningham: 2+,yes Tobias Harris: 2+,yes Jalen Suggs: 2+,yes Onyeka Okongwu: 4+,yes OG Anunoby: 4+,yes Dillon Brooks: 2+,yes Jalen Green: 2+,yes Kelly Oubre Jr.: 2+,yes Donovan Mitchell: 2+,yes RJ Barrett: 2+,yes Jrue Holiday: 2+,yes Stephon Castle: 2+,yes Over 202.5 points scored",sports,2026-04-25T07:19:51.768383Z,2026-04-26T23:38:43Z,NO,0.093,snapshot_fallback,107185.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026919849DA578-16B595F1C7A,"yes Boston,yes Cleveland,yes Los Angeles L,yes San Antonio",sports,2026-04-25T07:08:40.210864Z,2026-04-26T20:51:26Z,NO,0.04,snapshot_fallback,789148.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026D66471BB265-38A4A2ABA42,"yes Paolo Banchero: 1+,yes Shai Gilgeous-Alexander: 1+,yes Ausar Thompson: 2+,yes Jalen Suggs: 4+,yes Paolo Banchero: 4+,yes Orlando,yes New York,yes Phoenix,yes Donte DiVincenzo: 10+,yes Julius Randle: 15+,yes Desmond Bane: 15+,yes Franz Wagner: 10+,yes Jonathan Kuminga: 10+,yes Onyeka Okongwu: 10+,yes Devin Booker: 20+",sports,2026-04-25T05:40:36.460689Z,2026-04-25T20:39:07Z,NO,0.027,snapshot_fallback,476223.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20263C7E20EA897-74803A80CAD,"yes Los Angeles L,yes ANA Ducks",sports,2026-04-25T04:24:00.20889Z,2026-04-27T04:52:10Z,NO,0.22,snapshot_fallback,119473.0
+kalshi,KXMLBGAME-26APR272210MIALAD-MIA,Miami vs Los Angeles D Winner?,sports,2026-04-25T02:25:00Z,2026-04-28T05:11:59Z,NO,0.26,snapshot_fallback,2497376.21
+kalshi,KXMLBGAME-26APR272210MIALAD-LAD,Miami vs Los Angeles D Winner?,sports,2026-04-25T02:25:00Z,2026-04-28T05:11:59Z,YES,0.74,snapshot_fallback,4143021.23
+kalshi,KXMLBRFI-26APR272140CHCSD,Chicago C vs San Diego First Inning Run?,sports,2026-04-25T02:11:00Z,2026-04-28T02:11:23Z,YES,0.45,snapshot_fallback,104974.53
+kalshi,KXMLBGAME-26APR272140CHCSD-SD,Chicago C vs San Diego Winner?,sports,2026-04-25T01:55:00Z,2026-04-28T04:54:43Z,YES,0.51,snapshot_fallback,2852954.88
+kalshi,KXMLBGAME-26APR272140CHCSD-CHC,Chicago C vs San Diego Winner?,sports,2026-04-25T01:55:00Z,2026-04-28T04:54:43Z,NO,0.5,snapshot_fallback,2760802.66
+kalshi,KXMLBGAME-26APR272005NYYTEX-TEX,New York Y vs Texas Winner?,sports,2026-04-25T00:25:00Z,2026-04-28T03:00:31Z,NO,0.4,snapshot_fallback,1202431.32
+kalshi,KXMLBGAME-26APR272005NYYTEX-NYY,New York Y vs Texas Winner?,sports,2026-04-25T00:25:00Z,2026-04-28T03:00:31Z,YES,0.61,snapshot_fallback,1779271.85
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20261DD9048ECEB-6DC47CEC7C4,"yes Los Angeles L,yes Rui Hachimura: 20+",sports,2026-04-25T00:14:22.879437Z,2026-04-25T04:36:24Z,YES,0.729,snapshot_fallback,107944.0
+kalshi,KXLOLGAME-26APR280700TESWB-TES,Will Top Esports win the Top Esports vs. Weibo Gaming League of Legends match?,sports,2026-04-25T00:07:00Z,2026-04-28T13:10:33Z,NO,0.72,snapshot_fallback,146827.09
+kalshi,KXMLBGAME-26APR271940LAACWS-LAA,Los Angeles A vs Chicago WS Winner?,sports,2026-04-24T23:55:00Z,2026-04-28T05:40:11Z,NO,0.52,snapshot_fallback,3119720.78
+kalshi,KXMLBGAME-26APR271940LAACWS-CWS,Los Angeles A vs Chicago WS Winner?,sports,2026-04-24T23:55:00Z,2026-04-28T05:40:11Z,YES,0.49,snapshot_fallback,1268201.93
+kalshi,KXMLBGAME-26APR271940SEAMIN-SEA,Seattle vs Minnesota Winner?,sports,2026-04-24T23:55:00Z,2026-04-28T02:30:54Z,NO,0.55,snapshot_fallback,1537951.12
+kalshi,KXMLBGAME-26APR271940SEAMIN-MIN,Seattle vs Minnesota Winner?,sports,2026-04-24T23:55:00Z,2026-04-28T02:30:54Z,YES,0.46,snapshot_fallback,559375.09
+kalshi,KXMLBRFI-26APR271907BOSTOR,Boston vs Toronto First Inning Run?,sports,2026-04-24T23:41:00Z,2026-04-27T23:24:50Z,NO,0.43,snapshot_fallback,103690.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20261DD9048ECEB-C1639B34D76,"yes Los Angeles L,yes Amen Thompson: 25+",sports,2026-04-24T23:30:52.380966Z,2026-04-25T04:36:24Z,YES,0.73,snapshot_fallback,244959.0
+kalshi,KXMLBGAME-26APR271907BOSTOR-TOR,Boston vs Toronto Winner?,sports,2026-04-24T23:25:00Z,2026-04-28T01:44:56Z,NO,0.57,snapshot_fallback,1275519.23
+kalshi,KXMLBGAME-26APR271907BOSTOR-BOS,Boston vs Toronto Winner?,sports,2026-04-24T23:25:00Z,2026-04-28T01:44:56Z,YES,0.44,snapshot_fallback,737430.44
+kalshi,KXMLBGAME-26APR271840STLPIT-STL,St. Louis vs Pittsburgh Winner?,sports,2026-04-24T22:55:00Z,2026-04-28T01:35:03Z,YES,0.45,snapshot_fallback,1975027.16
+kalshi,KXMLBGAME-26APR271840STLPIT-PIT,St. Louis vs Pittsburgh Winner?,sports,2026-04-24T22:55:00Z,2026-04-28T01:35:03Z,NO,0.56,snapshot_fallback,1865750.99
+kalshi,KXMLBRFI-26APR271810TBCLE,Tampa Bay vs Cleveland First Inning Run?,sports,2026-04-24T22:40:00Z,2026-04-27T22:24:53Z,NO,0.47,snapshot_fallback,180333.75
+kalshi,KXMLBGAME-26APR271810TBCLE-TB,Tampa Bay vs Cleveland Winner?,sports,2026-04-24T22:25:00Z,2026-04-28T00:50:29Z,YES,0.45,snapshot_fallback,2283587.85
+kalshi,KXMLBGAME-26APR271810TBCLE-CLE,Tampa Bay vs Cleveland Winner?,sports,2026-04-24T22:25:00Z,2026-04-28T00:50:29Z,NO,0.57,snapshot_fallback,2057400.67
+kalshi,KXMVECROSSCATEGORY-S2026FF066F027E8-F137559ADBC,"yes Jaylen Brown: 2+,yes Tyrese Maxey: 2+,yes VJ Edgecombe: 2+,yes Jayson Tatum: 6+,yes Tyrese Maxey: 6+,yes Jaylen Brown: 20+,yes VJ Edgecombe: 10+,yes Jabari Smith Jr.: 10+,yes Marcus Smart: 10+,yes Jrue Holiday: 10+,yes Devin Vassell: 10+,yes Ayo Dosunmu: 10+,yes Donte DiVincenzo: 10+,yes Tobias Harris: 10+,yes Jalen Suggs: 10+,yes Payton Pritchard: 2+,yes VJ Edgecombe: 2+,yes Alperen Sengun: 6+,yes Tari Eason: 4+,yes LeBron James: 6+,yes Over 200.5 points scored,yes Over 191.5 points scored,yes Over 205.5 points scored,yes Over 214.5 points scored,yes Over 198.5 points scored,yes Over 199.5 points scored,yes Over 202.5 points scored,yes Over 205.5 points scored",sports,2026-04-24T19:00:25.56084Z,2026-04-25T02:35:14Z,NO,0.061,snapshot_fallback,103633.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026BE61E5E770B-4D60EB3C4D9,"yes Denver,yes Orlando,yes New York,yes Oklahoma City",sports,2026-04-24T14:12:58.98295Z,2026-04-26T03:43:46Z,NO,0.16,snapshot_fallback,200618.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20266CF3E8553BC-B54CCD5BFC7,"yes Manchester United,yes Espanyol,yes Atalanta,yes Lazio",sports,2026-04-24T02:49:08.119249Z,2026-04-27T19:09:39Z,NO,0.039,snapshot_fallback,377579.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202683F0670010E-7F98CF56F5B,"yes James Harden: 3+,yes CJ McCollum: 15+",sports,2026-04-23T18:05:55.475276Z,2026-04-24T03:52:48Z,YES,0.353,snapshot_fallback,101638.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C0C31178235-D8AE31FEE93,"yes Alaves,yes Atletico,yes Barcelona,yes Valencia",sports,2026-04-23T15:35:34.404305Z,2026-04-25T21:37:45Z,YES,0.961,snapshot_fallback,118785.0
+kalshi,KXMVECROSSCATEGORY-S2026371ACD35BC9-9BE440CEF12,"yes Atlanta,yes Boston",sports,2026-04-23T13:08:51.204223Z,2026-04-25T03:16:15Z,YES,0.961,snapshot_fallback,111718.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026173EC5DE7C3-D57E94AE09A,"yes Orlando,yes Minnesota",sports,2026-04-23T10:08:21.84972Z,2026-04-28T05:58:47Z,NO,0.054,snapshot_fallback,165988.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026EAF627F2F5F-001D4B85B32,"yes CJ McCollum: 1+,yes Jalen Brunson: 1+,yes Tyrese Maxey: 2+,yes Scottie Barnes: 4+,yes Nikola Jokić: 6+,yes Julius Randle: 4+,yes Donovan Mitchell: 25+,yes James Harden: 20+,yes Scottie Barnes: 15+,yes Jamal Murray: 25+,yes CJ McCollum: 15+,yes Karl-Anthony Towns: 15+,yes Jayson Tatum: 20+,yes Tyrese Maxey: 20+,yes Kevin Durant: 20+,yes Marcus Smart: 10+,yes Deni Avdija: 20+,yes De'Aaron Fox: 15+,yes Devin Vassell: 10+,yes Stephon Castle: 15+,yes Onyeka Okongwu: 4+,yes Josh Hart: 8+,yes Nikola Vučević: 4+",sports,2026-04-23T06:53:42.196193Z,2026-04-24T02:21:57Z,NO,0.15,snapshot_fallback,1077154.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20261DD9048ECEB-2C11974784A,"yes Los Angeles L,yes Marcus Smart: 20+",sports,2026-04-23T04:55:19.070027Z,2026-04-25T04:36:24Z,YES,0.729,snapshot_fallback,146756.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20262532936420A-093DB1ED7DF,"yes Brandon Ingram: 1+,yes Anthony Edwards: 2+,yes CJ McCollum: 1+,yes Nickeil Alexander-Walker: 2+,yes Tyrese Maxey: 2+,yes Scottie Barnes: 4+,yes Nikola Jokić: 6+,yes Julius Randle: 4+,yes Jalen Brunson: 4+,yes Jarrett Allen: 10+,yes James Harden: 15+,yes RJ Barrett: 15+,yes Cameron Johnson: 10+,yes Julius Randle: 15+,yes CJ McCollum: 15+,yes Onyeka Okongwu: 10+,yes Jaylen Brown: 20+,yes Tyrese Maxey: 20+,yes Deni Avdija: 20+,yes Paolo Banchero: 20+,yes Evan Mobley: 6+,yes Nikola Jokić: 10+,yes Rudy Gobert: 10+,yes Onyeka Okongwu: 4+,yes Josh Hart: 6+,yes Nikola Vučević: 4+,yes Donovan Clingan: 8+,yes Ausar Thompson: 4+,yes Paolo Banchero: 6+",sports,2026-04-23T04:31:56.145118Z,2026-04-24T02:21:11Z,NO,0.02,snapshot_fallback,206695.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026AB4B12EA5C2-639375A0510,"yes Leipzig,yes Sunderland,yes Real Madrid,yes Lens,yes Napoli",sports,2026-04-22T19:45:07.809381Z,2026-04-24T21:26:16Z,NO,0.028,snapshot_fallback,228133.0
+kalshi,KXMVECROSSCATEGORY-S2026B24D5FF1620-720B1BC9941,"yes Atlanta,yes Detroit",sports,2026-04-22T14:01:20.72885Z,2026-04-23T20:19:48Z,YES,0.961,snapshot_fallback,187050.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202671A9631518D-BF413B2253F,"yes Philadelphia,yes Houston,yes Portland",sports,2026-04-22T07:14:17.883849Z,2026-04-25T02:56:55Z,NO,0.021,snapshot_fallback,158766.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202671A9631518D-0A4318B42B0,"yes Boston,yes Houston,yes San Antonio",sports,2026-04-22T07:03:33.287929Z,2026-04-25T04:06:21Z,NO,0.05,snapshot_fallback,147740.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202671A9631518D-63462BC44D2,"yes Philadelphia,yes Los Angeles L,yes San Antonio",sports,2026-04-22T06:32:03.240016Z,2026-04-25T02:56:55Z,NO,0.079,snapshot_fallback,260415.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F2ED22E03BA-E1BE743E5A1,"yes Boston,yes Houston",sports,2026-04-22T06:02:06.218986Z,2026-04-25T04:21:49Z,NO,0.212,snapshot_fallback,140748.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202671A9631518D-6FD65EFA182,"yes Boston,yes Los Angeles L,yes San Antonio",sports,2026-04-22T06:01:31.42452Z,2026-04-25T05:47:12Z,YES,0.5,snapshot_fallback,961651.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202671A9631518D-D53B50D97B9,"yes Philadelphia,yes Los Angeles L,yes Portland",sports,2026-04-22T05:26:32.003892Z,2026-04-25T02:56:55Z,NO,0.04,snapshot_fallback,916794.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20269467624D55E-E4524FC515A,"yes Boston,yes Los Angeles L",sports,2026-04-22T04:39:34.052322Z,2026-04-27T04:45:22Z,NO,0.045,snapshot_fallback,241310.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268C7DB08CBB4-B951578F73A,"yes Boston,yes San Antonio",sports,2026-04-22T04:24:33.351652Z,2026-04-27T03:12:08Z,YES,0.961,snapshot_fallback,160144.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202671A9631518D-7EF36B23B3B,"yes Boston,yes Los Angeles L,yes Portland",sports,2026-04-22T04:11:54.312268Z,2026-04-25T05:47:12Z,NO,0.056,snapshot_fallback,185328.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20260F1C5DD5531-54A39D30DB9,"yes New York Y,yes New York",sports,2026-04-21T20:03:14.828038Z,2026-04-24T03:23:24Z,NO,0.354,snapshot_fallback,195439.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202691FEA8A298A-54A9D32C2DA,"yes Barcelona,yes Atletico,yes Real Sociedad",sports,2026-04-21T19:54:25.08023Z,2026-04-22T19:20:01Z,NO,0.2,snapshot_fallback,206125.0
+kalshi,KXBUNDESLIGASPREAD-26APR25M05BMU-BMU1,Bayern Munich wins by over 1.5 goals?,sports,2026-04-21T19:34:00Z,2026-04-25T15:32:14Z,NO,0.09,snapshot_fallback,129379.31
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026BD953ADE5F1-B98CB7519D0,"yes Cleveland,yes Cincinnati,yes Los Angeles L",sports,2026-04-21T14:41:48.362316Z,2026-04-22T06:25:13Z,YES,0.304,snapshot_fallback,168341.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026E8948312303-B6D21EDA6B2,"yes Cade Cunningham: 1+,yes Duncan Robinson: 2+,yes Tobias Harris: 1+,yes Desmond Bane: 1+,yes Franz Wagner: 1+,yes Jalen Suggs: 1+,yes Paolo Banchero: 1+,yes Chet Holmgren: 1+,yes Jalen Williams: 1+,yes Shai Gilgeous-Alexander: 1+,yes Devin Booker: 1+,yes Donovan Mitchell: 1+,yes James Harden: 1+,yes CJ McCollum: 1+,yes Jalen Johnson: 1+,yes Nickeil Alexander-Walker: 1+,yes Jalen Brunson: 1+,yes OG Anunoby: 1+,yes Alperen Sengun: 4+,yes Reed Sheppard: 2+,yes LeBron James: 6+,yes Jalen Suggs: 2+,yes Paolo Banchero: 4+,yes Cade Cunningham: 25+,yes Duncan Robinson: 10+,yes Desmond Bane: 15+,yes Franz Wagner: 10+,yes Jalen Suggs: 10+,yes Chet Holmgren: 15+,yes Jalen Williams: 15+,yes Devin Booker: 20+,yes Jalen Green: 15+,yes Ausar Thompson: 2+,yes Cade Cunningham: 4+,yes Franz Wagner: 2+,yes Paolo Banchero: 6+,yes Wendell Carter Jr.: 4+,yes Chet Holmgren: 6+,yes Isaiah Hartenstein: 4+,yes Jalen Williams: 2+,yes Dillon Brooks: 2+",sports,2026-04-21T13:16:25.31866Z,2026-04-23T03:05:40Z,NO,0.045,snapshot_fallback,4177524.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C83C499E233-8792DC8240D,"yes Houston wins by over 4.5 points,yes Boston wins by over 15.5 points,yes San Antonio wins by over 10.5 points,yes Over 208.5 points scored,yes Over 216.5 points scored,yes Over 219.5 points scored",sports,2026-04-21T12:14:05.081229Z,2026-04-22T02:39:24Z,NO,0.021,snapshot_fallback,131930.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026622831190D9-05553363B40,"yes Denver,yes New York",sports,2026-04-21T11:35:04.655857Z,2026-04-26T03:49:42Z,NO,0.035,snapshot_fallback,247924.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C7150D809B7-AB6F91AD5DD,"yes Cleveland,yes Minnesota,yes Atlanta",sports,2026-04-21T08:42:04.220589Z,2026-04-24T03:33:51Z,NO,0.037,snapshot_fallback,149006.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C7150D809B7-6A3F91CE757,"yes Toronto,yes Denver,yes New York",sports,2026-04-21T07:28:27.220927Z,2026-04-24T02:37:36Z,NO,0.078,snapshot_fallback,116194.0
+kalshi,KXNBAGAME-26APR27OKCPHX-PHX,Game 4: Oklahoma City at Phoenix Winner?,sports,2026-04-21T07:06:00Z,2026-04-28T04:18:21Z,NO,0.19,snapshot_fallback,11182108.89
+kalshi,KXNBAGAME-26APR27OKCPHX-OKC,Game 4: Oklahoma City at Phoenix Winner?,sports,2026-04-21T07:06:00Z,2026-04-28T04:18:21Z,YES,0.82,snapshot_fallback,8108257.83
+kalshi,KXNBAGAME-26APR27MINDEN-MIN,Game 5: Minnesota at Denver Winner?,sports,2026-04-21T07:06:00Z,2026-04-28T05:22:43Z,NO,0.2,snapshot_fallback,20545661.15
+kalshi,KXNBAGAME-26APR27MINDEN-DEN,Game 5: Minnesota at Denver Winner?,sports,2026-04-21T07:06:00Z,2026-04-28T05:22:43Z,YES,0.81,snapshot_fallback,6543880.78
+kalshi,KXNBAGAME-26APR27DETORL-ORL,Game 4: Detroit at Orlando Winner?,sports,2026-04-21T07:06:00Z,2026-04-28T02:58:12Z,YES,0.41,snapshot_fallback,16645499.29
+kalshi,KXNBAGAME-26APR27DETORL-DET,Game 4: Detroit at Orlando Winner?,sports,2026-04-21T07:06:00Z,2026-04-28T02:58:12Z,NO,0.59,snapshot_fallback,17435745.96
+kalshi,KXNBA2HWINNER-26APR23DENMIN-MIN,Denver vs Minnesota: Second Half Winner?,sports,2026-04-21T06:35:00Z,2026-04-24T04:11:34Z,NO,0.03,snapshot_fallback,105506.37
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C7150D809B7-6543EDC3266,"yes Toronto,yes Minnesota,yes Atlanta",sports,2026-04-21T05:32:43.410612Z,2026-04-24T04:17:04Z,YES,0.961,snapshot_fallback,169914.0
+kalshi,KXNFLDRAFTCAT-26QBR1-2,Will there be 2+ quarterbacks drafted 1st Round?,sports,2026-04-21T14:00:00Z,2026-04-24T01:27:47Z,YES,0.64,snapshot_fallback,213696.36
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A640C694309-3A1D57D13C3,"yes Philadelphia,yes Portland,yes Phoenix",sports,2026-04-20T20:36:48.056306Z,2026-04-23T05:13:13Z,NO,0.044,snapshot_fallback,219070.0
+kalshi,KXMLBSPREAD-26APR211910MINNYM-NYM2,New York M wins by over 1.5 runs?,sports,2026-04-20T19:21:00Z,2026-04-22T02:00:57Z,NO,0.02,snapshot_fallback,218879.98
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202683D12E744BC-81456EBE2B7,"yes Shohei Ohtani: 1+,yes Mike Trout: 1+,yes Vladimir Guerrero Jr.: 1+,yes New York",sports,2026-04-20T13:12:17.830445Z,2026-04-21T04:00:10Z,NO,0.02,snapshot_fallback,153921.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026163F05046A1-D19CE3520AF,"yes Los Angeles L,yes Philadelphia,yes San Antonio",sports,2026-04-20T09:16:07.639932Z,2026-04-22T04:21:00Z,NO,0.027,snapshot_fallback,119458.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F2ED22E03BA-7AF494F787B,"yes Boston,yes Los Angeles L",sports,2026-04-20T09:10:04.050573Z,2026-04-25T04:21:49Z,YES,0.961,snapshot_fallback,185916.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202658E418BB4AA-0440497821F,"yes Los Angeles L,yes San Antonio",sports,2026-04-20T07:05:09.088579Z,2026-04-25T05:49:11Z,YES,0.96,snapshot_fallback,188699.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026043B6EA826C-15A9856E130,"yes Los Angeles L,yes Philadelphia,yes Portland,yes Orlando",sports,2026-04-20T06:10:52.822163Z,2026-04-23T02:16:33Z,NO,0.261,snapshot_fallback,105342.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F7D5D359C60-FF15EE577E8,"yes Arsenal,yes Aston Villa,yes Liverpool,yes West Ham,yes Tottenham",sports,2026-04-20T04:50:37.129502Z,2026-04-25T13:38:38Z,NO,0.032,snapshot_fallback,128758.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026163F05046A1-C1D718AA476,"yes Houston,yes Philadelphia,yes Portland",sports,2026-04-20T04:13:42.46892Z,2026-04-22T06:45:04Z,NO,0.073,snapshot_fallback,109913.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A640C694309-1B5B2B22F64,"yes Boston,yes San Antonio,yes Oklahoma City",sports,2026-04-20T04:09:15.933608Z,2026-04-22T02:21:52Z,NO,0.262,snapshot_fallback,126252.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C9CD61DE2A4-A7A42FFFC09,"yes Boston,yes Houston,yes Cincinnati,yes Miami,yes Atlanta,yes Baltimore,yes Chicago C,yes Over 212.5 points scored,yes Over 215.5 points scored,yes Over 208.5 points scored,yes Over 210.5 points scored",sports,2026-04-20T03:45:39.541333Z,2026-04-22T02:39:06Z,NO,0.68,snapshot_fallback,1215633.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026C572AA872E1-E88001602E3,"yes Cleveland,yes New York",sports,2026-04-20T01:19:04.081784Z,2026-04-24T03:07:21Z,NO,0.214,snapshot_fallback,225832.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202604358481396-4A6E6B9D2FE,"yes Cleveland,yes Minnesota",sports,2026-04-20T00:40:10.996618Z,2026-04-24T03:46:21Z,NO,0.043,snapshot_fallback,167769.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026163F05046A1-BDAA8053A2B,"yes Los Angeles L,yes Boston,yes San Antonio",sports,2026-04-19T23:48:57.43209Z,2026-04-22T03:15:13Z,NO,0.06,snapshot_fallback,174212.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026BE270F11C41-EF883043E90,"yes Denver,yes New York",sports,2026-04-19T22:40:05.347269Z,2026-04-24T02:38:43Z,NO,0.186,snapshot_fallback,172169.0
+kalshi,KXMLBSPREAD-26APR202140ATHSEA-SEA2,Seattle wins by over 1.5 runs?,sports,2026-04-19T22:31:00Z,2026-04-21T04:30:56Z,NO,0.02,snapshot_fallback,217684.6
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202636DC0CFBCC7-42A60A25416,"yes Philadelphia,yes Portland",sports,2026-04-19T21:29:05.46324Z,2026-04-22T04:38:02Z,YES,0.98,snapshot_fallback,338433.0
+kalshi,KXMLBRFI-26APR221507TORLAA,Toronto vs Los Angeles A First Inning Run?,sports,2026-04-19T19:41:00Z,2026-04-22T19:24:55Z,NO,0.04,snapshot_fallback,120086.95
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202640283264FEE-27EECE15A88,"yes Duncan Robinson: 2+,yes Payton Pritchard: 2+,yes Cade Cunningham: 10+,yes Shai Gilgeous-Alexander: 6+,yes Stephon Castle: 4+,yes Jaylen Brown: 20+,yes Payton Pritchard: 10+,yes VJ Edgecombe: 10+,yes Chet Holmgren: 10+,yes Jalen Green: 15+,yes Stephon Castle: 10+,yes Tobias Harris: 4+,yes Paolo Banchero: 6+,yes Jayson Tatum: 6+,yes Chet Holmgren: 6+,yes Isaiah Hartenstein: 6+,yes Dillon Brooks: 2+,yes Donovan Clingan: 10+,yes Victor Wembanyama: 10+,yes Detroit wins by over 3.5 points,yes Boston wins by over 4.5 points,yes Oklahoma City wins by over 9.5 points,yes San Antonio wins by over 8.5 points",sports,2026-04-19T11:28:29.717003Z,2026-04-20T02:28:19Z,NO,0.25,snapshot_fallback,394760.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20263BC69B5F912-9A6C2E1D811,"yes New York,yes Denver,yes Cleveland",sports,2026-04-19T01:11:06.987465Z,2026-04-21T03:52:25Z,NO,0.085,snapshot_fallback,409800.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268CD8E193D65-1DA9F63C21B,"yes New York,yes Cleveland",sports,2026-04-19T01:10:59.381034Z,2026-04-21T04:05:00Z,NO,0.091,snapshot_fallback,135025.0
+kalshi,KXNBATOTAL-26APR20ATLNYK-224,Game 2: Atlanta at New York: Spread,sports,2026-04-19T01:07:00Z,2026-04-21T03:01:44Z,NO,0.32,snapshot_fallback,419560.84
+kalshi,KXMLBSPREAD-26APR191605CWSATH-ATH2,A's wins by over 1.5 runs?,sports,2026-04-18T21:11:00Z,2026-04-19T23:04:41Z,NO,0.03,snapshot_fallback,145328.97
+kalshi,KXMVECROSSCATEGORY-S2026D58D6DBB6F1-A85ACCCFC7F,"yes Detroit,yes Boston,yes Oklahoma City,yes San Antonio",sports,2026-04-18T21:00:31.336368Z,2026-04-20T01:22:26Z,NO,0.104,snapshot_fallback,858772.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20265FCD2C1D6D6-234CBE0A3D9,"yes Boston,yes Oklahoma City,yes San Antonio",sports,2026-04-18T20:59:22.26539Z,2026-04-20T04:43:59Z,YES,0.975,snapshot_fallback,148820.0
+kalshi,KXNBATOTAL-26APR19ORLDET-227,Game 1: Orlando at Detroit: Spread,sports,2026-04-18T20:57:00Z,2026-04-20T01:20:19Z,NO,0.08,snapshot_fallback,182335.15
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202679ED20CB4D6-3DF45FC07BE,"yes Kevin Durant: 3+,yes LeBron James: 3+,yes Amen Thompson: 6+,yes Marcus Smart: 1+",sports,2026-04-18T19:41:50.19874Z,2026-04-19T04:43:09Z,NO,0.092,snapshot_fallback,130576.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026FA4A5F1BD38-37E9484771D,"yes EDM Oilers,yes DAL Stars",sports,2026-04-18T14:25:25.138918Z,2026-04-23T05:04:06Z,NO,0.024,snapshot_fallback,142597.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20260B8E90AA290-9D9F80DD8F3,"yes Atlanta,yes Houston,yes Minnesota,yes Cleveland",sports,2026-04-18T04:19:57.047395Z,2026-04-18T22:24:33Z,NO,0.054,snapshot_fallback,119018.0
+kalshi,KXMLBSPREAD-26APR181410CINMIN-MIN2,Minnesota wins by over 1.5 runs?,sports,2026-04-18T02:01:00Z,2026-04-18T21:15:11Z,NO,0.02,snapshot_fallback,224643.34
+kalshi,KXVALORANTGAME-26APR211600ADGQOR-QOR,Will QoR win the Azure Dragon Gaming vs. QoR Valorant match?,sports,2026-04-18T00:27:00Z,2026-04-21T23:03:11Z,YES,0.97,snapshot_fallback,119746.15
+kalshi,KXMLBSPREAD-26APR181915TEXSEA-SEA2,Seattle wins by over 1.5 runs?,sports,2026-04-17T19:11:00Z,2026-04-19T02:34:44Z,YES,0.94,snapshot_fallback,116997.82
+kalshi,KXNHLSERIES-26LACOLR1-LA,Los Angeles Kings vs Colorado Avalanche 2026 1st Round series winner?,sports,2026-04-17T16:30:00Z,2026-04-26T23:33:43Z,NO,0.02,snapshot_fallback,110753.69
+kalshi,KXNHLSERIES-26LACOLR1-COL,Los Angeles Kings vs Colorado Avalanche 2026 1st Round series winner?,sports,2026-04-17T16:30:00Z,2026-04-26T23:33:43Z,YES,0.98,snapshot_fallback,257733.07
+kalshi,KXMLBRFI-26APR201110DETBOS,Detroit vs Boston First Inning Run?,sports,2026-04-17T15:41:00Z,2026-04-20T15:34:47Z,NO,0.05,snapshot_fallback,182542.56
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268B6B21A5C78-F63CE4E82B8,"yes New York,yes Denver,yes Cleveland",sports,2026-04-17T00:37:55.148557Z,2026-04-19T01:29:43Z,YES,0.961,snapshot_fallback,110647.0
+kalshi,KXMLBSPREAD-26APR171810BALCLE-CLE2,Cleveland wins by over 1.5 runs?,sports,2026-04-16T21:21:00Z,2026-04-18T01:25:05Z,NO,0.18,snapshot_fallback,256836.45
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026FEEF8AE4362-A981D05CADA,"yes Kon Knueppel: 15+,yes LaMelo Ball: 20+,yes Miles Bridges: 15+,yes Jalen Suggs: 15+,yes Paolo Banchero: 15+,yes Dillon Brooks: 10+,yes Jalen Green: 15+,yes Paolo Banchero: 6+",sports,2026-04-16T18:47:49.193068Z,2026-04-18T04:19:53Z,NO,0.034,snapshot_fallback,151226.53
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20261C052AB5015-B8FC1F31253,"yes Los Angeles D,yes Phoenix",sports,2026-04-16T15:46:55.085229Z,2026-04-18T05:50:58Z,YES,0.642,snapshot_fallback,107491.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20265E85A3D0438-926EF2486DF,"yes Stephen Curry: 4+,yes LaMelo Ball: 6+,yes Charlotte,yes Brandon Miller: 15+,yes Desmond Bane: 15+,yes Kristaps Porziņģis: 20+,yes Stephen Curry: 25+,yes Devin Booker: 20+,yes Dillon Brooks: 15+,yes Mark Williams: 4+,yes Over 206.5 points scored",sports,2026-04-16T09:06:04.462799Z,2026-04-18T03:34:26Z,NO,0.3,snapshot_fallback,902363.27
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202603A4EDB0160-1935234D91A,"yes Charlotte,yes Golden State",sports,2026-04-16T07:10:35.332048Z,2026-04-18T03:39:55Z,NO,0.26,snapshot_fallback,850284.59
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026728F8EC3DF7-CDA923ACA2A,"yes Pittsburgh,yes Cincinnati,yes Detroit,yes Cleveland",sports,2026-04-16T04:45:05.571249Z,2026-04-16T19:23:28Z,NO,0.072,snapshot_fallback,220751.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026AF921DC724E-B1DDCB27D7C,"yes Houston,yes San Diego",sports,2026-04-15T23:02:31.370393Z,2026-04-17T04:26:24Z,NO,0.285,snapshot_fallback,175306.0
+kalshi,KXMLBRFI-26APR181605TBPIT,Tampa Bay vs Pittsburgh First Inning Run?,sports,2026-04-15T20:41:00Z,2026-04-18T19:50:35Z,YES,0.98,snapshot_fallback,770281.76
+kalshi,KXMLBSPREAD-26APR161240SFCIN-CIN2,Cincinnati wins by over 1.5 runs?,sports,2026-04-15T20:11:00Z,2026-04-16T19:14:55Z,NO,0.02,snapshot_fallback,232046.24
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202697147E0CD26-E2A746C31A7,"no San Francisco wins by over 1.5 runs,yes Pittsburgh wins by over 1.5 runs,yes Atlanta wins by over 1.5 runs,no Seattle wins by over 1.5 runs,yes Los Angeles D wins by over 1.5 runs,yes Stephen Curry: 2+,yes Tyrese Maxey: 1+,yes Tyrese Maxey: 2+,yes Bennedict Mathurin: 10+,yes Over 220.5 points scored,yes Over 223.5 points scored,no Dallas wins by over 1.5 goals",sports,2026-04-15T06:19:57.994481Z,2026-04-16T02:45:03Z,NO,0.284,snapshot_fallback,941367.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20269CED96ABD9B-216CF862E06,"yes DAL Stars,yes DET Red Wings,yes TB Lightning,yes VGK Golden Knights,yes SJ Sharks,yes OTT Senators",sports,2026-04-15T00:24:16.624541Z,2026-04-16T02:03:38Z,NO,0.627,snapshot_fallback,212353.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026395B2B78E9D-CD5547F2BF1,"yes Los Angeles D,yes Los Angeles C",sports,2026-04-14T12:31:53.569749Z,2026-04-16T04:53:36Z,NO,0.027,snapshot_fallback,123372.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20260C74E68527A-44EE67CC709,"yes New York Y,yes Cleveland,yes Los Angeles D,yes Phoenix,yes Over 227.5 points scored,yes COL Avalanche,yes BOS Bruins,yes UTA Mammoth",sports,2026-04-14T12:06:28.900989Z,2026-04-15T02:14:26Z,NO,0.12,snapshot_fallback,476593.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F9296523C98-EBBDA3F942F,"yes Atlanta,yes Los Angeles L",sports,2026-04-14T09:36:24.800754Z,2026-04-19T01:23:19Z,NO,0.057,snapshot_fallback,100019.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026B3C1F572280-6ACDAE0D6FB,"yes Over 6.5 runs scored,yes Over 6.5 runs scored,yes Over 5.5 runs scored,yes Over 6.5 runs scored,yes Over 7.5 runs scored,yes Over 7.5 runs scored,yes Over 6.5 runs scored,yes Over 6.5 runs scored,yes Over 6.5 runs scored,yes Over 4.5 runs scored,yes Over 4.5 runs scored,yes Over 4.5 runs scored,yes Over 4.5 runs scored,yes Over 5.5 runs scored",sports,2026-04-14T04:58:27.971076Z,2026-04-15T01:08:32Z,NO,0.419,snapshot_fallback,597898.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202647F746D3F8A-A44EFB6E3FE,"yes Bilbao,yes Girona,yes Mallorca,yes Real Madrid",sports,2026-04-14T02:13:54.21859Z,2026-04-21T19:15:45Z,NO,0.08,snapshot_fallback,344888.77
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202629FED22559A-64581AF0D96,"yes Golden State,yes Orlando",sports,2026-04-13T16:16:41.635532Z,2026-04-16T02:20:45Z,NO,0.18,snapshot_fallback,203253.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202629FED22559A-35CCE0B1D7B,"yes Golden State,yes Philadelphia",sports,2026-04-13T16:13:26.507627Z,2026-04-16T04:53:48Z,YES,0.961,snapshot_fallback,221592.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026636AD31D221-23EF643627B,"yes Charlotte,yes Phoenix,yes Los Angeles C,yes Philadelphia",sports,2026-04-13T16:06:17.0717Z,2026-04-15T04:53:10Z,NO,0.336,snapshot_fallback,195081.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202629FED22559A-5683AE7CFAE,"yes Los Angeles C,yes Philadelphia",sports,2026-04-13T16:06:06.347157Z,2026-04-16T04:53:48Z,NO,0.47,snapshot_fallback,248517.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20269320ABEA3F4-8506F4A7BFE,"yes Davion Mitchell: 2+,yes Deni Avdija: 6+,yes Kon Knueppel: 15+,yes Davion Mitchell: 10+,yes Deni Avdija: 20+,yes Toumani Camara: 10+,yes Over 215.5 points scored,yes Over 207.5 points scored",sports,2026-04-13T11:02:56.054177Z,2026-04-15T02:58:05Z,NO,0.05,snapshot_fallback,224752.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026AD7C6D9FFA0-75F5F65FFF4,"yes Charlotte,yes Portland",sports,2026-04-13T07:05:48.39944Z,2026-04-15T04:54:06Z,YES,0.057,snapshot_fallback,112491.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20262843CC0D2A9-3DDCDDA3279,"yes Jose Altuve: 1+,yes Randy Arozarena: 1+,yes Corbin Carroll: 1+,yes Gunnar Henderson: 1+,yes Pete Crow-Armstrong: 1+,yes Bryce Harper: 1+,yes Oneil Cruz: 1+,yes Mike Trout: 1+,yes Cody Bellinger: 1+,yes Matt Olson: 1+,yes Ronald Acuña Jr.: 1+,yes Freddie Freeman: 1+,yes Shohei Ohtani: 1+,yes Teoscar Hernández: 1+",sports,2026-04-13T04:58:35.06165Z,2026-04-13T22:37:30Z,NO,0.05,snapshot_fallback,1715060.0
+kalshi,KXMVECROSSCATEGORY-S2026BE447EFE8F8-A90F196326F,"yes BUF Sabres,yes CAR Hurricanes,yes COL Avalanche,yes DAL Stars,yes TB Lightning,yes LA Kings,yes FLA Panthers,yes NSH Predators,yes VGK Golden Knights",sports,2026-04-13T04:15:21.221124Z,2026-04-14T02:41:57Z,NO,0.304,snapshot_fallback,805592.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20267AE43E13E64-1CAF55345E1,"yes Seattle,yes Baltimore,yes Philadelphia,yes Pittsburgh,yes New York Y,yes Atlanta,yes Boston,yes Cleveland,yes Texas,yes Los Angeles D",sports,2026-04-13T01:37:57.829068Z,2026-04-14T02:23:05Z,NO,0.1,snapshot_fallback,3784208.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20267E5B053C875-0DEA7F60447,"yes Philadelphia,yes A's,yes Tampa Bay,yes Boston,yes Pittsburgh",sports,2026-04-12T19:16:54.781776Z,2026-04-12T20:38:06Z,NO,0.373,snapshot_fallback,141243.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026004FE4BAFED-000C5D461EA,"yes Miami,yes Toronto,yes Charlotte,yes Dallas,yes San Antonio,yes Detroit,yes Los Angeles C,yes Houston,yes Minnesota,yes Oklahoma City,yes Portland,yes Los Angeles L,yes Cleveland,yes Over 251.5 points scored,yes Over 238.5 points scored,yes Over 226.5 points scored,yes Over 248.5 points scored,yes Over 212.5 points scored,yes Over 225.5 points scored,yes Over 233.5 points scored",sports,2026-04-12T18:01:19.7527Z,2026-04-13T02:50:07Z,NO,0.567,snapshot_fallback,118747.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026E70DD3070B7-DBBA9898EDE,"yes Aston Villa,yes Liverpool,yes Manchester City,yes Nottingham",sports,2026-04-12T17:38:32.266424Z,2026-04-19T18:22:50Z,YES,0.961,snapshot_fallback,228337.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268D0559C8E88-910249C550E,"yes Toronto,yes Charlotte,yes Dallas,yes San Antonio,yes Detroit,yes Los Angeles C,yes Houston,yes Philadelphia,yes Minnesota,yes Orlando,yes Phoenix,yes Los Angeles L,yes Cleveland,yes CBJ Blue Jackets,yes OTT Senators,yes WSH Capitals,yes UTA Mammoth,yes ANA Ducks",sports,2026-04-12T04:54:24.120607Z,2026-04-13T01:50:56Z,NO,0.024,snapshot_fallback,746313.0
+kalshi,KXUFCFIGHT-26APR18ALDHOR-HOR,"Will Jamey-Lyn Horth win the Aldrich vs Horth professional MMA fight scheduled for Apr 18, 2026?",sports,2026-04-12T04:40:00Z,2026-04-18T22:22:15Z,NO,0.02,snapshot_fallback,352224.82
+kalshi,KXUFCFIGHT-26APR18ALDHOR-ALD,"Will Jj Aldrich win the Aldrich vs Horth professional MMA fight scheduled for Apr 18, 2026?",sports,2026-04-12T04:40:00Z,2026-04-18T22:22:15Z,YES,0.98,snapshot_fallback,382350.81
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F31D72C08BA-ACB9A14C405,"yes Miami,yes Toronto,yes Charlotte,yes Dallas,yes San Antonio,yes Detroit,yes Los Angeles C,yes Houston,yes Philadelphia,yes Minnesota,yes Orlando,yes Oklahoma City,yes Portland,yes Los Angeles L,yes Cleveland",sports,2026-04-11T21:20:43.812881Z,2026-04-13T01:51:10Z,NO,0.5,snapshot_fallback,263426.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026477B289CA96-BF00F861402,"yes Toronto,yes Charlotte,yes Dallas,yes San Antonio,yes Detroit,yes Los Angeles C,yes Houston,yes Philadelphia,yes Minnesota,yes Orlando,yes Oklahoma City,yes Portland,yes Los Angeles L,yes Cleveland",sports,2026-04-11T19:17:44.458914Z,2026-04-13T01:53:22Z,NO,0.054,snapshot_fallback,252923.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202690B0860B2F2-D7B619FF9EF,"yes New York M,yes Kansas City,yes New York Y,no Over 7.5 runs scored,no Over 7.5 runs scored",sports,2026-04-11T15:59:47.05467Z,2026-04-11T23:33:55Z,NO,0.081,snapshot_fallback,100344.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F58770541DD-707571135C0,"yes Denver,yes Los Angeles C,yes Minnesota",sports,2026-04-11T11:14:40.167968Z,2026-04-13T03:23:16Z,YES,0.96,snapshot_fallback,106697.0
+kalshi,KXNBATOTAL-26APR12SACPOR-243,Sacramento at Portland: Total Points,sports,2026-04-11T10:06:00Z,2026-04-13T03:07:33Z,NO,0.02,snapshot_fallback,122117.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026801A9E87051-64DDF6B17C3,"yes Denver,yes Golden State",sports,2026-04-11T07:29:35.586274Z,2026-04-13T03:15:48Z,NO,0.025,snapshot_fallback,105918.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026280CF4637CA-1F2DA208B79,"yes Atlanta,yes Charlotte,yes San Antonio,yes Los Angeles C,yes Orlando,yes Oklahoma City",sports,2026-04-11T07:04:03.698963Z,2026-04-13T00:34:35Z,NO,0.102,snapshot_fallback,145392.0
+kalshi,KXMLBSPREAD-26APR111420PITCHC-CHC2,Chicago C wins by over 1.5 runs?,sports,2026-04-10T23:01:00Z,2026-04-11T22:10:30Z,NO,0.02,snapshot_fallback,137491.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20269A9AA1F6AA0-D1A965058B0,"yes A's,yes Tampa Bay,yes Cleveland,no Over 8.5 runs scored",sports,2026-04-10T21:21:55.927662Z,2026-04-11T02:45:14Z,NO,0.058,snapshot_fallback,130116.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026BEE82B35A55-469E65F72A7,"no Baltimore wins by over 1.5 runs,no Over 13.5 runs scored",sports,2026-04-10T20:24:01.690108Z,2026-04-11T02:45:12Z,YES,0.598,snapshot_fallback,144179.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026B40BA90C3ED-45C56BE56EF,"yes Golden State,yes Los Angeles C,yes Minnesota,yes Phoenix",sports,2026-04-10T16:15:14.509858Z,2026-04-11T04:43:13Z,NO,0.077,snapshot_fallback,121824.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S202638DF2861990-D4CCA4E21ED,"yes Shai Gilgeous-Alexander: 7+,yes Ayo Dosunmu: 20+,yes Shai Gilgeous-Alexander: 30+,yes Dillon Brooks: 20+,yes Nikola Jokić: 12+,yes Julius Randle: 6+,yes Dillon Brooks: 5+",sports,2026-04-27T16:04:05.596664Z,2026-04-28T04:55:41Z,NO,0.046,snapshot_fallback,242797.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026FD64B8134E5-22C97555A6F,"no Over 233.5 points scored,yes Over 222.5 points scored,yes Over 221.5 points scored,yes Over 208.5 points scored,yes Over 215.5 points scored,no Over 231.5 points scored,no Over 241.5 points scored,no Over 261.5 points scored,yes Over 203.5 points scored,yes Over 215.5 points scored,yes Over 225.5 points scored,no Over 247.5 points scored,no Over 240.5 points scored,yes Over 213.5 points scored,yes Over 204.5 points scored",sports,2026-04-10T08:17:10.154354Z,2026-04-11T03:42:53Z,NO,0.228,snapshot_fallback,1818945.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026FA482C45B08-14E8BBA4EC0,"yes Milwaukee,yes Atlanta,yes San Antonio,yes Charlotte,yes Golden State,yes Los Angeles C,yes Utah,yes Miami,yes Houston,yes Boston,yes Denver,yes Orlando,yes Philadelphia,yes Los Angeles L,yes New York",sports,2026-04-10T07:07:35.334933Z,2026-04-11T01:47:54Z,NO,0.028,snapshot_fallback,119807.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026537AC9BC706-611443A2AC5,"yes Atlanta,yes San Antonio,yes Charlotte,yes Golden State,yes Portland,yes Utah,yes Miami,yes Houston,yes Boston,yes Orlando,yes New York",sports,2026-04-10T04:05:30.8672Z,2026-04-11T01:50:18Z,NO,0.242,snapshot_fallback,404670.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026DFF26BBB8FB-15C2689B5D0,"no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 11.5 runs scored,no Over 11.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 10.5 runs scored,no Over 11.5 runs scored",sports,2026-04-10T03:03:20.4323Z,2026-04-11T01:33:09Z,NO,0.025,snapshot_fallback,161448.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20265C6C8F19D4B-843944DD6C2,"yes New York M,yes New York,yes Golden State,yes CBJ Blue Jackets,yes PHI Flyers",sports,2026-04-09T19:03:55.37188Z,2026-04-10T02:07:14Z,NO,0.057,snapshot_fallback,149382.0
+kalshi,KXMLBSPREAD-26APR101910ATHNYM-NYM2,New York M wins by over 1.5 runs?,sports,2026-04-09T19:12:00Z,2026-04-11T01:50:44Z,NO,0.03,snapshot_fallback,134083.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026D9BBB116A79-8610B785FE5,"yes New York Y,yes Minnesota,yes Arizona,yes Kansas City,yes San Diego",sports,2026-04-09T08:35:02.563066Z,2026-04-09T20:21:05Z,NO,0.068,snapshot_fallback,117228.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026B65103C7C04-27CDD1B1063,"yes New York,yes Chicago,yes Indiana,yes Los Angeles L,yes Toronto,yes Houston",sports,2026-04-09T04:12:42.284119Z,2026-04-10T04:41:16Z,YES,0.961,snapshot_fallback,156684.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A19B4FFB576-5E2E2BADE85,"yes New York,yes Chicago,yes Indiana,yes Toronto,yes Houston",sports,2026-04-09T04:06:25.898239Z,2026-04-10T03:06:43Z,YES,0.95,snapshot_fallback,174810.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026B65103C7C04-3491A455960,"yes New York,yes Chicago,yes Indiana,yes Golden State,yes Toronto,yes Houston",sports,2026-04-09T04:05:28.978689Z,2026-04-10T04:41:16Z,NO,0.031,snapshot_fallback,1318960.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026B65103C7C04-CC7B50A93F9,"yes Boston,yes Chicago,yes Indiana,yes Golden State,yes Toronto,yes Houston",sports,2026-04-09T04:04:43.587354Z,2026-04-10T02:06:15Z,NO,0.25,snapshot_fallback,162927.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A73E866BFF0-490B560D7CC,"yes New York M,yes Kansas City,yes San Diego",sports,2026-04-09T00:17:48.887677Z,2026-04-10T02:08:32Z,NO,0.026,snapshot_fallback,113712.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026F189BD03DCC-028F6B9C4F1,"yes Los Angeles D,yes Colorado,yes San Francisco,yes St. Louis,yes Atlanta,yes Arizona",sports,2026-04-08T20:14:04.693811Z,2026-04-08T22:10:13Z,NO,0.237,snapshot_fallback,156673.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A06A45EBE8F-4A2DD2565BB,"yes Cleveland,yes Boston,yes Chicago WS,yes Sorana Cirstea",sports,2026-04-08T18:50:24.729811Z,2026-04-08T21:24:04Z,NO,0.585,snapshot_fallback,167729.0
+kalshi,KXMVECROSSCATEGORY-S2026F125B26F6B6-5F5C479E209,"yes Milwaukee,yes Baltimore,yes Los Angeles D,yes Miami,yes New York Y,yes New York M",sports,2026-04-08T13:09:45.227276Z,2026-04-08T20:24:51Z,NO,0.038,snapshot_fallback,100985.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20261B2E14BD170-A5EF4092244,"yes Memphis,yes Milwaukee",sports,2026-04-08T04:54:22.685179Z,2026-04-09T01:49:53Z,NO,0.12,snapshot_fallback,284918.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20262C6E970B269-FECE7A313F9,"yes Phoenix,yes Denver,yes Detroit,yes Orlando,yes Oklahoma City",sports,2026-04-08T04:09:40.094907Z,2026-04-09T04:46:49Z,YES,0.961,snapshot_fallback,104507.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20267F346173A80-17F9F79D05F,"yes Cleveland,yes Phoenix,yes Denver,yes Detroit,yes Orlando,yes Oklahoma City,yes San Antonio",sports,2026-04-08T04:05:17.38695Z,2026-04-09T04:46:01Z,YES,0.961,snapshot_fallback,383872.0
+kalshi,KXHOCHULMENTION-26APR08-BUFF,What will Kathy Hochul say during next Governor Kathy Hochul announcement?,elections,2026-04-08T02:00:00Z,2026-04-08T18:47:47Z,YES,0.98,snapshot_fallback,107751.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20261E07FB0525A-0E9A61E5EF7,"yes Oklahoma City,yes San Antonio",sports,2026-04-08T01:37:14.509484Z,2026-04-09T04:39:45Z,YES,0.891,snapshot_fallback,140703.0
+kalshi,KXFIGHTMENTION-26APR11BLAHOK-WHAT,What will the announcers say during Curtis Blaydes vs Josh Hokit UFC Fight?,sports,2026-04-08T01:17:00Z,2026-04-12T15:06:36Z,YES,0.94,snapshot_fallback,257326.11
+kalshi,KXNBATOTAL-26APR08PORSAS-227,Portland at San Antonio: Total Points,sports,2026-04-08T01:06:00Z,2026-04-09T04:13:33Z,NO,0.02,snapshot_fallback,269244.0
+kalshi,KXNBATOTAL-26APR08ATLCLE-242,Atlanta at Cleveland: Total Points,sports,2026-04-08T01:06:00Z,2026-04-09T01:43:36Z,NO,0.08,snapshot_fallback,224251.0
+kalshi,KXMLBSPREAD-26APR081940DETMIN-DET2,Detroit wins by over 1.5 runs?,sports,2026-04-07T21:41:00Z,2026-04-09T02:44:44Z,NO,0.06,snapshot_fallback,117646.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20260B93ABFB78F-DA0B0DBE8BC,"yes Hoffenheim,yes West Ham,yes Real Madrid,yes Marseille,yes Monaco,yes Roma",sports,2026-04-07T21:18:45.918789Z,2026-04-10T19:10:07Z,NO,0.059,snapshot_fallback,129031.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20265913A321D82-C288776DF73,"yes Dallas,yes Houston,yes Sacramento",sports,2026-04-07T07:02:26.609543Z,2026-04-08T04:44:49Z,NO,0.545,snapshot_fallback,101488.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A9CA664E023-9E7B29E5E70,"yes Boston,yes Chicago,yes Los Angeles C,yes Houston,yes Toronto,yes Milwaukee,yes Minnesota,yes Oklahoma City,yes Golden State,yes New Orleans",sports,2026-04-07T04:07:23.753663Z,2026-04-08T02:38:30Z,NO,0.021,snapshot_fallback,1046620.0
+kalshi,KXNBATOTAL-26APR07MILBKN-205,Milwaukee at Brooklyn: Total Points,sports,2026-04-07T04:06:00Z,2026-04-08T02:10:36Z,NO,0.05,snapshot_fallback,167953.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026659AF075302-236E985EDFC,"yes Curtis Blaydes,yes Paulo Henrique Costa,yes Carlos Ulberg",sports,2026-04-07T03:37:34.969165Z,2026-04-12T03:04:39Z,NO,0.022,snapshot_fallback,102240.0
+kalshi,KXMLBSPREAD-26APR072145PHISF-PHI2,Philadelphia wins by over 1.5 runs?,sports,2026-04-06T20:21:00Z,2026-04-08T04:30:20Z,NO,0.02,snapshot_fallback,127144.0
+kalshi,KXMVECROSSCATEGORY-S2026EAFA6DC7EFE-E553D6F12A3,"yes Ausar Thompson: 2+,yes Tobias Harris: 2+,yes Jalen Suggs: 4+,yes Paolo Banchero: 4+,yes Julius Randle: 4+,yes Devin Booker: 4+,yes Jalen Green: 2+,yes Derrick White: 2+,yes Payton Pritchard: 4+,yes Tobias Harris: 10+,yes Desmond Bane: 15+,yes Franz Wagner: 10+,yes Paolo Banchero: 15+,yes Cameron Johnson: 10+,yes Ayo Dosunmu: 15+,yes Chet Holmgren: 10+,yes Devin Booker: 20+,yes Jalen Green: 15+,yes Jayson Tatum: 15+,yes Payton Pritchard: 10+,yes Ausar Thompson: 4+,yes Cade Cunningham: 4+,yes Franz Wagner: 4+,yes Aaron Gordon: 2+,yes Cameron Johnson: 2+,yes Jaden McDaniels: 2+,yes Dillon Brooks: 2+,yes Jalen Green: 2+,yes Nikola Vučević: 4+,yes Payton Pritchard: 2+,yes Kelly Oubre Jr.: 2+,yes Paul George: 2+",sports,2026-04-27T04:55:56.889474Z,2026-04-28T03:44:16Z,NO,0.02,snapshot_fallback,206398.0
+kalshi,KXATPCHALLENGERMATCH-26APR27FONBAL-BAL,Will Aditya Vishal Balsekar win the Fondriest vs Vishal Balsekar: Qualification Final match?,sports,2026-04-27T04:42:00Z,2026-04-27T17:32:34Z,YES,0.07,snapshot_fallback,145094.93
+kalshi,KXMLBTOTAL-26APR271840STLPIT-9,St. Louis vs Pittsburgh Total Runs?,sports,2026-04-27T01:21:00Z,2026-04-28T01:35:00Z,NO,0.47,snapshot_fallback,124439.3
+kalshi,KXMLBTOTAL-26APR271840STLPIT-7,St. Louis vs Pittsburgh Total Runs?,sports,2026-04-27T01:21:00Z,2026-04-28T01:35:00Z,NO,0.68,snapshot_fallback,108026.74
+kalshi,KXMLBSPREAD-26APR271840STLPIT-PIT2,Pittsburgh wins by over 1.5 runs?,sports,2026-04-27T01:21:00Z,2026-04-28T01:34:57Z,NO,0.37,snapshot_fallback,200786.82
+kalshi,KXMLBTOTAL-26APR272210MIALAD-9,Miami vs Los Angeles D Total Runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:48Z,YES,0.49,snapshot_fallback,411740.98
+kalshi,KXMLBTOTAL-26APR272210MIALAD-8,Miami vs Los Angeles D Total Runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:47Z,YES,0.58,snapshot_fallback,183495.42
+kalshi,KXMLBTOTAL-26APR272210MIALAD-7,Miami vs Los Angeles D Total Runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:47Z,YES,0.69,snapshot_fallback,131270.16
+kalshi,KXMLBTOTAL-26APR272210MIALAD-10,Miami vs Los Angeles D Total Runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:48Z,NO,0.4,snapshot_fallback,122660.81
+kalshi,KXMLBSPREAD-26APR272210MIALAD-MIA2,Miami wins by over 1.5 runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:42Z,NO,0.19,snapshot_fallback,225570.06
+kalshi,KXMLBSPREAD-26APR272210MIALAD-LAD3,Los Angeles D wins by over 2.5 runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:41Z,NO,0.45,snapshot_fallback,412284.09
+kalshi,KXMLBSPREAD-26APR272210MIALAD-LAD2,Los Angeles D wins by over 1.5 runs?,sports,2026-04-27T01:21:00Z,2026-04-28T05:11:41Z,NO,0.56,snapshot_fallback,646461.62
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20263361812A10E-4F8B689689A,"yes Houston wins by over 2.5 points,yes Over 204.5 points scored,yes Over 200.5 points scored,yes EDM Oilers,yes TB Lightning,no Over 7.5 goals scored",sports,2026-04-26T23:50:51.516025Z,2026-04-27T05:59:20Z,NO,0.031,snapshot_fallback,101026.0
+kalshi,KXMLBTOTAL-26APR272005NYYTEX-8,New York Y vs Texas Total Runs?,sports,2026-04-26T23:11:00Z,2026-04-28T03:00:22Z,NO,0.54,snapshot_fallback,113260.0
+kalshi,KXMLBTOTAL-26APR272005NYYTEX-6,New York Y vs Texas Total Runs?,sports,2026-04-26T23:11:00Z,2026-04-28T03:00:20Z,YES,0.75,snapshot_fallback,165608.68
+kalshi,KXMLBSPREAD-26APR272005NYYTEX-NYY4,New York Y wins by over 3.5 runs?,sports,2026-04-26T23:11:00Z,2026-04-28T03:00:32Z,NO,0.3,snapshot_fallback,143252.65
+kalshi,KXMLBSPREAD-26APR272005NYYTEX-NYY3,New York Y wins by over 2.5 runs?,sports,2026-04-26T23:11:00Z,2026-04-28T03:00:31Z,NO,0.39,snapshot_fallback,116049.93
+kalshi,KXMLBSPREAD-26APR272005NYYTEX-NYY2,New York Y wins by over 1.5 runs?,sports,2026-04-26T23:11:00Z,2026-04-28T03:00:30Z,YES,0.5,snapshot_fallback,398097.53
+kalshi,KXMLBTOTAL-26APR271940LAACWS-9,Los Angeles A vs Chicago WS Total Runs?,sports,2026-04-26T23:11:00Z,2026-04-28T05:40:09Z,YES,0.57,snapshot_fallback,117538.26
+kalshi,KXMLBTOTAL-26APR271940LAACWS-14,Los Angeles A vs Chicago WS Total Runs?,sports,2026-04-26T23:11:00Z,2026-04-28T05:40:11Z,YES,0.2,snapshot_fallback,175739.88
+kalshi,KXMLBTOTAL-26APR271940LAACWS-10,Los Angeles A vs Chicago WS Total Runs?,sports,2026-04-26T23:11:00Z,2026-04-28T05:40:10Z,YES,0.48,snapshot_fallback,142146.99
+kalshi,KXMLBSPREAD-26APR271940LAACWS-CWS3,Chicago WS wins by over 2.5 runs?,sports,2026-04-26T23:11:00Z,2026-04-28T05:40:08Z,NO,0.22,snapshot_fallback,141648.52
+kalshi,KXMLBSPREAD-26APR271940LAACWS-CWS2,Chicago WS wins by over 1.5 runs?,sports,2026-04-26T23:11:00Z,2026-04-28T05:40:09Z,NO,0.31,snapshot_fallback,178452.87
+kalshi,KXMLBTOTAL-26APR272140CHCSD-8,Chicago C vs San Diego Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T04:54:41Z,YES,0.54,snapshot_fallback,155859.32
+kalshi,KXMLBTOTAL-26APR271810TBCLE-9,Tampa Bay vs Cleveland Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T00:50:19Z,NO,0.42,snapshot_fallback,193823.63
+kalshi,KXMLBTOTAL-26APR271810TBCLE-8,Tampa Bay vs Cleveland Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T00:50:19Z,NO,0.53,snapshot_fallback,217092.41
+kalshi,KXMLBTOTAL-26APR271810TBCLE-7,Tampa Bay vs Cleveland Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T00:50:18Z,NO,0.63,snapshot_fallback,150142.44
+kalshi,KXMLBTOTAL-26APR271810TBCLE-6,Tampa Bay vs Cleveland Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T00:50:17Z,NO,0.71,snapshot_fallback,176880.3
+kalshi,KXMLBTOTAL-26APR271940SEAMIN-9,Seattle vs Minnesota Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T02:30:51Z,YES,0.51,snapshot_fallback,125429.42
+kalshi,KXMLBSPREAD-26APR272140CHCSD-SD4,San Diego wins by over 3.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T04:54:42Z,NO,0.16,snapshot_fallback,117437.64
+kalshi,KXMLBSPREAD-26APR272140CHCSD-SD3,San Diego wins by over 2.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T04:54:42Z,NO,0.24,snapshot_fallback,107851.53
+kalshi,KXMLBSPREAD-26APR272140CHCSD-SD2,San Diego wins by over 1.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T04:54:43Z,YES,0.33,snapshot_fallback,319732.47
+kalshi,KXMLBSPREAD-26APR272140CHCSD-CHC2,Chicago C wins by over 1.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T04:54:43Z,NO,0.38,snapshot_fallback,161303.07
+kalshi,KXMLBSPREAD-26APR271810TBCLE-TB2,Tampa Bay wins by over 1.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T00:50:27Z,NO,0.3,snapshot_fallback,114818.53
+kalshi,KXMLBSPREAD-26APR271810TBCLE-CLE2,Cleveland wins by over 1.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T00:50:27Z,NO,0.39,snapshot_fallback,388326.42
+kalshi,KXMLBTOTAL-26APR271907BOSTOR-8,Boston vs Toronto Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T01:44:59Z,NO,0.47,snapshot_fallback,182351.03
+kalshi,KXMLBTOTAL-26APR271907BOSTOR-7,Boston vs Toronto Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T01:44:59Z,NO,0.58,snapshot_fallback,116583.1
+kalshi,KXMLBTOTAL-26APR271907BOSTOR-6,Boston vs Toronto Total Runs?,sports,2026-04-26T18:51:00Z,2026-04-28T01:44:58Z,NO,0.67,snapshot_fallback,123115.81
+kalshi,KXMLBSPREAD-26APR271907BOSTOR-TOR2,Toronto wins by over 1.5 runs?,sports,2026-04-26T18:51:00Z,2026-04-28T01:44:59Z,NO,0.38,snapshot_fallback,201916.58
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026489036A2DBC-739D3BC7607,"yes Tyrese Maxey: 6+,yes Jaylen Brown: 25+,yes Payton Pritchard: 10+,yes Tyrese Maxey: 25+,no Boston wins by over 13.5 points,no Over 222.5 points scored",sports,2026-04-26T15:08:41.632957Z,2026-04-27T03:15:27Z,NO,0.039,snapshot_fallback,102653.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20268862E1B4CD9-B313B2136EA,"yes Detroit,yes Denver,yes Phoenix",sports,2026-04-26T13:34:26.827391Z,2026-04-28T04:08:15Z,NO,0.044,snapshot_fallback,145431.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026486C36FD53A-406783B9448,"yes New York M,yes New York M wins by over 1.5 runs,no Philadelphia wins by over 8.5 points",sports,2026-04-26T13:30:32.879091Z,2026-04-26T21:18:40Z,NO,0.324,snapshot_fallback,287092.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A2DD468022C-03B9C356E2B,"yes Jannik Sinner,yes Colorado,no New York M wins by over 1.5 runs",sports,2026-04-26T13:16:35.125746Z,2026-04-26T21:35:07Z,YES,0.196,snapshot_fallback,462032.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A2DD468022C-0A111C0A421,"yes Jannik Sinner,yes New York M,yes New York M wins by over 1.5 runs",sports,2026-04-26T13:16:34.59653Z,2026-04-26T21:35:07Z,NO,0.468,snapshot_fallback,165331.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S2026A2DD468022C-25AD1622D14,"yes Jannik Sinner,yes New York M,no Colorado wins by over 1.5 runs",sports,2026-04-26T13:13:19.490917Z,2026-04-26T21:35:07Z,NO,0.575,snapshot_fallback,534001.0
+kalshi,KXMVESPORTSMULTIGAMEEXTENDED-S20260040F0C47C6-92C40CBBE81,"yes LeBron James: 6+,yes Marcus Smart: 6+,yes Jaylen Brown: 20+,yes Jayson Tatum: 20+,yes Paul George: 15+,yes Tyrese Maxey: 20+,yes VJ Edgecombe: 10+,yes Alperen Sengun: 15+,yes Amen Thompson: 15+,yes Jabari Smith Jr.: 15+,yes LeBron James: 20+,yes Marcus Smart: 10+,yes Rui Hachimura: 10+,yes VJ Edgecombe: 6+,yes Alperen Sengun: 6+,yes Jabari Smith Jr.: 6+,yes LeBron James: 6+",sports,2026-04-26T11:04:05.653519Z,2026-04-27T03:02:25Z,NO,0.026,snapshot_fallback,964194.0
