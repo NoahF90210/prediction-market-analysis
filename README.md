@@ -4,7 +4,7 @@
 
 Across **900 resolved binary contracts** from Polymarket and Kalshi (≥ $100k volume each), market-implied probabilities scored a **Brier of 0.127** — beating an always-50% baseline by **49%**, an in-sample category base-rate by **43%**, and a 5-fold gradient-boosted model trained on volume + lead time + category by **44%**.
 
-**Live dashboard:** forecastaudit.dev
+**Live dashboard:** www.forecastaudit.dev
 
 ---
 
