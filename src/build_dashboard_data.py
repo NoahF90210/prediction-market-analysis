@@ -114,7 +114,7 @@ def category_breakdown(df: pd.DataFrame) -> list[dict]:
             except KeyError:
                 row[plat] = None
                 row[f"n_{plat[:5]}"] = 0
-        if row["polymarket"] is not None or row["kalshi"] is not None:
+        if row["polymarket"] is not None and row["kalshi"] is not None:
             out.append(row)
     out.sort(key=lambda r: -(r.get("n_poly", 0) + r.get("n_kalsh", 0)))
     return out
