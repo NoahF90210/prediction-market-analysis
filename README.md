@@ -1,171 +1,86 @@
 # Prediction Market Accuracy
 
-This project evaluates how accurate liquid prediction markets are on Polymarket and Kalshi. The current pipeline expands beyond the original sports-and-elections MVP and uses a metadata-first category system so category labels can be audited instead of guessed from brittle title keywords alone.
+**How accurate are the prices on liquid prediction markets?**
 
-The result is meant to read like an analyst case study, not just a data pull. It combines data collection, cleaning, forecast evaluation, category review tooling, a written notebook, and a Plotly/Dash dashboard.
+Across **900 resolved binary contracts** from Polymarket and Kalshi (≥ $100k volume each), market-implied probabilities scored a **Brier of 0.127** — beating an always-50% baseline by **49%**, an in-sample category base-rate by **43%**, and a 5-fold gradient-boosted model trained on volume + lead time + category by **44%**.
 
-![Project preview](assets/dashboard_preview.svg)
+**Live dashboard:** https://prediction-market-analysis-vqfg.onrender.com
 
-## Why this project matters
+---
 
-Prediction markets are often described as information aggregators, but that claim becomes more interesting when it is evaluated against clear benchmarks. This project asks a concrete question:
+## What's in here
 
-How well did market-implied probabilities line up with what eventually happened?
-
-That requires more than plotting prices. It means:
-
-- defining comparable markets across platforms
-- choosing a forecast definition that avoids trivial post-settlement prices
-- evaluating against baselines instead of reporting a raw score without context
-- checking calibration, uncertainty, and the relationship between market structure and forecast error
-
-## Current dataset
-
-The scored dataset lives in [data/cleaned/accuracy_markets.csv](data/cleaned/accuracy_markets.csv).
-
-Each row now carries category provenance fields including:
-
-- `raw_platform_category`
-- `raw_tags`
-- `category`
-- `category_source`
-- `category_confidence`
-- `needs_review`
-- `include_in_analysis`
-- `is_cross_platform_comparable`
-
-Current coverage:
-
-- `906` scored markets total (`1,133` captured before scoring filters)
-- `365` Polymarket markets
-- `541` Kalshi markets
-
-Current top-line summary:
-
-- Overall Brier score: `0.1185`
-- Overall log loss: `0.3547`
-- Polymarket Brier score: `0.1127`
-- Kalshi Brier score: `0.1223`
-
-## Main findings
-
-- The market forecasts beat an always-`50%` baseline by `53.0%` on Brier score overall, which turns the raw `0.1185` score into a meaningful evaluation result.
-- The forecasts also beat an in-sample category base-rate benchmark by `46.9%` on Brier score overall, so the result is not just a side effect of many contracts resolving NO.
-- In the raw sample, Polymarket has the lower average Brier score, but the bootstrap intervals overlap (Polymarket `0.098-0.128`, Kalshi `0.107-0.138`), so the platform comparison should be presented cautiously.
-- A simple regression suggests that higher-volume markets and longer-duration markets are associated with lower Brier error, while the platform coefficient flips sign after controls. That is a useful reminder that raw platform rankings partly reflect market mix.
-- Calibration is directionally reasonable, but many mid-probability buckets sit below the 45-degree line, which suggests some overestimation of YES probabilities away from the extremes.
+A reproducible end-to-end pipeline (ingest → category-normalize → score → export → static dashboard) plus a written editorial dashboard. Aimed at an audience of one analyst who'd read it carefully, not a generic "data science portfolio."
 
 ## Methodology
 
-Scope:
+**Scope.** Resolved binary YES/NO contracts on Polymarket and Kalshi with ≥ $100k traded volume. Categories assigned via a metadata-first taxonomy with override CSV; rows below the category-confidence threshold are excluded.
 
-- resolved markets only
-- binary YES/NO contracts only
-- categories assigned via metadata-first taxonomy (sports, elections, politics, geopolitics, crypto, commodities, finance, etc.)
-- minimum volume of `$100,000`
-- categories with low confidence are flagged for review and excluded from scoring
+**Forecast definition (apples-to-apples).** For each market, the forecast probability is the **last non-trivial YES price** (between 0.02 and 0.98) observed at least **30 minutes before close**. The lead-time guard matters: sports markets trade up to the final second when the outcome is essentially decided, so scoring the last trade alone measures clairvoyance, not forecasting. The same rule is applied to both platforms.
 
-Forecast definition:
-
-- Polymarket: the last YES price from cached history that still shows meaningful uncertainty, defined as a probability between `0.02` and `0.98`
-- Kalshi: prefer cached full history when available; otherwise use the best non-trivial snapshot probability preserved in the settled-market record
-
-Metrics:
-
-- Brier score
+**Metrics.**
+- Brier score (mean squared error of probability vs. outcome)
 - Log loss
-- Calibration by probability bucket
-- Baseline comparisons against always-`50%` and in-sample category base-rate benchmarks
-- Bootstrap `95%` confidence intervals for platform-level metrics
-- A simple OLS regression of market-level Brier score on `log(volume)`, `days_to_resolution`, platform, and category
+- Calibration in 10-percentage-point buckets
+- Bootstrap 95% CIs on platform-level Brier (2,000 resamples)
+- A 5-fold OOF logistic regression baseline on `log(volume) + days_to_resolution + category`
+- A 5-fold OOF gradient-boosted baseline on the same features plus platform
 
-## Outputs
+## Headline findings
 
-- Primary dashboard app: [app.py](app.py)
-- Dash assets: [assets/app.css](assets/app.css)
-- Static dashboard: [dashboard/index.html](dashboard/index.html)
-- Notebook report: [notebooks/prediction_market_accuracy.ipynb](notebooks/prediction_market_accuracy.ipynb)
-- Shared scoring helpers: [src/accuracy.py](src/accuracy.py)
-- Category taxonomy: [config/category_taxonomy.yml](config/category_taxonomy.yml)
-- Category overrides: [config/category_overrides.csv](config/category_overrides.csv)
-- Category mapping logic: [src/category_mapping.py](src/category_mapping.py)
-- Analysis export script: [src/analyze_accuracy.py](src/analyze_accuracy.py)
-- Main scored dataset: [data/cleaned/accuracy_markets.csv](data/cleaned/accuracy_markets.csv)
+| | Brier | 95% CI |
+|---|---:|---:|
+| Polymarket (n=365) | 0.113 | [0.098, 0.128] |
+| Kalshi (n=535) | 0.137 | [0.119, 0.154] |
+| **Overall (n=900)** | **0.127** | — |
 
-## How to run
+- **The platform CIs overlap.** Polymarket has the lower headline number, but the gap is small enough that any sharp claim about "which platform is more accurate" is not supported.
+- **Markets beat both ML baselines.** The OOF logistic and gradient-boosted models on the obvious structural features (volume, lead time, category, platform) score Brier 0.211 and 0.226. Markets at 0.127 contain real signal beyond what those features alone capture.
+- **Calibration is reasonable but not perfect** — mid-probability buckets (40–60%) sit slightly below the 45° line, hinting at modest overestimation away from the extremes.
+- **Lead time and volume both correlate with lower error.** Markets open >30 days before resolution, and markets above $5M volume, score notably better. Associational, not causal — but consistent with the intuition that liquidity and time give the price room to converge.
 
-Create an environment and install dependencies:
+## Architecture
+
+Four-stage pipeline orchestrated by `src/build_accuracy_dataset.py`:
+
+1. **Ingest.** `src/ingest_polymarket_resolved.py` and `src/ingest_kalshi_resolved.py` pull resolved markets and cache trade history per market under `data/raw/`. Kalshi trades are paginated via `/markets/trades` (see `src/backfill_kalshi_trades.py` to (re)build the cache).
+2. **Normalize categories.** `src/normalize_market_categories.py` applies a fail-closed priority chain: explicit override → platform metadata → tag slug (Polymarket) → mapping rule → keyword fallback → unclassified. Confidence + source recorded per row. Configured via `config/category_taxonomy.yml` and `config/category_overrides.csv`.
+3. **Score.** `src/score_markets.py` and `src/accuracy.py` compute Brier, log loss, calibration, baselines, and bootstrap CIs.
+4. **Export.** `src/build_dashboard_data.py` writes `static_dashboard/data.js` for the React-in-browser dashboard.
+
+The dashboard (`static_dashboard/`) is deliberately build-step-free: React + Babel-standalone served as static files by a thin Flask app (`app.py`), deployed on Render.
+
+## Reproduce
 
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-```
 
-Build or refresh the main dataset:
-
-```bash
+# Full rebuild (re-fetches Polymarket events and Kalshi inventory; slow)
 .venv/bin/python src/build_accuracy_dataset.py
+
+# Just rebuild the dashboard payload from the existing scored CSV (fast)
+.venv/bin/python src/build_dashboard_data.py
+
+# Serve the dashboard locally
+.venv/bin/python app.py    # → http://127.0.0.1:8050
 ```
 
-Regenerate summary tables:
-
-```bash
-.venv/bin/python src/analyze_accuracy.py
-```
-
-This writes local summary CSVs into `data/cleaned/`, but those generated analysis tables are not committed to the repo.
-
-Run the notebook:
-
-```bash
-.venv/bin/jupyter notebook notebooks/prediction_market_accuracy.ipynb
-```
-
-Run the primary Dash dashboard locally:
-
-```bash
-.venv/bin/python app.py
-```
-
-Then visit `http://127.0.0.1:8050`.
-
-Open the static dashboard locally if you still want the older browser-only artifact:
-
-```bash
-python3 -m http.server 8765
-```
-
-Then visit [http://127.0.0.1:8765/dashboard/index.html](http://127.0.0.1:8765/dashboard/index.html).
-
-## Limitations
-
-- The current Kalshi slice is still methodologically weaker than the Polymarket slice because most Kalshi rows rely on snapshot fallback rather than full cached history.
-- Kalshi category assignment is more inference-heavy than Polymarket because cached Kalshi payloads do not appear to expose the same rich tag metadata; low-confidence rows are flagged instead of silently trusted.
-- Some markets have missing or incomplete timestamp fields, which creates an `unknown` lead-time bucket.
-- The regression is associational, not causal. Higher volume correlating with lower error does not mean liquidity alone causes better forecasts.
-- A Brier score around `0.12` is evidence that liquid markets contain real forecasting signal, but it is not evidence that they are perfectly efficient or easy to monetize.
-
-## Tests
-
-Scoring helpers are covered in [tests/test_accuracy.py](tests/test_accuracy.py).
-
-Run the test suite with:
+Tests:
 
 ```bash
 .venv/bin/python -m pytest
 ```
 
-## What I'd do with more time
+## Limitations
 
-- Add a matched-sample platform comparison that restricts both platforms to the most methodologically comparable subset.
-- Score earlier forecast snapshots such as `1 day` and `7 days` before resolution to test how much accuracy comes from last-minute convergence.
-- Fetch fuller Kalshi history coverage so fewer rows depend on snapshot fallback.
-- Compare these market-implied probabilities with external forecasters or aggregators such as Metaculus.
+- The two ML baselines use only structural features (volume, lead time, category, platform). A serious effort to *beat* the market would need event-specific features.
+- The platform comparison restricts to markets ≥ $100k. Kalshi has many smaller markets; this filter biases the sample toward Kalshi's more liquid, sports-heavy slice.
+- Bootstrap CIs assume i.i.d. sampling. Markets within an event (e.g. all teams in one tournament) are correlated, so the true intervals are slightly wider than reported.
+- The category taxonomy is opinionated. The override CSV is the right place to correct individual mis-classifications.
 
-## What this project demonstrates
+## What's next
 
-- API and raw-data ingestion
-- data cleaning and schema harmonization across sources
-- forecast evaluation with baselines and confidence intervals
-- an interpretable modeling layer instead of pure descriptive analysis
-- written communication through both a notebook and a dashboard
+- Score earlier snapshots (1 day, 7 days before resolution) to separate genuine forecasting from last-mile convergence.
+- Add an external benchmark — Metaculus or 538 forecasts — for the categories where comparable forecasts exist.
+- A matched-sample platform comparison restricting both sides to the same event types.

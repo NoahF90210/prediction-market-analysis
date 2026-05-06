@@ -14,9 +14,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import KFold
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 
 ROOT = Path(__file__).resolve().parents[1]
 SCORED_CSV = ROOT / "data" / "cleaned" / "accuracy_markets_scored.csv"
@@ -41,6 +42,28 @@ def logistic_oof_brier(scored: pd.DataFrame) -> float:
         model = LogisticRegression(max_iter=2000, C=1.0)
         model.fit(Xtr, y[tr])
         oof[te] = model.predict_proba(Xte)[:, 1]
+    return float(((oof - y) ** 2).mean())
+
+
+def gbm_oof_brier(scored: pd.DataFrame) -> float:
+    df = scored.dropna(subset=["volume", "outcome"]).copy()
+    df["log_volume"] = np.log(df["volume"].astype(float).clip(lower=1))
+    df["days"] = pd.to_numeric(df["days_to_resolution"], errors="coerce")
+    df["days"] = df["days"].fillna(df["days"].median())
+    enc = OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=-1)
+    cat_arr = enc.fit_transform(df[["category", "platform"]].astype(str).fillna("unknown"))
+    X = np.concatenate(
+        [df[["log_volume", "days"]].astype(float).values, cat_arr], axis=1
+    )
+    y = df["outcome"].astype(int).values
+    kf = KFold(n_splits=5, shuffle=True, random_state=42)
+    oof = np.zeros(len(y), dtype=float)
+    for tr, te in kf.split(X):
+        model = HistGradientBoostingClassifier(
+            categorical_features=[2, 3], random_state=42
+        )
+        model.fit(X[tr], y[tr])
+        oof[te] = model.predict_proba(X[te])[:, 1]
     return float(((oof - y) ** 2).mean())
 
 
@@ -159,7 +182,7 @@ def to_rows(df: pd.DataFrame) -> list[dict]:
     return rows
 
 
-def headline_block(scored: pd.DataFrame, all_markets: pd.DataFrame, log_brier: float) -> dict:
+def headline_block(scored: pd.DataFrame, all_markets: pd.DataFrame, log_brier: float, gbm_brier: float) -> dict:
     overall_brier = float(scored["brier"].mean())
     overall_log_loss = float(scored["log_loss"].mean())
     by_plat = scored.groupby("platform")["brier"].agg(["mean", "size"])
@@ -203,9 +226,11 @@ def headline_block(scored: pd.DataFrame, all_markets: pd.DataFrame, log_brier: f
         "baseline_50_brier": baseline_50,
         "baseline_category_brier": baseline_cat,
         "baseline_logistic_brier": log_brier,
+        "baseline_gbm_brier": gbm_brier,
         "pct_better_than_50": (baseline_50 - overall_brier) / baseline_50,
         "pct_better_than_category": (baseline_cat - overall_brier) / baseline_cat,
         "pct_better_than_logistic": (log_brier - overall_brier) / log_brier,
+        "pct_better_than_gbm": (gbm_brier - overall_brier) / gbm_brier,
         "polymarket_ci": list(poly_ci),
         "kalshi_ci": list(kalshi_ci),
         "kalshi_history_ci": list(kalshi_hist_ci),
@@ -223,10 +248,12 @@ def main() -> None:
 
     log_brier = logistic_oof_brier(scored)
     print(f"Logistic-regression OOF Brier: {log_brier:.4f}")
+    gbm_brier = gbm_oof_brier(scored)
+    print(f"Gradient-boosted OOF Brier: {gbm_brier:.4f}")
 
     payload = {
         "rows": to_rows(scored),
-        "headline": headline_block(scored, all_markets, log_brier),
+        "headline": headline_block(scored, all_markets, log_brier, gbm_brier),
         "calibration": calibration(scored),
         "leadTime": lead_time_buckets(scored),
         "volume": volume_buckets(scored),

@@ -286,7 +286,9 @@ function App() {
 
   return (
     <div style={wrapperStyle}>
-      <Tweaks tweaks={tweaks} setTweak={setTweak} />
+      {typeof window !== "undefined" && new URLSearchParams(window.location.search).has("tweaks") && (
+        <Tweaks tweaks={tweaks} setTweak={setTweak} />
+      )}
 
       <div style={containerStyle}>
         {/* ============================================================ */}
@@ -405,6 +407,14 @@ function App() {
                     accent={accent} ink={theme.ink} muted={theme.muted}
                   />
                 ) : null}
+                {headline.baseline_gbm_brier ? (
+                  <ImprovementBar
+                    baseline={headline.baseline_gbm_brier}
+                    market={headline.brier_overall}
+                    label="vs. gradient-boosted trees on volume + lead time + category + platform (5-fold OOF)"
+                    accent={accent} ink={theme.ink} muted={theme.muted}
+                  />
+                ) : null}
               </div>
             </div>
 
@@ -510,10 +520,10 @@ function App() {
               <div style={{ marginTop: 28, display: "grid", gap: 20 }}>
                 <div style={{ paddingTop: 16, borderTop: `1px solid ${theme.rule}` }}>
                   <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: 24, lineHeight: 1.2, color: theme.ink }}>
-                    The 30–70% range systematically <em>over</em>-predicts YES.
+                    The tails are sharp. The middle wobbles.
                   </div>
                   <p style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 14, lineHeight: 1.6, color: theme.muted, marginTop: 10 }}>
-                    Tail buckets (under 10% and over 90%) are well-calibrated. The middle of the range is where uncertainty lives — and where the markets get cocky.
+                    Buckets under 20% and over 80% land almost exactly on the diagonal — when markets are confident, they're right. The 40–50% and 70–80% buckets sit visibly below, suggesting markets occasionally overstate YES when the true probability is closer to 33% or 67%. With ~50–90 markets per mid-range bucket, the deviation is noisy but consistent in direction.
                   </p>
                 </div>
                 <div style={{
@@ -558,7 +568,7 @@ function App() {
           <SectionHeader
             kicker="03 · Platform comparison"
             title="Polymarket leads on the headline number, but the bootstrap intervals overlap."
-            dek="By category, by Brier score. Lower is better. The platform gap is real — and small enough that the confidence intervals warn against over-claiming."
+            dek="Both platforms scored the same way: the last non-trivial trade observed at least 30 minutes before close. Polymarket leads, but the 95% bootstrap intervals overlap — small enough that the gap doesn't survive over-claiming."
             ink={theme.ink} muted={theme.muted} accent={accent}
           />
 
@@ -586,12 +596,8 @@ function App() {
                 brier: headline.brier_kalshi,
                 ci: headline.kalshi_ci,
                 n: headline.n_kalshi,
-                source: "snapshot fallback (mostly)",
+                source: "history-based",
                 color: accent,
-                subBrier: headline.brier_kalshi_history_only,
-                subN: headline.n_kalshi_history,
-                subCi: headline.kalshi_history_ci,
-                subLabel: "history-only subset",
               },
             ].map((p) => (
               <div key={p.name} style={{
@@ -640,60 +646,6 @@ function App() {
                 }}>
                   95% CI: [{p.ci[0].toFixed(3)}, {p.ci[1].toFixed(3)}]
                 </div>
-                {p.name === "Kalshi" ? (
-                  <div style={{
-                    marginTop: 14, paddingTop: 14,
-                    borderTop: `1px dashed ${theme.rule}`,
-                  }}>
-                    <div style={{
-                      fontFamily: "'Inter Tight', sans-serif",
-                      fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase",
-                      color: accent, fontWeight: 700,
-                    }}>
-                      Methodology caveat
-                    </div>
-                    {p.subBrier != null && p.subN > 0 ? (
-                      <>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 8 }}>
-                          <span style={{
-                            fontFamily: "'Instrument Serif', serif",
-                            fontSize: 32, color: theme.ink,
-                            fontVariantNumeric: "tabular-nums",
-                          }}>
-                            {p.subBrier.toFixed(4)}
-                          </span>
-                          <span style={{
-                            fontFamily: "'JetBrains Mono', monospace",
-                            fontSize: 11, color: theme.muted,
-                          }}>
-                            apples-to-apples · n = {fmt.count(p.subN)}
-                            {p.subCi && p.subCi[0] != null ? ` · 95% CI [${p.subCi[0].toFixed(3)}, ${p.subCi[1].toFixed(3)}]` : ""}
-                          </span>
-                        </div>
-                        <div style={{
-                          marginTop: 8,
-                          fontFamily: "'Inter Tight', sans-serif",
-                          fontSize: 12, color: theme.inkSoft, lineHeight: 1.45,
-                        }}>
-                          Restricting to Kalshi rows with cached pre-resolution price history removes the
-                          settlement-snapshot rows that arguably measure convergence rather than skill.
-                        </div>
-                      </>
-                    ) : (
-                      <div style={{
-                        marginTop: 8,
-                        fontFamily: "'Inter Tight', sans-serif",
-                        fontSize: 13, color: theme.inkSoft, lineHeight: 1.5,
-                      }}>
-                        All {fmt.count(p.n)} Kalshi rows in this build use a non-trivial snapshot from the
-                        cached settled-market record (not full pre-resolution history). That snapshot is
-                        sometimes close to the settlement price, so the Kalshi number partly reflects
-                        convergence rather than pure forecast skill. Treat the cross-platform comparison
-                        as directional until full Kalshi history is backfilled.
-                      </div>
-                    )}
-                  </div>
-                ) : null}
               </div>
             ))}
           </div>
