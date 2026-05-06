@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: prediction-market-accuracy
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:server
+    plan: free

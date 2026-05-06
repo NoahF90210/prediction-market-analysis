@@ -1,0 +1,318 @@
+canonical_categories:
+  - elections
+  - politics
+  - geopolitics
+  - sports
+  - crypto
+  - culture
+  - economics
+  - finance
+  - companies
+  - science_tech
+  - climate
+  - commodities
+  - weather
+  - mentions
+  - unclassified
+
+category_priority:
+  - elections
+  - geopolitics
+  - politics
+  - economics
+  - finance
+  - companies
+  - climate
+  - commodities
+  - science_tech
+  - crypto
+  - weather
+  - mentions
+  - culture
+  - sports
+  - unclassified
+
+allowed_multi_category_pairs:
+  - [elections, politics]
+  - [geopolitics, politics]
+  - [economics, finance]
+  - [finance, companies]
+  - [science_tech, companies]
+
+polymarket_tag_slug_map:
+  elections: elections
+  election: elections
+  us-election: elections
+  us-elections: elections
+  2024-election: elections
+  2024-us-presidential-election: elections
+  presidential-election: elections
+  presidential-election-2024: elections
+  us-presidential-election: elections
+  voting: elections
+  mayor: elections
+  mayoral-elections: elections
+  world-elections: elections
+  politics: politics
+  trump: politics
+  democrats: politics
+  republican-party: politics
+  democratic-party: politics
+  political-event: politics
+  geopolitics: geopolitics
+  middle-east: geopolitics
+  world: geopolitics
+  iran: geopolitics
+  israel: geopolitics
+  military-strikes: geopolitics
+  diplomacy-ceasefire: geopolitics
+  nba: sports
+  basketball: sports
+  nfl: sports
+  sports: sports
+  soccer: sports
+  champions-league: sports
+  premier-league: sports
+  esports: sports
+  counter-strike: sports
+  league-of-legends: sports
+  tennis: sports
+  cricket: sports
+  crypto: crypto
+  bitcoin: crypto
+  ethereum: crypto
+  solana: crypto
+  culture: culture
+  entertainment: culture
+  economy: economics
+  economic-policy: economics
+  fed-rates: economics
+  fed: economics
+  inflation: economics
+  finance: finance
+  financials: finance
+  companies: companies
+  tech: science_tech
+  science: science_tech
+  climate: climate
+  commodities: commodities
+  weather: weather
+  mentions: mentions
+
+platform_category_map:
+  polymarket:
+    elections: elections
+    politics: politics
+    geopolitics: geopolitics
+    sports: sports
+    crypto: crypto
+    culture: culture
+    economy: economics
+    economics: economics
+    finance: finance
+    financials: finance
+    companies: companies
+    tech: science_tech
+    tech & science: science_tech
+    science: science_tech
+    climate: climate
+    commodities: commodities
+    weather: weather
+    mentions: mentions
+  kalshi:
+    elections: elections
+    politics: politics
+    sports: sports
+    culture: culture
+    crypto: crypto
+    commodities: commodities
+    climate: climate
+    economics: economics
+    financials: finance
+    companies: companies
+    tech & science: science_tech
+    mentions: mentions
+
+mapping_rules:
+  elections:
+    - president
+    - election
+    - senate
+    - congress
+    - governor
+    - parliament
+    - ballot
+    - referendum
+    - primary
+    - runoff
+    - mayor
+    - polling
+    - vote share
+  politics:
+    - cabinet
+    - minister
+    - impeachment
+    - approval rating
+    - executive order
+    - legislation
+    - congress approval
+    - white house
+    - administration
+  geopolitics:
+    - iran
+    - israel
+    - ukraine
+    - russia
+    - china
+    - taiwan
+    - middle east
+    - ceasefire
+    - military strike
+    - military action
+    - sanction
+    - peace deal
+    - diplomacy
+    - tariff war
+    - conflict ends
+  sports:
+    - nba
+    - nfl
+    - mlb
+    - nhl
+    - ufc
+    - match winner
+    - game
+    - set 1
+    - tournament
+    - finals
+    - playoffs
+    - world cup
+    - champions league
+    - super bowl
+    - counter-strike
+    - league of legends
+    - indian premier league
+    - ipl
+    - iem
+    - lck
+    - monte carlo masters
+    - atp
+    - wta
+  crypto:
+    - bitcoin
+    - ethereum
+    - crypto
+    - solana
+    - dogecoin
+    - memecoin
+  culture:
+    - oscar
+    - grammy
+    - emmy
+    - movie
+    - album
+    - celebrity
+    - tv show
+  economics:
+    - cpi
+    - inflation
+    - gdp
+    - recession
+    - unemployment
+    - interest rate
+    - fed rate
+    - fomc
+    - retail sales
+  finance:
+    - s&p 500
+    - nasdaq
+    - dow
+    - treasury yield
+    - stock market
+    - bond yield
+    - vix
+  companies:
+    - earnings
+    - revenue
+    - tesla
+    - apple
+    - nvidia
+    - meta
+    - google
+    - amazon
+    - microsoft
+    - ceo
+  science_tech:
+    - spacex
+    - ai model
+    - openai
+    - chip
+    - launch
+    - nasa
+    - science
+    - technology
+  climate:
+    - carbon
+    - emissions
+    - climate
+    - el niño
+    - la niña
+    - temperature anomaly
+  commodities:
+    - oil
+    - gold
+    - silver
+    - natural gas
+    - copper
+    - corn
+    - wheat
+  weather:
+    - hurricane
+    - snowfall
+    - rainfall
+    - tornado
+    - weather
+
+keyword_fallback:
+  sports:
+    - counter-strike
+    - cs2
+    - indian premier league
+    - ipl
+    - league of legends
+    - lol:
+    - lck
+    - iem
+    - monte carlo masters
+    - atp
+    - wta
+    - storm
+    - heatwave
+  mentions:
+    - mentions
+    - x mentions
+    - twitter mentions
+    - google trends
+
+keyword_fallback:
+  elections:
+    - election
+    - president
+    - senate
+  geopolitics:
+    - iran
+    - israel
+    - ceasefire
+  sports:
+    - nba
+    - nfl
+    - mlb
+  crypto:
+    - bitcoin
+    - crypto
+  economics:
+    - inflation
+    - gdp
+  weather:
+    - hurricane
+    - storm

@@ -8,5 +8,12 @@ __pycache__/
 .matplotlib/
 .claude/
 data/raw/
+.pytest_cache/
+data/cleaned/accuracy_baseline_*.csv
+data/cleaned/accuracy_calibration.csv
+data/cleaned/accuracy_markets_scored.csv
+data/cleaned/accuracy_platform_metric_ci.csv
+data/cleaned/accuracy_summary_*.csv
+data/cleaned/category_review_queue.csv
 data/cleaned/polymarket_markets.csv
 data/cleaned/markets.csv

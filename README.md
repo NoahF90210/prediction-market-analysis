@@ -1,8 +1,8 @@
 # Prediction Market Accuracy
 
-This project evaluates how accurate liquid prediction markets are on Polymarket and Kalshi. The sample is restricted to resolved binary sports and elections markets with at least `$100,000` in volume, and each market is scored using the last non-trivial pre-resolution YES probability rather than the final post-settlement `0/1` price.
+This project evaluates how accurate liquid prediction markets are on Polymarket and Kalshi. The current pipeline expands beyond the original sports-and-elections MVP and uses a metadata-first category system so category labels can be audited instead of guessed from brittle title keywords alone.
 
-The result is meant to read like an analyst case study, not just a data pull. It combines data collection, cleaning, forecast evaluation, a written notebook, and a browser dashboard.
+The result is meant to read like an analyst case study, not just a data pull. It combines data collection, cleaning, forecast evaluation, category review tooling, a written notebook, and a Plotly/Dash dashboard.
 
 ![Project preview](assets/dashboard_preview.svg)
 
@@ -23,24 +23,35 @@ That requires more than plotting prices. It means:
 
 The scored dataset lives in [data/cleaned/accuracy_markets.csv](data/cleaned/accuracy_markets.csv).
 
+Each row now carries category provenance fields including:
+
+- `raw_platform_category`
+- `raw_tags`
+- `category`
+- `category_source`
+- `category_confidence`
+- `needs_review`
+- `include_in_analysis`
+- `is_cross_platform_comparable`
+
 Current coverage:
 
-- `692` scored markets total
-- `404` Polymarket markets
-- `288` Kalshi markets
+- `906` scored markets total (`1,133` captured before scoring filters)
+- `365` Polymarket markets
+- `541` Kalshi markets
 
 Current top-line summary:
 
-- Overall Brier score: `0.1186`
-- Overall log loss: `0.3567`
-- Polymarket Brier score: `0.1144`
-- Kalshi Brier score: `0.1246`
+- Overall Brier score: `0.1185`
+- Overall log loss: `0.3547`
+- Polymarket Brier score: `0.1127`
+- Kalshi Brier score: `0.1223`
 
 ## Main findings
 
-- The market forecasts beat an always-`50%` baseline by `52.6%` on Brier score overall, which turns the raw `0.1186` score into a meaningful evaluation result.
-- The forecasts also beat an in-sample category base-rate benchmark by `44.5%` on Brier score overall, so the result is not just a side effect of many contracts resolving NO.
-- In the raw sample, Polymarket has the lower average Brier score, but the bootstrap intervals overlap enough that the platform comparison should be presented cautiously.
+- The market forecasts beat an always-`50%` baseline by `53.0%` on Brier score overall, which turns the raw `0.1185` score into a meaningful evaluation result.
+- The forecasts also beat an in-sample category base-rate benchmark by `46.9%` on Brier score overall, so the result is not just a side effect of many contracts resolving NO.
+- In the raw sample, Polymarket has the lower average Brier score, but the bootstrap intervals overlap (Polymarket `0.098-0.128`, Kalshi `0.107-0.138`), so the platform comparison should be presented cautiously.
 - A simple regression suggests that higher-volume markets and longer-duration markets are associated with lower Brier error, while the platform coefficient flips sign after controls. That is a useful reminder that raw platform rankings partly reflect market mix.
 - Calibration is directionally reasonable, but many mid-probability buckets sit below the 45-degree line, which suggests some overestimation of YES probabilities away from the extremes.
 
@@ -50,8 +61,9 @@ Scope:
 
 - resolved markets only
 - binary YES/NO contracts only
-- sports and elections only
+- categories assigned via metadata-first taxonomy (sports, elections, politics, geopolitics, crypto, commodities, finance, etc.)
 - minimum volume of `$100,000`
+- categories with low confidence are flagged for review and excluded from scoring
 
 Forecast definition:
 
@@ -69,12 +81,16 @@ Metrics:
 
 ## Outputs
 
-- Dashboard URL after GitHub Pages deploy: [https://noahf90210.github.io/prediction-market-analysis/](https://noahf90210.github.io/prediction-market-analysis/)
+- Primary dashboard app: [app.py](app.py)
+- Dash assets: [assets/app.css](assets/app.css)
 - Static dashboard: [dashboard/index.html](dashboard/index.html)
 - Notebook report: [notebooks/prediction_market_accuracy.ipynb](notebooks/prediction_market_accuracy.ipynb)
 - Shared scoring helpers: [src/accuracy.py](src/accuracy.py)
+- Category taxonomy: [config/category_taxonomy.yml](config/category_taxonomy.yml)
+- Category overrides: [config/category_overrides.csv](config/category_overrides.csv)
+- Category mapping logic: [src/category_mapping.py](src/category_mapping.py)
 - Analysis export script: [src/analyze_accuracy.py](src/analyze_accuracy.py)
-- Regression-ready scored dataset: [data/cleaned/accuracy_markets_scored.csv](data/cleaned/accuracy_markets_scored.csv)
+- Main scored dataset: [data/cleaned/accuracy_markets.csv](data/cleaned/accuracy_markets.csv)
 
 ## How to run
 
@@ -85,7 +101,7 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-Build the dataset:
+Build or refresh the main dataset:
 
 ```bash
 .venv/bin/python src/build_accuracy_dataset.py
@@ -97,13 +113,23 @@ Regenerate summary tables:
 .venv/bin/python src/analyze_accuracy.py
 ```
 
+This writes local summary CSVs into `data/cleaned/`, but those generated analysis tables are not committed to the repo.
+
 Run the notebook:
 
 ```bash
 .venv/bin/jupyter notebook notebooks/prediction_market_accuracy.ipynb
 ```
 
-Open the static dashboard locally:
+Run the primary Dash dashboard locally:
+
+```bash
+.venv/bin/python app.py
+```
+
+Then visit `http://127.0.0.1:8050`.
+
+Open the static dashboard locally if you still want the older browser-only artifact:
 
 ```bash
 python3 -m http.server 8765
@@ -114,6 +140,7 @@ Then visit [http://127.0.0.1:8765/dashboard/index.html](http://127.0.0.1:8765/da
 ## Limitations
 
 - The current Kalshi slice is still methodologically weaker than the Polymarket slice because most Kalshi rows rely on snapshot fallback rather than full cached history.
+- Kalshi category assignment is more inference-heavy than Polymarket because cached Kalshi payloads do not appear to expose the same rich tag metadata; low-confidence rows are flagged instead of silently trusted.
 - Some markets have missing or incomplete timestamp fields, which creates an `unknown` lead-time bucket.
 - The regression is associational, not causal. Higher volume correlating with lower error does not mean liquidity alone causes better forecasts.
 - A Brier score around `0.12` is evidence that liquid markets contain real forecasting signal, but it is not evidence that they are perfectly efficient or easy to monetize.

@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(47, 94, 229, 0.08), transparent 28%),
+    radial-gradient(circle at top left, rgba(95, 203, 153, 0.10), transparent 24%),
+    #f4efe6;
+  color: #1f2c37;
+  font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.hero-panel,
+.narrative-card,
+.filter-panel {
+  background: rgba(255, 248, 238, 0.94);
+  border: 1px solid rgba(215, 204, 191, 0.85);
+  box-shadow: 0 24px 64px rgba(79, 61, 44, 0.08);
+}
+
+.hero-panel {
+  padding: 2rem 2.2rem;
+  border-radius: 28px;
+}
+
+.hero-kicker {
+  color: #a85532;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 0.7rem 0 0;
+  font-size: clamp(2.5rem, 4vw, 4.6rem);
+  line-height: 0.96;
+  font-weight: 800;
+}
+
+.hero-copy {
+  max-width: 58rem;
+  margin-top: 1rem;
+  color: #687785;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.kpi-card {
+  min-height: 180px;
+  padding: 1.25rem 1.35rem;
+  border-radius: 24px;
+  background: rgba(255, 248, 238, 0.96);
+  border: 1px solid rgba(215, 204, 191, 0.85);
+  box-shadow: 0 18px 42px rgba(79, 61, 44, 0.06);
+}
+
+.kpi-label {
+  color: #687785;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.kpi-value {
+  margin-top: 0.8rem;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.kpi-note {
+  margin-top: 0.9rem;
+  color: #687785;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.kpi-accent {
+  margin-top: 0.85rem;
+  color: #a85532;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.method-list {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: #687785;
+  line-height: 1.7;
+}
+
+.js-plotly-plot,
+.dash-graph {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.ag-theme-alpine {
+  --ag-background-color: #fff8ee;
+  --ag-foreground-color: #1f2c37;
+  --ag-header-background-color: #f8f1e7;
+  --ag-header-foreground-color: #1f2c37;
+  --ag-border-color: #d7ccbf;
+  --ag-row-border-color: #ece2d5;
+  --ag-odd-row-background-color: #fefaf4;
+  border: 1px solid rgba(215, 204, 191, 0.85);
+  border-radius: 24px;
+}
+
+@media (max-width: 1100px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    padding: 1.5rem 1.2rem;
+  }
+}

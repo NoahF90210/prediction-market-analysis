@@ -1,6 +1,6 @@
 """
-Collect resolved binary markets from Polymarket, filtered to liquid elections
-and sports markets.
+Collect resolved binary markets from Polymarket and preserve the full resolved
+inventory locally before analysis filters are applied.
 
 Category is inferred by keyword matching on the event title.
 
@@ -18,18 +18,20 @@ Outputs:
 Usage:
   python3 src/collect_polymarket.py
   python3 src/collect_polymarket.py --markets-only
-  python3 src/collect_polymarket.py --min-volume 100000
+  python3 src/collect_polymarket.py --min-volume 0
 """
 
 import argparse
 import json
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
 import requests
 
-from accuracy import MIN_VOLUME
+from src.accuracy import MIN_VOLUME
+from src.category_mapping import classify_market
 
 GAMMA_BASE = "https://gamma-api.polymarket.com"
 CLOB_BASE = "https://clob.polymarket.com"
@@ -42,37 +44,6 @@ MARKETS_CSV = os.path.join(CLEAN_DIR, "polymarket_markets.csv")
 HISTORY_CSV = os.path.join(CLEAN_DIR, "polymarket_history.csv")
 
 SESSION = requests.Session()
-
-# ---------------------------------------------------------------------------
-# Category classification
-# ---------------------------------------------------------------------------
-
-CATEGORY_KEYWORDS: dict[str, list[str]] = {
-    "elections": [
-        "election", "president", "senate", "congress", "governor", "parliament",
-        "prime minister", "vote", "ballot", "primary", "referendum", "runoff",
-        "mayor", "gubernatorial", "midterm", "democrat", "republican",
-    ],
-    "sports": [
-        "nba", "nfl", "mlb", "nhl", "super bowl", "world series", "world cup",
-        "champions league", "premier league", "la liga", "bundesliga", "serie a",
-        "stanley cup", "playoffs", "championship", "finals", "tournament",
-        "soccer", "football", "basketball", "baseball", "hockey", "tennis",
-        "golf", "ufc", "mma", "boxing", "f1", "formula 1", "formula one",
-        "cricket", "rugby", "olympics", "wimbledon", "masters", "grand slam",
-        "counter-strike", "valorant", "league of legends", "dota", "esports",
-        "cs2", "lol", "overwatch",
-    ],
-}
-
-
-def classify_category(title: str) -> str | None:
-    title_lower = title.lower()
-    for category, keywords in CATEGORY_KEYWORDS.items():
-        if any(kw in title_lower for kw in keywords):
-            return category
-    return None
-
 
 # ---------------------------------------------------------------------------
 # HTTP
@@ -167,11 +138,6 @@ def extract_markets(events: list[dict]) -> pd.DataFrame:
 
     for event in events:
         event_title = event.get("title", "")
-        category = classify_category(event_title)
-        if category is None:
-            skipped_category += 1
-            continue
-
         for m in event.get("markets", []):
             outcomes = _parse_list_field(m.get("outcomes", []))
             token_ids = _parse_list_field(m.get("clobTokenIds", []))
@@ -196,11 +162,32 @@ def extract_markets(events: list[dict]) -> pd.DataFrame:
             else:
                 continue  # ambiguous
 
+            category = classify_market(
+                platform="polymarket",
+                market_id=str(m.get("id") or ""),
+                title=m.get("question", "") or event_title,
+                slug=m.get("slug", "") or event.get("slug", ""),
+                raw_platform_category=str(event.get("category") or ""),
+                raw_tags=event.get("tags") or [],
+                context_fields=[
+                    event_title,
+                    str(event.get("slug") or ""),
+                    str(event.get("ticker") or ""),
+                    str(event.get("description") or ""),
+                ],
+            )
+
             rows.append({
                 "id": m.get("id", ""),
                 "event_title": event_title,
                 "question": m.get("question", ""),
-                "category": category,
+                "category": category.canonical_category,
+                "category_source": category.category_source,
+                "category_confidence": category.category_confidence,
+                "needs_review": category.needs_review,
+                "review_reason": category.review_reason,
+                "raw_platform_category": category.raw_platform_category,
+                "raw_tags": category.raw_tags,
                 "slug": m.get("slug", ""),
                 "yes_token_id": token_ids[0],
                 "no_token_id": token_ids[1],
@@ -248,40 +235,47 @@ def closing_probability(history: list[dict]) -> float | None:
     return float(last) if last is not None else None
 
 
-def collect_history(df_markets: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def _fetch_one(row: dict) -> tuple[str, list[dict]]:
+    token_id = row["yes_token_id"]
+    raw_path = os.path.join(RAW_HIST_DIR, f"{token_id}.json")
+    if os.path.exists(raw_path):
+        with open(raw_path) as f:
+            return token_id, json.load(f)
+    try:
+        history = fetch_price_history(token_id)
+    except Exception as e:
+        print(f"  ERROR {token_id}: {e}")
+        history = []
+    with open(raw_path, "w") as f:
+        json.dump(history, f)
+    time.sleep(0.05)
+    return token_id, history
+
+
+def collect_history(df_markets: pd.DataFrame, workers: int = 10) -> tuple[pd.DataFrame, pd.DataFrame]:
     history_rows: list[dict] = []
     closing_probs: dict[str, float | None] = {}
     total = len(df_markets)
+    records = df_markets.to_dict("records")
+    token_to_market_id = {r["yes_token_id"]: r["id"] for r in records}
+    done = 0
 
-    for i, (_, row) in enumerate(df_markets.iterrows()):
-        token_id = row["yes_token_id"]
-        raw_path = os.path.join(RAW_HIST_DIR, f"{token_id}.json")
-
-        if os.path.exists(raw_path):
-            with open(raw_path) as f:
-                history = json.load(f)
-        else:
-            try:
-                history = fetch_price_history(token_id)
-            except Exception as e:
-                print(f"  ERROR {token_id}: {e}")
-                history = []
-            with open(raw_path, "w") as f:
-                json.dump(history, f)
-            time.sleep(0.15)
-
-        closing_probs[row["id"]] = closing_probability(history)
-
-        for point in history:
-            history_rows.append({
-                "market_id": row["id"],
-                "yes_token_id": token_id,
-                "t": point.get("t"),
-                "p": point.get("p"),
-            })
-
-        if (i + 1) % 100 == 0:
-            print(f"  {i + 1}/{total} markets processed")
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {executor.submit(_fetch_one, r): r for r in records}
+        for future in as_completed(futures):
+            token_id, history = future.result()
+            market_id = token_to_market_id[token_id]
+            closing_probs[market_id] = closing_probability(history)
+            for point in history:
+                history_rows.append({
+                    "market_id": market_id,
+                    "yes_token_id": token_id,
+                    "t": point.get("t"),
+                    "p": point.get("p"),
+                })
+            done += 1
+            if done % 100 == 0:
+                print(f"  {done}/{total} markets processed")
 
     df_markets = df_markets.copy()
     df_markets["closing_prob"] = df_markets["id"].map(closing_probs)
@@ -292,12 +286,13 @@ def collect_history(df_markets: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFram
 # Main
 # ---------------------------------------------------------------------------
 
-def main(markets_only: bool = False, min_volume: float = MIN_VOLUME) -> None:
+def main(markets_only: bool = False, min_volume: float = 0.0) -> None:
     os.makedirs(RAW_DIR, exist_ok=True)
     os.makedirs(RAW_HIST_DIR, exist_ok=True)
     os.makedirs(CLEAN_DIR, exist_ok=True)
 
-    print(f"Fetching closed Polymarket events (min volume: ${min_volume:,.0f})...")
+    threshold_note = f"${min_volume:,.0f}" if min_volume > 0 else "no raw inventory filter"
+    print(f"Fetching closed Polymarket events (min volume: {threshold_note})...")
     events = fetch_events(min_volume=min_volume)
     print(f"Events fetched: {len(events)}")
 
@@ -325,6 +320,6 @@ def main(markets_only: bool = False, min_volume: float = MIN_VOLUME) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--markets-only", action="store_true")
-    parser.add_argument("--min-volume", type=float, default=MIN_VOLUME)
+    parser.add_argument("--min-volume", type=float, default=0.0)
     args = parser.parse_args()
     main(markets_only=args.markets_only, min_volume=args.min_volume)

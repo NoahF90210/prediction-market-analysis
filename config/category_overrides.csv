@@ -1,0 +1,3 @@
+platform,match_field,match_type,match_value,canonical_category,reason,confidence
+polymarket,title,contains,iran x israel/us conflict,geopolitics,Known geopolitics series misclassified by legacy keyword rules,1.0
+polymarket,title,contains,iran x israel conflict,geopolitics,Known geopolitics series misclassified by legacy keyword rules,1.0

@@ -1,5 +1,5 @@
 """
-Compute MVP accuracy tables from data/cleaned/accuracy_markets.csv.
+Compute accuracy tables from the warehouse-derived dashboard export.
 """
 
 from __future__ import annotations
@@ -26,6 +26,10 @@ INPUT_CSV = CLEAN_DIR / "accuracy_markets.csv"
 
 def main() -> None:
     df = pd.read_csv(INPUT_CSV)
+    if "analysis_ready" in df.columns:
+        df = df[df["analysis_ready"]].copy()
+    elif "include_in_analysis" in df.columns:
+        df = df[df["include_in_analysis"]].copy()
     scored = add_baseline_columns(df)
 
     overall = metric_summary(scored)

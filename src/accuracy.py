@@ -16,8 +16,26 @@ from typing import Iterable
 import numpy as np
 import pandas as pd
 
-MIN_VOLUME = 100_000.0
-VALID_CATEGORIES = {"sports", "elections"}
+from src.settings import MIN_ANALYSIS_VOLUME
+
+MIN_VOLUME = MIN_ANALYSIS_VOLUME
+VALID_CATEGORIES = {
+    "elections",
+    "politics",
+    "geopolitics",
+    "sports",
+    "crypto",
+    "culture",
+    "economics",
+    "finance",
+    "companies",
+    "science_tech",
+    "climate",
+    "commodities",
+    "weather",
+    "mentions",
+    "unclassified",
+}
 VALID_RESOLUTIONS = {"YES", "NO"}
 NON_TRIVIAL_MIN = 0.02
 NON_TRIVIAL_MAX = 0.98
@@ -27,9 +45,12 @@ BOOTSTRAP_ITERATIONS = 2_000
 CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "elections": [
         "election", "president", "senate", "congress", "governor",
-        "parliament", "prime minister", "vote", "ballot", "primary",
-        "referendum", "runoff", "mayor", "gubernatorial", "midterm",
-        "democrat", "republican",
+        "parliament", "vote", "ballot", "primary", "referendum",
+        "runoff", "mayor", "gubernatorial",
+    ],
+    "geopolitics": [
+        "iran", "israel", "ukraine", "russia", "china", "taiwan",
+        "middle east", "ceasefire", "sanction", "military",
     ],
     "sports": [
         "nba", "nfl", "mlb", "nhl", "super bowl", "world series",
@@ -37,10 +58,7 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
         "bundesliga", "serie a", "stanley cup", "playoffs",
         "championship", "finals", "tournament", "soccer", "football",
         "basketball", "baseball", "hockey", "tennis", "golf", "ufc",
-        "mma", "boxing", "f1", "formula 1", "formula one", "cricket",
-        "rugby", "olympics", "wimbledon", "masters", "grand slam",
-        "counter-strike", "valorant", "league of legends", "dota",
-        "esports", "cs2", "lol", "overwatch",
+        "mma", "boxing", "f1", "formula 1", "cricket", "rugby",
     ],
 }
 
@@ -343,14 +361,14 @@ def metric_summary(df: pd.DataFrame, group_cols: list[str] | None = None) -> pd.
 
 def apply_mvp_filters(df: pd.DataFrame, min_volume: float = MIN_VOLUME) -> pd.DataFrame:
     filtered = df.copy()
-    filtered["category"] = filtered["category"].str.lower()
+    filtered["category"] = filtered["category"].fillna("unclassified").str.lower()
     filtered["resolution"] = filtered["resolution"].map(normalize_resolution)
     filtered["volume"] = pd.to_numeric(filtered["volume"], errors="coerce")
     filtered["forecast_prob"] = pd.to_numeric(filtered["forecast_prob"], errors="coerce")
     filtered = filtered[
-        filtered["category"].isin(VALID_CATEGORIES)
-        & filtered["resolution"].isin(VALID_RESOLUTIONS)
+        filtered["resolution"].isin(VALID_RESOLUTIONS)
         & (filtered["volume"] >= min_volume)
         & filtered["forecast_prob"].between(0, 1)
+        & filtered["category"].isin(VALID_CATEGORIES)
     ]
     return filtered.reset_index(drop=True)
