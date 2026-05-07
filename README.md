@@ -10,7 +10,7 @@ Across **900 resolved binary contracts** from Polymarket and Kalshi (≥ $100k v
 
 ## What's in here
 
-A reproducible end-to-end pipeline (ingest → category-normalize → score → export → static dashboard) plus a written editorial dashboard. Aimed at an audience of one analyst who'd read it carefully, not a generic "data science portfolio."
+A reproducible end-to-end pipeline (ingest → category-normalize → score → export → static dashboard) plus a written editorial dashboard.
 
 ## Methodology
 
