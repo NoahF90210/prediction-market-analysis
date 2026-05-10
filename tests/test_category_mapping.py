@@ -77,6 +77,20 @@ def test_kalshi_tennis_market_maps_to_sports() -> None:
     assert result.needs_review is False
 
 
+def test_esports_market_maps_to_sports() -> None:
+    result = classify_market(
+        platform="polymarket",
+        market_id="pm-dota-1",
+        title="Dota 2: Xtreme Gaming vs Natus Vincere (BO3) - PGL Wallachia Group Stage",
+        slug="dota-2-xtreme-gaming-vs-natus-vincere-bo3-pgl-wallachia-group-stage",
+        raw_platform_category="",
+        raw_tags=[],
+    )
+    assert result.canonical_category == "sports"
+    assert result.category_source == "mapping_rule"
+    assert result.needs_review is False
+
+
 def test_comparable_categories_requires_both_platforms() -> None:
     df = pd.DataFrame(
         [

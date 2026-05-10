@@ -6,12 +6,13 @@ from pathlib import Path
 import pandas as pd
 
 from src.collect_polymarket import collect_history, extract_markets, fetch_events
+from src.forecast_snapshots import SECONDARY_FORECAST_HORIZONS
 from src.settings import CLEAN_DIR, MIN_ANALYSIS_VOLUME
 from src.supabase_storage import SupabaseWarehouseClient, dataframe_records
 
 
-def build_polymarket_inventory(fetch_history: bool = True) -> pd.DataFrame:
-    events = fetch_events(min_volume=MIN_ANALYSIS_VOLUME)
+def build_polymarket_inventory(fetch_history: bool = True, min_event_volume: float = MIN_ANALYSIS_VOLUME) -> pd.DataFrame:
+    events = fetch_events(min_volume=min_event_volume)
     markets = extract_markets(events)
     if markets.empty:
         return pd.DataFrame()
@@ -25,34 +26,76 @@ def build_polymarket_inventory(fetch_history: bool = True) -> pd.DataFrame:
         }
     ).copy()
     inventory["platform"] = "polymarket"
-    inventory["source_event_id"] = inventory.get("slug")
+    if "source_event_id" not in inventory.columns:
+        inventory["source_event_id"] = inventory.get("slug")
+    inventory["source_event_id"] = inventory["source_event_id"].fillna(inventory.get("slug"))
     inventory["title"] = inventory["question"].fillna(inventory["event_title"])
     inventory["open_time"] = inventory["start_date"]
     inventory["close_time"] = inventory["end_date"]
     inventory["forecast_prob"] = inventory["closing_prob"]
-    inventory["forecast_source"] = inventory["closing_prob"].map(lambda value: "history" if pd.notna(value) else None)
-    inventory["raw_payload"] = "{}"
-    inventory["source_url"] = inventory["slug"].map(lambda slug: f"https://polymarket.com/event/{slug}" if slug else None)
-    return inventory[
-        [
-            "platform",
-            "source_market_id",
-            "event_title",
-            "title",
-            "slug",
-            "source_event_id",
-            "raw_platform_category",
-            "raw_tags",
-            "open_time",
-            "close_time",
-            "resolution",
+    for col in (
+        "forecast_observed_at",
+        "forecast_target_time",
+        "forecast_seconds_before_close",
+        "forecast_horizon",
+        "forecast_quality",
+    ):
+        if col not in inventory.columns:
+            inventory[col] = None
+    for horizon in SECONDARY_FORECAST_HORIZONS:
+        for col in (
             "forecast_prob",
             "forecast_source",
+            "forecast_observed_at",
+            "forecast_target_time",
+            "forecast_seconds_before_close",
+            "forecast_horizon",
+            "forecast_quality",
+        ):
+            column_name = f"{col}_{horizon}"
+            if column_name not in inventory.columns:
+                inventory[column_name] = None
+    inventory["raw_payload"] = "{}"
+    inventory["source_url"] = inventory["slug"].map(lambda slug: f"https://polymarket.com/event/{slug}" if slug else None)
+    columns = [
+        "platform",
+        "source_market_id",
+        "event_title",
+        "title",
+        "slug",
+        "source_event_id",
+        "raw_platform_category",
+        "raw_tags",
+        "open_time",
+        "close_time",
+        "resolution",
+        "forecast_prob",
+        "forecast_source",
+        "forecast_observed_at",
+        "forecast_target_time",
+        "forecast_seconds_before_close",
+        "forecast_horizon",
+        "forecast_quality",
+    ]
+    for horizon in SECONDARY_FORECAST_HORIZONS:
+        for col in (
+            "forecast_prob",
+            "forecast_source",
+            "forecast_observed_at",
+            "forecast_target_time",
+            "forecast_seconds_before_close",
+            "forecast_horizon",
+            "forecast_quality",
+        ):
+            columns.append(f"{col}_{horizon}")
+    columns.extend(
+        [
             "volume",
             "source_url",
             "raw_payload",
         ]
-    ].copy()
+    )
+    return inventory[columns].copy()
 
 
 def sync_polymarket_inventory(client: SupabaseWarehouseClient, inventory: pd.DataFrame) -> None:
@@ -68,7 +111,10 @@ def main() -> None:
     client = SupabaseWarehouseClient()
     sync_polymarket_inventory(client, inventory)
     print(f"Wrote {len(inventory)} Polymarket resolved markets")
-    print(f"Analysis threshold remains ${MIN_ANALYSIS_VOLUME:,.0f}, but raw capture is unfiltered.")
+    print(
+        f"Fetched closed events using min event volume ${MIN_ANALYSIS_VOLUME:,.0f}. "
+        "Market-level scoring filters are applied downstream."
+    )
 
 
 if __name__ == "__main__":

@@ -190,11 +190,18 @@ mapping_rules:
     - champions league
     - super bowl
     - counter-strike
+    - dota
+    - dota 2
+    - esports
     - league of legends
+    - lol:
+    - lpl group
+    - lec regular
     - indian premier league
     - ipl
     - iem
     - lck
+    - pgl wallachia
     - monte carlo masters
     - atp
     - wta
@@ -274,7 +281,18 @@ mapping_rules:
     - weather
 
 keyword_fallback:
+  elections:
+    - election
+    - president
+    - senate
+  geopolitics:
+    - iran
+    - israel
+    - ceasefire
   sports:
+    - nba
+    - nfl
+    - mlb
     - counter-strike
     - cs2
     - indian premier league
@@ -288,25 +306,6 @@ keyword_fallback:
     - wta
     - storm
     - heatwave
-  mentions:
-    - mentions
-    - x mentions
-    - twitter mentions
-    - google trends
-
-keyword_fallback:
-  elections:
-    - election
-    - president
-    - senate
-  geopolitics:
-    - iran
-    - israel
-    - ceasefire
-  sports:
-    - nba
-    - nfl
-    - mlb
   crypto:
     - bitcoin
     - crypto
@@ -316,3 +315,8 @@ keyword_fallback:
   weather:
     - hurricane
     - storm
+  mentions:
+    - mentions
+    - x mentions
+    - twitter mentions
+    - google trends

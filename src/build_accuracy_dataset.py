@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT))
 
 import pandas as pd
 
+from src.data_quality import write_quality_outputs
 from src.export_dashboard_dataset import main as export_dashboard_main
 from src.ingest_kalshi_resolved import build_kalshi_inventory, sync_kalshi_inventory
 from src.ingest_polymarket_resolved import build_polymarket_inventory, sync_polymarket_inventory
@@ -54,6 +55,7 @@ def build_dataset() -> pd.DataFrame:
     dashboard_df.to_csv(OUTPUT_MARKETS_CSV, index=False)
     scored.to_csv(OUTPUT_SCORED_CSV, index=False)
     review_queue(normalized).to_csv(OUTPUT_REVIEW_QUEUE_CSV, index=False)
+    write_quality_outputs(scored, normalized=normalized)
     return dashboard_df
 
 

@@ -3,16 +3,120 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Forecast Audit · Prediction Market Accuracy</title>
+    <title>Prediction Market Accuracy Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-      html, body { margin: 0; padding: 0; }
-      body { font-family: 'Inter Tight', system-ui, sans-serif; }
+      html, body { margin: 0; padding: 0; background: #f8fafc; }
+      body { font-family: 'Inter Tight', system-ui, sans-serif; color: #0f172a; }
       * { box-sizing: border-box; }
-      ::selection { background: rgba(20,18,16,0.85); color: #f4f1ea; }
-      input[type="search"]::placeholder { color: rgba(122, 114, 104, 0.7); }
+      ::selection { background: #2563eb; color: #fff; }
+      input[type="search"]::placeholder { color: #94a3b8; }
+      input[type="search"]:focus { border-color: #2563eb !important; }
+      button:hover { filter: brightness(0.97); }
+
+      /* ----- responsive grids ----- */
+      .grid-kpi {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .grid-cal {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 16px;
+      }
+      .grid-bucket {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .table-scroll {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .table-scroll table { min-width: 760px; }
+      .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      .filter-bar .spacer { flex: 1; min-width: 12px; }
+
+      @media (max-width: 1024px) {
+        .grid-kpi { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-cal { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 768px) {
+        .grid-kpi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-bucket { grid-template-columns: 1fr; }
+        .filter-bar input[type="search"] { width: 100% !important; }
+      }
+      @media (max-width: 480px) {
+        .grid-kpi { grid-template-columns: 1fr; }
+      }
+
+      /* Responsive grid utilities */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .split-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .calib-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 16px;
+      }
+      .struct-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .findings-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 24px;
+      }
+      .table-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .filter-bar > .filter-search {
+        width: 240px;
+        min-width: 160px;
+      }
+
+      @media (max-width: 1100px) {
+        .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .calib-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 820px) {
+        .split-grid { grid-template-columns: 1fr; }
+        .struct-grid { grid-template-columns: 1fr; }
+        .findings-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 560px) {
+        .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .filter-bar > .filter-search { width: 100%; }
+      }
+      @media (max-width: 380px) {
+        .kpi-grid { grid-template-columns: 1fr; }
+      }
     </style>
   </head>
   <body>
@@ -23,7 +127,6 @@
     <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
     <script src="data.js"></script>
-    <script type="text/babel" src="tweaks-panel.jsx"></script>
     <script type="text/babel" src="charts.jsx"></script>
     <script type="text/babel" src="app.jsx"></script>
   </body>

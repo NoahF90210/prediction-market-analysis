@@ -56,7 +56,13 @@ def fetch_all_settled() -> list[dict]:
         params = {"status": "settled", "limit": 200}
         if cursor:
             params["cursor"] = cursor
-        data = kalshi.get("/markets", params)
+        try:
+            data = kalshi.get("/markets", params)
+        except Exception as exc:
+            if markets:
+                print(f"  Kalshi /markets unavailable ({exc}); using {len(markets)} cached markets")
+                break
+            raise
         batch = data.get("markets", [])
         markets.extend(batch)
 
@@ -81,7 +87,13 @@ def fetch_all_historical_settled() -> list[dict]:
         params = {"status": "settled", "limit": 200}
         if cursor:
             params["cursor"] = cursor
-        data = kalshi.get("/historical/markets", params)
+        try:
+            data = kalshi.get("/historical/markets", params)
+        except Exception as exc:
+            if markets:
+                print(f"  Kalshi /historical/markets unavailable ({exc}); using {len(markets)} cached historical markets")
+                break
+            raise
         batch = data.get("markets", [])
         markets.extend(batch)
 

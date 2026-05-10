@@ -26,12 +26,21 @@ import json
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import replace
 
 import pandas as pd
 import requests
 
 from src.accuracy import MIN_VOLUME
 from src.category_mapping import classify_market
+from src.forecast_snapshots import (
+    FORECAST_HORIZONS,
+    PRIMARY_FORECAST_HORIZON,
+    ForecastSnapshot,
+    forecast_from_history,
+    snapshot_to_columns,
+    target_time,
+)
 
 GAMMA_BASE = "https://gamma-api.polymarket.com"
 CLOB_BASE = "https://clob.polymarket.com"
@@ -83,6 +92,21 @@ def _parse_list_field(val) -> list:
     return []
 
 
+def load_cached_events() -> list[dict]:
+    pages = sorted(
+        file_name for file_name in os.listdir(RAW_DIR)
+        if file_name.startswith("events_") and file_name.endswith(".json")
+    )
+    events: list[dict] = []
+    for file_name in pages:
+        path = os.path.join(RAW_DIR, file_name)
+        with open(path) as f:
+            page = json.load(f)
+        if isinstance(page, list):
+            events.extend(page)
+    return events
+
+
 # ---------------------------------------------------------------------------
 # Events + market extraction
 # ---------------------------------------------------------------------------
@@ -102,7 +126,14 @@ def fetch_events(min_volume: float) -> list[dict]:
             "order": "volume",
             "ascending": "false",
         }
-        batch = _get(GAMMA_BASE, "/events", params)
+        try:
+            batch = _get(GAMMA_BASE, "/events", params)
+        except Exception as exc:
+            cached = load_cached_events()
+            if cached:
+                print(f"  event API unavailable ({exc}); using {len(cached)} cached events")
+                return cached
+            raise
         if not isinstance(batch, list):
             batch = []
 
@@ -134,7 +165,6 @@ def extract_markets(events: list[dict]) -> pd.DataFrame:
     and extract resolution from outcomePrices.
     """
     rows = []
-    skipped_category = 0
 
     for event in events:
         event_title = event.get("title", "")
@@ -179,6 +209,7 @@ def extract_markets(events: list[dict]) -> pd.DataFrame:
 
             rows.append({
                 "id": m.get("id", ""),
+                "event_id": event.get("id"),
                 "event_title": event_title,
                 "question": m.get("question", ""),
                 "category": category.canonical_category,
@@ -189,17 +220,25 @@ def extract_markets(events: list[dict]) -> pd.DataFrame:
                 "raw_platform_category": category.raw_platform_category,
                 "raw_tags": category.raw_tags,
                 "slug": m.get("slug", ""),
+                "source_event_id": event.get("id") or event.get("slug"),
                 "yes_token_id": token_ids[0],
                 "no_token_id": token_ids[1],
-                "start_date": m.get("startDate") or event.get("startDate"),
-                "end_date": m.get("endDate") or event.get("endDate"),
+                "start_date": m.get("startDate") or m.get("startDateIso") or event.get("startDate"),
+                "end_date": (
+                    m.get("closedTime")
+                    or m.get("endDate")
+                    or m.get("endDateIso")
+                    or event.get("closedTime")
+                    or event.get("endDate")
+                ),
                 "resolution": resolution,
                 "volume": float(m.get("volume") or 0),
+                "enable_order_book": bool(m.get("enableOrderBook")) if m.get("enableOrderBook") is not None else None,
+                "market_type": m.get("marketType"),
                 # closing_prob filled in after history fetch
                 "closing_prob": None,
             })
 
-    print(f"  ({skipped_category} events skipped — no matching category)")
     return pd.DataFrame(rows)
 
 
@@ -207,54 +246,156 @@ def extract_markets(events: list[dict]) -> pd.DataFrame:
 # CLOB price history
 # ---------------------------------------------------------------------------
 
-def fetch_price_history(token_id: str) -> list[dict]:
-    data = _get(CLOB_BASE, "/prices-history", {
-        "market": token_id,
-        "interval": "max",
-        "fidelity": 60,
-    })
+def fetch_price_history(
+    token_id: str,
+    *,
+    start_ts: int | None = None,
+    end_ts: int | None = None,
+    interval: str | None = "max",
+    fidelity: int | None = 1,
+) -> list[dict]:
+    params: dict[str, object] = {"market": token_id}
+    if interval is not None:
+        params["interval"] = interval
+    if fidelity is not None:
+        params["fidelity"] = fidelity
+    if start_ts is not None:
+        params["startTs"] = start_ts
+    if end_ts is not None:
+        params["endTs"] = end_ts
+    data = _get(CLOB_BASE, "/prices-history", params)
     return data.get("history", [])
 
 
-def closing_probability(history: list[dict]) -> float | None:
-    """
-    The last price point where the market still had meaningful uncertainty
-    (between 2% and 98%). Falls back to the very last price if none found.
-    """
-    if not history:
-        return None
-    for point in reversed(history):
-        p = point.get("p")
-        if p is None:
-            continue
-        p = float(p)
-        if 0.02 <= p <= 0.98:
-            return p
-    # all points are trivial (market was never uncertain or already resolved)
-    last = history[-1].get("p")
-    return float(last) if last is not None else None
+def forecast_snapshot_from_history(
+    history: list[dict],
+    close_time,
+    *,
+    horizon: str = PRIMARY_FORECAST_HORIZON,
+) -> ForecastSnapshot:
+    return forecast_from_history(
+        history,
+        close_time=close_time,
+        source="history",
+        horizon=horizon,
+        time_keys=("t",),
+        price_keys=("p",),
+    )
 
 
-def _fetch_one(row: dict) -> tuple[str, list[dict]]:
-    token_id = row["yes_token_id"]
+def closing_probability(
+    history: list[dict],
+    close_time=None,
+    *,
+    horizon: str = PRIMARY_FORECAST_HORIZON,
+) -> float | None:
+    """
+    Last meaningful YES price before the forecast cutoff. If close_time is
+    missing, this falls back to the old behavior of using the last non-trivial
+    point in the cached history.
+    """
+    return forecast_snapshot_from_history(history, close_time, horizon=horizon).probability
+
+
+def _load_cached_histories(token_id: str) -> dict[str, list[dict]]:
     raw_path = os.path.join(RAW_HIST_DIR, f"{token_id}.json")
-    if os.path.exists(raw_path):
-        with open(raw_path) as f:
-            return token_id, json.load(f)
-    try:
-        history = fetch_price_history(token_id)
-    except Exception as e:
-        print(f"  ERROR {token_id}: {e}")
-        history = []
+    if not os.path.exists(raw_path):
+        return {}
+
+    with open(raw_path) as f:
+        payload = json.load(f)
+
+    if isinstance(payload, list):
+        return {PRIMARY_FORECAST_HORIZON: payload}
+    if isinstance(payload, dict):
+        if "horizons" in payload and isinstance(payload["horizons"], dict):
+            return {
+                str(horizon): points
+                for horizon, points in payload["horizons"].items()
+                if isinstance(points, list)
+            }
+        return {
+            str(horizon): points
+            for horizon, points in payload.items()
+            if isinstance(points, list)
+        }
+    return {}
+
+
+def _save_cached_histories(token_id: str, histories: dict[str, list[dict]]) -> None:
+    raw_path = os.path.join(RAW_HIST_DIR, f"{token_id}.json")
     with open(raw_path, "w") as f:
-        json.dump(history, f)
-    time.sleep(0.05)
-    return token_id, history
+        json.dump({"horizons": histories}, f)
+
+
+def _snapshot_with_labels(snapshot: ForecastSnapshot, *, source: str, quality: str | None = None) -> ForecastSnapshot:
+    return replace(
+        snapshot,
+        source=source if snapshot.probability is not None else None,
+        quality=quality or snapshot.quality,
+    )
+
+
+def _fetch_horizon_history(token_id: str, close_time, horizon: str) -> tuple[list[dict], str]:
+    cutoff = target_time(close_time, horizon)
+    if cutoff is None:
+        history = fetch_price_history(token_id, interval="max", fidelity=1)
+        return history, "clob_history_missing_close_time"
+
+    end_ts = int(cutoff.timestamp())
+    history = fetch_price_history(
+        token_id,
+        end_ts=end_ts,
+        interval="max",
+        fidelity=1,
+    )
+    if history:
+        return history, "clob_history_endts"
+
+    # Fallback path when the endTs query returns empty. We still score using
+    # target-time filtering from forecast_from_history.
+    history = fetch_price_history(token_id, interval="max", fidelity=1)
+    return history, "clob_history_endts_fallback_full"
+
+
+def _fetch_one(row: dict) -> tuple[str, dict[str, list[dict]], dict[str, ForecastSnapshot]]:
+    token_id = row["yes_token_id"]
+    close_time = row.get("end_date")
+    cached = _load_cached_histories(token_id)
+    histories: dict[str, list[dict]] = {}
+    snapshots: dict[str, ForecastSnapshot] = {}
+
+    try:
+        for horizon in FORECAST_HORIZONS:
+            history = cached.get(horizon)
+            source = "clob_history_cache"
+            if history is None:
+                history, source = _fetch_horizon_history(token_id, close_time, horizon)
+                time.sleep(0.02)
+            histories[horizon] = history
+            snapshot = forecast_snapshot_from_history(history, close_time, horizon=horizon)
+            if source == "clob_history_endts_fallback_full" and snapshot.probability is not None:
+                snapshot = _snapshot_with_labels(snapshot, source=source, quality="target_time_fallback_full_history")
+            else:
+                snapshot = _snapshot_with_labels(snapshot, source=source)
+            snapshots[horizon] = snapshot
+    except Exception as exc:
+        print(f"  ERROR {token_id}: {exc}")
+        for horizon in FORECAST_HORIZONS:
+            history = histories.get(horizon, [])
+            snapshots[horizon] = _snapshot_with_labels(
+                forecast_snapshot_from_history(history, close_time, horizon=horizon),
+                source="clob_history_error",
+                quality="history_fetch_error",
+            )
+
+    _save_cached_histories(token_id, histories)
+    return token_id, histories, snapshots
 
 
 def collect_history(df_markets: pd.DataFrame, workers: int = 10) -> tuple[pd.DataFrame, pd.DataFrame]:
     history_rows: list[dict] = []
-    closing_probs: dict[str, float | None] = {}
+    forecast_metadata: dict[str, dict[str, ForecastSnapshot]] = {}
     total = len(df_markets)
     records = df_markets.to_dict("records")
     token_to_market_id = {r["yes_token_id"]: r["id"] for r in records}
@@ -263,22 +404,49 @@ def collect_history(df_markets: pd.DataFrame, workers: int = 10) -> tuple[pd.Dat
     with ThreadPoolExecutor(max_workers=workers) as executor:
         futures = {executor.submit(_fetch_one, r): r for r in records}
         for future in as_completed(futures):
-            token_id, history = future.result()
+            token_id, histories, snapshots = future.result()
             market_id = token_to_market_id[token_id]
-            closing_probs[market_id] = closing_probability(history)
-            for point in history:
-                history_rows.append({
-                    "market_id": market_id,
-                    "yes_token_id": token_id,
-                    "t": point.get("t"),
-                    "p": point.get("p"),
-                })
+            forecast_metadata[market_id] = snapshots
+            for horizon, history in histories.items():
+                for point in history:
+                    history_rows.append({
+                        "market_id": market_id,
+                        "yes_token_id": token_id,
+                        "horizon": horizon,
+                        "t": point.get("t"),
+                        "p": point.get("p"),
+                    })
             done += 1
             if done % 100 == 0:
                 print(f"  {done}/{total} markets processed")
 
     df_markets = df_markets.copy()
-    df_markets["closing_prob"] = df_markets["id"].map(closing_probs)
+    for horizon in FORECAST_HORIZONS:
+        records_for_horizon = {
+            market_id: snapshots[horizon]
+            for market_id, snapshots in forecast_metadata.items()
+            if horizon in snapshots
+        }
+        columns = {
+            market_id: snapshot_to_columns(snapshot, horizon=horizon)
+            for market_id, snapshot in records_for_horizon.items()
+        }
+        for field in (
+            "forecast_prob",
+            "forecast_source",
+            "forecast_observed_at",
+            "forecast_target_time",
+            "forecast_seconds_before_close",
+            "forecast_horizon",
+            "forecast_quality",
+        ):
+            suffix = "" if horizon == PRIMARY_FORECAST_HORIZON else f"_{horizon}"
+            column_name = f"{field}{suffix}"
+            df_markets[column_name] = df_markets["id"].map(
+                lambda market_id: columns.get(market_id, {}).get(column_name)
+            )
+
+    df_markets["closing_prob"] = df_markets["forecast_prob"]
     return df_markets, pd.DataFrame(history_rows)
 
 

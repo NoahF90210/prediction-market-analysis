@@ -3,7 +3,8 @@ from __future__ import annotations
 import pandas as pd
 
 from src.collect_markets import fetch_all_historical_settled, fetch_all_settled
-from src.kalshi_forecasts import kalshi_forecast, kalshi_volume
+from src.forecast_snapshots import FORECAST_HORIZONS, PRIMARY_FORECAST_HORIZON, snapshot_to_columns
+from src.kalshi_forecasts import kalshi_forecast_snapshots, kalshi_volume
 from src.settings import CLEAN_DIR, MIN_ANALYSIS_VOLUME
 from src.supabase_storage import SupabaseWarehouseClient, dataframe_records
 
@@ -18,7 +19,11 @@ def build_kalshi_inventory(include_historical: bool = True) -> pd.DataFrame:
         market_id = str(market.get("ticker") or "")
         if not market_id:
             continue
-        forecast_prob, forecast_source = kalshi_forecast(market, fetch_missing_history=False)
+        snapshots = kalshi_forecast_snapshots(market, fetch_missing_history=False)
+        primary = snapshots[PRIMARY_FORECAST_HORIZON]
+        snapshot_columns: dict[str, object] = {}
+        for horizon in FORECAST_HORIZONS:
+            snapshot_columns.update(snapshot_to_columns(snapshots[horizon], horizon=horizon))
         rows.append(
             {
                 "platform": "kalshi",
@@ -33,14 +38,22 @@ def build_kalshi_inventory(include_historical: bool = True) -> pd.DataFrame:
                 "event_ticker": market.get("event_ticker"),
                 "subtitle": market.get("subtitle"),
                 "rules_primary": market.get("rules_primary"),
+                "mve_collection_ticker": market.get("mve_collection_ticker"),
+                "mve_selected_legs": market.get("mve_selected_legs"),
                 "open_time": market.get("open_time") or market.get("created_time"),
                 "close_time": market.get("close_time") or market.get("settlement_ts"),
                 "resolution": market.get("result"),
-                "forecast_prob": forecast_prob,
-                "forecast_source": forecast_source,
+                "forecast_prob": primary.probability,
+                "forecast_source": primary.source,
+                "forecast_observed_at": primary.observed_at,
+                "forecast_target_time": primary.target_time,
+                "forecast_seconds_before_close": primary.seconds_before_close,
+                "forecast_horizon": primary.horizon,
+                "forecast_quality": primary.quality,
                 "volume": kalshi_volume(market),
                 "source_url": f"https://kalshi.com/markets/{market_id.lower()}" if market_id else None,
                 "raw_payload": market,
+                **snapshot_columns,
             }
         )
 

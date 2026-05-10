@@ -13,6 +13,8 @@ from src.accuracy import (
     log_loss,
     baseline_comparison_table,
 )
+from src.forecast_snapshots import forecast_from_history
+from src.collect_polymarket import closing_probability
 
 
 def sample_df() -> pd.DataFrame:
@@ -88,6 +90,33 @@ def test_calibration_table_returns_expected_columns() -> None:
 def test_last_non_trivial_probability_skips_terminal_extremes() -> None:
     history = [{"p": 0.55}, {"p": 0.99}, {"p": 1.0}]
     assert last_non_trivial_probability(history, ("p",)) == 0.55
+
+
+def test_forecast_snapshot_respects_close_time_guard() -> None:
+    history = [
+        {"t": 1_700_000_000, "p": 0.40},
+        {"t": 1_700_003_000, "p": 0.70},
+        {"t": 1_700_003_700, "p": 0.97},
+    ]
+    snapshot = forecast_from_history(
+        history,
+        close_time=1_700_004_000,
+        source="history",
+        horizon="30m",
+        time_keys=("t",),
+        price_keys=("p",),
+    )
+    assert snapshot.probability == 0.40
+    assert snapshot.quality == "time_guarded"
+    assert snapshot.seconds_before_close == 4000
+
+
+def test_polymarket_closing_probability_uses_pre_close_cutoff() -> None:
+    history = [
+        {"t": 1_700_000_000, "p": 0.42},
+        {"t": 1_700_003_000, "p": 0.75},
+    ]
+    assert closing_probability(history, close_time=1_700_004_000) == 0.42
 
 
 def test_last_non_trivial_probability_falls_back_to_last_price() -> None:
