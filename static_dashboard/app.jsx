@@ -40,6 +40,12 @@ const fmt = {
   },
 };
 
+const PLATFORM_ORDER = ["polymarket", "kalshi"];
+
+const setsEqual = (a, b) => (
+  a.size === b.size && [...a].every((value) => b.has(value))
+);
+
 // ---------------------------------------------------------------------------
 // KPI card — compact, single-row metric block.
 // ---------------------------------------------------------------------------
@@ -138,6 +144,8 @@ function Card({ children, padding = 16, style }) {
 function FilterChip({ label, count, active, onClick }) {
   return (
     <button
+      type="button"
+      aria-pressed={active}
       onClick={onClick}
       style={{
         display: "inline-flex",
@@ -179,6 +187,20 @@ function App() {
   const { headline, calibration, leadTime, volume, categoryBreakdown, rows } = data;
 
   // Derive truths from data so claims stay honest.
+  const platformCounts = useMemo(() => {
+    const m = {};
+    for (const r of rows) m[r.platform] = (m[r.platform] || 0) + 1;
+    return m;
+  }, [rows]);
+
+  const platformOptions = useMemo(() => {
+    const known = PLATFORM_ORDER.filter((p) => platformCounts[p]);
+    const extra = Object.keys(platformCounts)
+      .filter((p) => !PLATFORM_ORDER.includes(p))
+      .sort((a, b) => platformCounts[b] - platformCounts[a]);
+    return [...known, ...extra];
+  }, [platformCounts]);
+
   const categoryCounts = useMemo(() => {
     const m = {};
     for (const r of rows) m[r.category] = (m[r.category] || 0) + 1;
@@ -214,27 +236,116 @@ function App() {
   ), [categoryBreakdown]);
 
   // Filter state
+  const [activePlatforms, setActivePlatforms] = useState(() => new Set(platformOptions));
   const [activeCategories, setActiveCategories] = useState(() => new Set(distinctCategories));
-  const [activePlatforms, setActivePlatforms] = useState(() => new Set(["polymarket", "kalshi"]));
   const [tableSearch, setTableSearch] = useState("");
   const [sortKey, setSortKey] = useState("brier");
   const [sortDir, setSortDir] = useState("desc");
   const [tableLimit, setTableLimit] = useState(25);
 
-  const toggleSet = (set, v) => {
-    const next = new Set(set);
-    if (next.has(v)) next.delete(v);
-    else next.add(v);
-    return next;
+  const activePlatformRows = useMemo(() => (
+    rows.filter((r) => activePlatforms.has(r.platform))
+  ), [rows, activePlatforms]);
+
+  const categoryCountsForActivePlatforms = useMemo(() => {
+    const m = {};
+    for (const r of activePlatformRows) m[r.category] = (m[r.category] || 0) + 1;
+    return m;
+  }, [activePlatformRows]);
+
+  const visibleCategories = useMemo(() => (
+    distinctCategories.filter((c) => (categoryCountsForActivePlatforms[c] || 0) > 0)
+  ), [distinctCategories, categoryCountsForActivePlatforms]);
+
+  const visibleCategorySet = useMemo(() => new Set(visibleCategories), [visibleCategories]);
+
+  const allPlatformsSelected = platformOptions.length > 0
+    && platformOptions.every((p) => activePlatforms.has(p));
+
+  const allVisibleCategoriesSelected = visibleCategories.length > 0
+    && visibleCategories.every((c) => activeCategories.has(c));
+
+  const categoriesForPlatforms = (platformSet) => {
+    const counts = {};
+    for (const r of rows) {
+      if (platformSet.has(r.platform)) counts[r.category] = (counts[r.category] || 0) + 1;
+    }
+    return distinctCategories.filter((c) => (counts[c] || 0) > 0);
   };
+
+  const updatePlatformFilter = (nextPlatforms) => {
+    const currentVisible = categoriesForPlatforms(activePlatforms);
+    const nextVisible = categoriesForPlatforms(nextPlatforms);
+    const currentWasAllCategories = currentVisible.length > 0
+      && currentVisible.every((c) => activeCategories.has(c));
+    const selectedNextCategories = new Set([...activeCategories].filter((c) => nextVisible.includes(c)));
+
+    setActivePlatforms(nextPlatforms);
+    setActiveCategories(
+      currentWasAllCategories || selectedNextCategories.size === 0
+        ? new Set(nextVisible)
+        : selectedNextCategories
+    );
+  };
+
+  const selectAllPlatforms = () => {
+    updatePlatformFilter(new Set(platformOptions));
+  };
+
+  const selectPlatform = (platform) => {
+    updatePlatformFilter(new Set([platform]));
+  };
+
+  const selectAllCategories = () => {
+    setActiveCategories(new Set(visibleCategories));
+  };
+
+  const toggleCategory = (category) => {
+    setActiveCategories((prev) => {
+      const selectedVisible = new Set([...prev].filter((c) => visibleCategorySet.has(c)));
+      const hadAllVisible = visibleCategories.length > 0
+        && visibleCategories.every((c) => selectedVisible.has(c));
+
+      if (hadAllVisible) return new Set([category]);
+      if (selectedVisible.has(category)) selectedVisible.delete(category);
+      else selectedVisible.add(category);
+      return selectedVisible.size ? selectedVisible : new Set(visibleCategories);
+    });
+  };
+
+  const resetAuditFilters = () => {
+    setActivePlatforms(new Set(platformOptions));
+    setActiveCategories(new Set(distinctCategories));
+    setTableSearch("");
+    setTableLimit(25);
+  };
+
+  useEffect(() => {
+    setActivePlatforms((prev) => {
+      const valid = new Set([...prev].filter((p) => platformOptions.includes(p)));
+      const next = valid.size ? valid : new Set(platformOptions);
+      return setsEqual(prev, next) ? prev : next;
+    });
+  }, [platformOptions]);
+
+  useEffect(() => {
+    setActiveCategories((prev) => {
+      const valid = new Set([...prev].filter((c) => distinctCategories.includes(c)));
+      const next = valid.size ? valid : new Set(distinctCategories);
+      return setsEqual(prev, next) ? prev : next;
+    });
+  }, [distinctCategories]);
+
+  useEffect(() => {
+    setTableLimit(25);
+  }, [activePlatforms, activeCategories, tableSearch, sortKey, sortDir]);
 
   // Filtered population, used both for the row count and the table.
   const filteredRows = useMemo(() => {
-    return rows
-      .filter((r) => activePlatforms.has(r.platform))
+    return activePlatformRows
       .filter((r) => activeCategories.has(r.category))
       .filter((r) => !tableSearch || r.title.toLowerCase().includes(tableSearch.toLowerCase()));
-  }, [rows, activePlatforms, activeCategories, tableSearch]);
+  }, [activePlatformRows, activeCategories, tableSearch]);
 
   const sortedRows = useMemo(() => {
     const dir = sortDir === "asc" ? 1 : -1;
@@ -651,30 +762,43 @@ function App() {
               <span style={{ fontSize: 11, fontWeight: 600, color: THEME.muted, letterSpacing: "0.04em", textTransform: "uppercase", marginRight: 4 }}>
                 Platform
               </span>
-              {["polymarket", "kalshi"].map((p) => (
+              <FilterChip
+                label="all"
+                count={rows.length}
+                active={allPlatformsSelected}
+                onClick={selectAllPlatforms}
+              />
+              {platformOptions.map((p) => (
                 <FilterChip
                   key={p}
                   label={p}
-                  count={rows.filter((r) => r.platform === p).length}
-                  active={activePlatforms.has(p)}
-                  onClick={() => setActivePlatforms(toggleSet(activePlatforms, p))}
+                  count={platformCounts[p]}
+                  active={activePlatforms.size === 1 && activePlatforms.has(p)}
+                  onClick={() => selectPlatform(p)}
                 />
               ))}
               <span style={{ width: 1, height: 20, background: THEME.border, margin: "0 6px" }}></span>
               <span style={{ fontSize: 11, fontWeight: 600, color: THEME.muted, letterSpacing: "0.04em", textTransform: "uppercase", marginRight: 4 }}>
                 Category
               </span>
-              {distinctCategories.map((c) => (
+              <FilterChip
+                label="all"
+                count={activePlatformRows.length}
+                active={allVisibleCategoriesSelected}
+                onClick={selectAllCategories}
+              />
+              {visibleCategories.map((c) => (
                 <FilterChip
                   key={c}
-                  label={`${c}${(categoryCounts[c] ?? 0) < MIN_CAT_N ? " · low n" : ""}`}
-                  count={categoryCounts[c]}
-                  active={activeCategories.has(c)}
-                  onClick={() => setActiveCategories(toggleSet(activeCategories, c))}
+                  label={`${c}${(categoryCountsForActivePlatforms[c] ?? 0) < MIN_CAT_N ? " · low n" : ""}`}
+                  count={categoryCountsForActivePlatforms[c]}
+                  active={!allVisibleCategoriesSelected && activeCategories.has(c)}
+                  onClick={() => toggleCategory(c)}
                 />
               ))}
               <span className="spacer" />
               <input
+                className="filter-search"
                 type="search"
                 placeholder="Search title…"
                 value={tableSearch}
@@ -745,7 +869,23 @@ function App() {
                 {tableRows.length === 0 ? (
                   <tr>
                     <td colSpan="9" style={{ padding: 28, textAlign: "center", color: THEME.muted }}>
-                      No rows match the current filters.
+                      <div>No rows match the current filters.</div>
+                      <button
+                        type="button"
+                        onClick={resetAuditFilters}
+                        style={{
+                          marginTop: 10,
+                          background: THEME.surface,
+                          border: `1px solid ${THEME.border}`,
+                          borderRadius: 4,
+                          padding: "6px 14px",
+                          fontSize: 12,
+                          color: THEME.inkSoft,
+                          cursor: "pointer",
+                        }}
+                      >
+                        Reset filters
+                      </button>
                     </td>
                   </tr>
                 ) : tableRows.map((r) => (
