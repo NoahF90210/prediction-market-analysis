@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Calibration and audit-table screenshot placeholder</title>
+  <desc id="desc">Placeholder card showing where calibration and row-level audit screenshots should be added.</desc>
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <rect x="70" y="60" width="500" height="500" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="104" y="112" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Calibration</text>
+  <line x1="130" y1="500" x2="510" y2="120" stroke="#bfdbfe" stroke-width="6"/>
+  <polyline points="130,484 172,470 214,416 256,386 298,376 340,308 382,228 424,250 466,194 508,126" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#2563eb" stroke="#ffffff" stroke-width="3">
+    <circle cx="130" cy="484" r="9"/>
+    <circle cx="214" cy="416" r="10"/>
+    <circle cx="298" cy="376" r="11"/>
+    <circle cx="382" cy="228" r="10"/>
+    <circle cx="508" cy="126" r="9"/>
+  </g>
+  <text x="104" y="604" font-family="Inter, Arial, sans-serif" font-size="16" fill="#475569">Replace with calibration chart screenshot from the deployed dashboard.</text>
+  <rect x="630" y="60" width="500" height="500" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="664" y="112" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Row-level audit</text>
+  <g transform="translate(664 152)" font-family="Inter, Arial, sans-serif" font-size="16">
+    <rect width="400" height="48" fill="#f1f5f9"/>
+    <text x="18" y="30" fill="#64748b" font-weight="700">Market</text>
+    <text x="250" y="30" fill="#64748b" font-weight="700">Brier</text>
+    <text x="328" y="30" fill="#64748b" font-weight="700">Volume</text>
+    <g fill="#334155">
+      <text x="18" y="86">Worst-Brier tail contracts</text>
+      <text x="250" y="86">0.94</text>
+      <text x="328" y="86">$240K</text>
+      <text x="18" y="132">Searchable platform filter</text>
+      <text x="250" y="132">0.52</text>
+      <text x="328" y="132">$1.8M</text>
+      <text x="18" y="178">Calibration drill-down</text>
+      <text x="250" y="178">0.18</text>
+      <text x="328" y="178">$905K</text>
+    </g>
+    <line x1="0" y1="48" x2="400" y2="48" stroke="#e2e8f0"/>
+    <line x1="0" y1="104" x2="400" y2="104" stroke="#e2e8f0"/>
+    <line x1="0" y1="150" x2="400" y2="150" stroke="#e2e8f0"/>
+    <line x1="0" y1="196" x2="400" y2="196" stroke="#e2e8f0"/>
+  </g>
+  <text x="664" y="604" font-family="Inter, Arial, sans-serif" font-size="16" fill="#475569">Replace with a GIF or paired screenshots of filters and contract exploration.</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Dashboard overview screenshot placeholder</title>
+  <desc id="desc">Placeholder card showing the intended first-screen dashboard screenshot area.</desc>
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <rect x="60" y="54" width="1080" height="567" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="60" y="54" width="1080" height="88" rx="18" fill="#0f172a"/>
+  <text x="96" y="104" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Forecast Audit Dashboard</text>
+  <text x="96" y="178" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">Were prediction markets accurate before outcomes were known?</text>
+  <text x="96" y="212" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569">Replace this placeholder with a live screenshot of the dashboard hero, KPI row, and key findings.</text>
+  <g transform="translate(96 258)">
+    <rect width="150" height="110" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="22" y="42" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb">MARKETS</text>
+    <text x="22" y="78" font-family="JetBrains Mono, monospace" font-size="32" font-weight="700" fill="#0f172a">769</text>
+  </g>
+  <g transform="translate(270 258)">
+    <rect width="170" height="110" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="22" y="42" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b">BRIER</text>
+    <text x="22" y="78" font-family="JetBrains Mono, monospace" font-size="32" font-weight="700" fill="#0f172a">0.1397</text>
+  </g>
+  <g transform="translate(464 258)">
+    <rect width="170" height="110" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="22" y="42" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b">VOLUME</text>
+    <text x="22" y="78" font-family="JetBrains Mono, monospace" font-size="32" font-weight="700" fill="#0f172a">$815M</text>
+  </g>
+  <g transform="translate(96 420)">
+    <rect width="960" height="96" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="28" y="38" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Screenshot placeholder</text>
+    <text x="28" y="68" font-family="Inter, Arial, sans-serif" font-size="16" fill="#475569">Capture the deployed dashboard after final visual review and replace this SVG.</text>
+  </g>
+</svg>
