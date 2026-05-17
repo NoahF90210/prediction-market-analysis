@@ -65,15 +65,6 @@ The primary forecast is the last YES price between `0.02` and `0.98` observed at
 
 The pipeline also has schema fields for `1d` and `7d` snapshots. In the current committed dashboard build, the populated and audited horizon is `30m`; the longer horizons are marked as future backfill work.
 
-## Dashboard Preview
-
-The live dashboard is the main artifact: https://www.forecastaudit.dev
-
-![Dashboard overview placeholder](docs/assets/dashboard-overview.svg)
-
-![Calibration and row-level audit placeholder](docs/assets/calibration-audit-placeholder.svg)
-
-The placeholders are intentionally labeled until fresh screenshots are captured from the deployed dashboard, so the README does not ship broken image links.
 
 ## Data Quality And Caveats
 
