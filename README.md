@@ -2,15 +2,17 @@
 
 [![Tests](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml/badge.svg)](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml)
 
+**Summary:** I built a deployed data product that audits whether Polymarket and Kalshi prices were actually good forecasts before outcomes were known.
+
 **Were prediction markets actually accurate forecasts before outcomes were known?**
 
-This project audits resolved YES/NO contracts from Polymarket and Kalshi using only pre-close prices. The short answer: in this liquid, sports-heavy sample, market-implied probabilities were meaningfully better than naive baselines, especially at the extremes, but the evidence is not broad enough to claim all prediction markets or all categories are well-calibrated.
+Prediction markets claim to turn crowd belief into probabilities. This project tests that claim on **769 resolved, high-volume contracts** from Polymarket and Kalshi, then ships the results as a browser dashboard. It audits resolved YES/NO contracts using only pre-close prices. The short answer: in this liquid, sports-heavy sample, market-implied probabilities were meaningfully better than naive baselines, especially at the extremes, but the evidence is not broad enough to claim all prediction markets or all categories are well-calibrated.
 
 **Live dashboard:** https://www.forecastaudit.dev
 
 ## Portfolio Snapshot
 
-An end-to-end public data product: ingestion, category normalization, leakage-resistant snapshot extraction, scoring, baseline comparison, data-quality checks, tests, and a deployed editorial dashboard.
+An end-to-end public data product: ingestion, category normalization, leakage-resistant snapshot extraction, scoring, baseline comparison, data-quality checks, tests, and a deployed editorial dashboard. It is designed to be quickly understandable: collect real market data, avoid leakage, score forecast accuracy, and show the findings clearly.
 
 | What to inspect | Current result |
 |---|---:|
@@ -26,11 +28,11 @@ An end-to-end public data product: ingestion, category normalization, leakage-re
 
 What this demonstrates:
 
-- Built a reproducible Python pipeline for 769 liquid, resolved prediction-market contracts.
-- Scored markets before close to reduce leakage from final trades after outcomes were effectively known.
-- Compared market probabilities against Brier score, log loss, calibration buckets, bootstrap confidence intervals, and simple structural baselines.
-- Separated supported claims from descriptive-only slices with explicit category and data-quality reporting.
-- Shipped a static dashboard backed by committed data artifacts, so reviewers can inspect the audit without API credentials.
+- Built an end-to-end Python analytics pipeline for **769 resolved prediction-market contracts** across Polymarket and Kalshi.
+- Designed a leakage-resistant scoring rule using the last non-trivial YES price at least **30 minutes before close**, so markets are scored before outcomes are effectively known.
+- Evaluated forecast quality with **Brier score, log loss, calibration buckets, bootstrap confidence intervals, and baseline models**.
+- Added data-quality checks that separate strong cross-platform claims from descriptive-only categories.
+- Deployed a polished dashboard for filtering individual contracts, inspecting calibration, and comparing platform/category performance, backed by committed `static_dashboard/data.js` so reviewers can reproduce the audit without API credentials.
 
 ## Key Findings
 
