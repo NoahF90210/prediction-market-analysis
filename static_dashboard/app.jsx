@@ -212,6 +212,12 @@ function App() {
   ), [categoryCounts]);
 
   const kalshiHistoryShare = headline.kalshi_history_share ?? 0;
+  const brierImprovement50 = headline.pct_better_than_50 ?? (
+    (headline.baseline_50_brier - headline.brier_overall) / headline.baseline_50_brier
+  );
+  const gbmImprovement = headline.pct_better_than_gbm ?? (
+    (headline.baseline_gbm_brier - headline.brier_overall) / headline.baseline_gbm_brier
+  );
 
   // Categories with enough sample on at least one side; used in the by-category chart
   // so a single n=1 row can't dominate the comparison.
@@ -399,35 +405,97 @@ function App() {
       {/* HEADER                                                        */}
       {/* ============================================================ */}
       <header style={{
-        background: THEME.surface,
+        background: `linear-gradient(135deg, ${THEME.surface} 0%, ${THEME.surface} 58%, ${THEME.accentSoft} 100%)`,
         borderBottom: `1px solid ${THEME.border}`,
       }}>
-        <div style={{ ...containerStyle, padding: compact ? "14px 24px" : "18px 32px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, flexWrap: "wrap" }}>
-            <div>
+        <div style={{ ...containerStyle, padding: compact ? "18px 24px" : "34px 32px 28px" }}>
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.7fr) minmax(280px, 0.8fr)", gap: 24, alignItems: "stretch" }}>
+            <div style={{ minWidth: 0 }}>
+              <div style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "5px 9px",
+                border: `1px solid ${THEME.border}`,
+                borderRadius: 999,
+                background: "rgba(255,255,255,0.75)",
+                fontSize: 11,
+                fontWeight: 700,
+                color: THEME.accent,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                marginBottom: 14,
+              }}>
+                Public forecast audit
+              </div>
               <h1 style={{
-                fontSize: 20,
-                fontWeight: 600,
+                fontSize: "clamp(30px, 5vw, 42px)",
+                lineHeight: 1.02,
+                fontWeight: 700,
                 margin: 0,
                 color: THEME.ink,
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.04em",
+                maxWidth: 850,
               }}>
-                Prediction Market Accuracy Dashboard
+                Were prediction markets accurate before outcomes were known?
               </h1>
-              <div style={{ fontSize: 13, color: THEME.muted, marginTop: 4, maxWidth: 760 }}>
-                Forecast-quality evaluation of liquid, sports-heavy resolved binary contracts on Polymarket and Kalshi.
-                Brier score, log loss, calibration, and structural drivers, with bootstrap confidence intervals.
+              <div style={{ fontSize: 17, color: THEME.inkSoft, marginTop: 14, maxWidth: 840, lineHeight: 1.55 }}>
+                This dashboard scores {fmt.count(headline.n_markets)} resolved, $100k+ volume contracts using the last non-trivial YES price at least 30 minutes before close. Market probabilities scored {headline.brier_overall.toFixed(4)} Brier, {fmt.pct(brierImprovement50)} lower error than an always-50% forecast in this sports-heavy sample.
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 18 }}>
+                {[
+                  ["#methodology", "Understand the pre-close rule"],
+                  ["#calibration", "Check calibration"],
+                  ["#contracts", "Audit contracts"],
+                ].map(([href, label]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      padding: "8px 11px",
+                      borderRadius: 6,
+                      border: `1px solid ${THEME.borderStrong}`,
+                      background: THEME.surface,
+                      color: THEME.inkSoft,
+                      textDecoration: "none",
+                      fontSize: 13,
+                      fontWeight: 600,
+                    }}
+                  >
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
             <div style={{
-              display: "flex",
-              gap: 16,
+              background: "rgba(255,255,255,0.84)",
+              border: `1px solid ${THEME.borderStrong}`,
+              borderRadius: 10,
+              padding: 18,
+              boxShadow: "0 18px 45px rgba(15, 23, 42, 0.08)",
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              color: THEME.muted,
+              display: "grid",
+              gap: 14,
             }}>
-              <span>Updated {fmt.date(headline.last_updated)}</span>
-              <span>n = {fmt.count(headline.n_markets)}</span>
+              <div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, fontWeight: 700, color: THEME.muted, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                Current build
+              </div>
+              {[
+                ["Contracts", fmt.count(headline.n_markets)],
+                ["Scored volume", fmt.money(headline.total_volume)],
+                ["Forecast horizon", "30m pre-close"],
+                ["GBM baseline lift", fmt.pct(gbmImprovement)],
+              ].map(([label, value]) => (
+                <div key={label} style={{ display: "flex", justifyContent: "space-between", gap: 18, alignItems: "baseline", borderTop: `1px solid ${THEME.border}`, paddingTop: 10 }}>
+                  <span style={{ fontSize: 11, color: THEME.muted, textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
+                  <span style={{ fontSize: 18, color: THEME.ink, fontWeight: 700, textAlign: "right" }}>{value}</span>
+                </div>
+              ))}
+              <div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, color: THEME.muted, lineHeight: 1.45 }}>
+                Updated {fmt.date(headline.last_updated)}. Results are strongest for liquid, sports-heavy markets; sparse categories are flagged below.
+              </div>
             </div>
           </div>
         </div>
@@ -505,7 +573,7 @@ function App() {
         {/* ============================================================ */}
         {/* METHODOLOGY + LIMITATIONS                                     */}
         {/* ============================================================ */}
-        <section style={{ marginTop: sectionGap }} className="grid-2">
+        <section id="methodology" style={{ marginTop: sectionGap }} className="grid-2">
           <Card padding={compact ? 14 : 18}>
             <div style={{ fontSize: 12, fontWeight: 600, color: THEME.muted, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 10 }}>
               Methodology
@@ -584,7 +652,7 @@ function App() {
         {/* ============================================================ */}
         {/* CALIBRATION                                                   */}
         {/* ============================================================ */}
-        <section style={{ marginTop: sectionGap }}>
+        <section id="calibration" style={{ marginTop: sectionGap }}>
           <SectionHeader
             title="Calibration"
             subtitle="Reliability diagram: each point is a 10-percentage-point forecast bucket. The diagonal marks perfect calibration; circle size scales with markets per bucket."
@@ -645,7 +713,7 @@ function App() {
         {/* ============================================================ */}
         {/* PLATFORM COMPARISON                                           */}
         {/* ============================================================ */}
-        <section style={{ marginTop: sectionGap }}>
+        <section id="contracts" style={{ marginTop: sectionGap }}>
           <SectionHeader
             title="Platform comparison"
             subtitle="Brier score with 95% bootstrap confidence intervals. Interpret platform differences cautiously because the sample is sports-heavy."

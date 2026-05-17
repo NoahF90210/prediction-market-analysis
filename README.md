@@ -1,56 +1,81 @@
-# Prediction Market Accuracy
+# Forecast Audit: Prediction Market Accuracy
 
 [![Tests](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml/badge.svg)](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml)
 
-**How well do liquid prediction-market prices forecast resolved binary outcomes?**
+**Were prediction markets actually accurate forecasts before outcomes were known?**
 
-This project evaluates resolved YES/NO contracts from Polymarket and Kalshi using Brier score, log loss, calibration buckets, bootstrap confidence intervals, and simple structural baselines.
+This project audits resolved YES/NO contracts from Polymarket and Kalshi using only pre-close prices. The short answer: in this liquid, sports-heavy sample, market-implied probabilities were meaningfully better than naive baselines, especially at the extremes, but the evidence is not broad enough to claim all prediction markets or all categories are well-calibrated.
 
 **Live dashboard:** https://www.forecastaudit.dev
 
 ## Portfolio Snapshot
 
-This is an end-to-end data product: API ingestion, market taxonomy normalization, forecast snapshot extraction, statistical scoring, data-quality checks, test coverage, and a deployed browser dashboard.
+An end-to-end public data product: ingestion, category normalization, leakage-resistant snapshot extraction, scoring, baseline comparison, data-quality checks, tests, and a deployed editorial dashboard.
 
-What it demonstrates:
+| What to inspect | Current result |
+|---|---:|
+| Scored contracts | 769 resolved binary contracts |
+| Platforms | Polymarket: 365, Kalshi: 404 |
+| Liquidity rule | Each scored contract has at least $100k traded volume |
+| Combined scored volume | $815.1M |
+| Primary forecast | Last non-trivial YES price at least 30 minutes before close |
+| Overall Brier score | 0.1397 |
+| Overall log loss | 0.4216 |
+| Always-50% Brier baseline | 0.2500 |
+| Gradient-boosted structural baseline | 0.2405 Brier |
 
-- Built a reproducible Python analytics pipeline for 769 resolved, high-volume prediction-market contracts.
-- Designed an apples-to-apples scoring rule that avoids last-trade leakage by using the last non-trivial YES price at least 30 minutes before close.
-- Evaluated market calibration with Brier score, log loss, calibration buckets, bootstrap confidence intervals, and structural ML baselines.
-- Added explicit data-quality reporting so category-level claims are separated from descriptive-only slices.
-- Deployed a static editorial dashboard backed by generated data artifacts and covered core scoring logic with pytest.
+What this demonstrates:
 
-## Core Question
+- Built a reproducible Python pipeline for 769 liquid, resolved prediction-market contracts.
+- Scored markets before close to reduce leakage from final trades after outcomes were effectively known.
+- Compared market probabilities against Brier score, log loss, calibration buckets, bootstrap confidence intervals, and simple structural baselines.
+- Separated supported claims from descriptive-only slices with explicit category and data-quality reporting.
+- Shipped a static dashboard backed by committed data artifacts, so reviewers can inspect the audit without API credentials.
 
-Prediction-market prices are often interpreted as probabilities. This analysis asks whether those probabilities were calibrated before resolution, rather than after markets had already converged to the known outcome.
+## Key Findings
 
-The primary scoring rule uses the last available non-trivial YES price observed at least 30 minutes before close. That guard is important for sports and short-window markets, where final trades can occur after the outcome is practically known.
+- **Markets beat simple baselines in this sample.** The market Brier score was **0.1397**, compared with **0.2500** for an always-50% forecast and **0.2405** for a gradient-boosted baseline using volume, lead time, category, and platform.
+- **Forecasts were most reliable at the extremes.** Buckets below 20% and above 80% tracked realized outcomes closely; mid-range YES probabilities showed mild overconfidence.
+- **Platform differences should be read cautiously.** Polymarket's point Brier score was lower than Kalshi's in the dashboard payload, but the sample is sports-heavy and bootstrap intervals overlap.
+- **Volume and lead time are associated with lower error.** The dashboard shows lower average Brier scores for higher-volume and longer-lead-time buckets, but this is observational, not causal.
 
-## Current Dataset
+## Methodology In Plain English
 
-The current scored dataset contains **769 resolved binary contracts** with at least **$100k** in traded volume.
+Prediction markets often look accurate near the end because the outcome may already be obvious. This audit asks a stricter question: what did the market imply **before** the close?
 
-| Platform | Scored markets | Mean Brier |
-|---|---:|---:|
-| Polymarket | 365 | 0.113 |
-| Kalshi | 404 | 0.164 |
-| Overall | 769 | 0.140 |
+```text
+Resolved YES/NO contracts
+        |
+        v
+Keep liquid markets only ($100k+ volume)
+        |
+        v
+Find the last non-trivial YES price at least 30 minutes before close
+        |
+        v
+Compare that probability with the final YES/NO outcome
+        |
+        v
+Score accuracy with Brier, log loss, calibration, confidence intervals, and baselines
+```
 
-The sample is liquid but not broad. It is heavily concentrated in sports, with additional descriptive coverage in Kalshi crypto markets and Polymarket election markets.
+The primary forecast is the last YES price between `0.02` and `0.98` observed at least 30 minutes before market close. That rule excludes terminal prices that may reflect information that was already effectively resolved, especially in sports and short-window contracts.
 
-## Main Findings
+The pipeline also has schema fields for `1d` and `7d` snapshots. In the current committed dashboard build, the populated and audited horizon is `30m`; the longer horizons are marked as future backfill work.
 
-- Market prices beat the always-50% baseline and simple structural baselines on Brier score.
-- The overall platform gap is not stable enough for a broad platform-quality claim outside sports-heavy samples.
-- Calibration is strongest in the extreme probability buckets.
-- Mid-range buckets show mild overconfidence, though bucket-level sample sizes are modest.
-- Higher volume and longer lead time are associated with lower error; this is observational, not causal.
+## Dashboard Preview
 
-## Data Quality Status
+The live dashboard is the main artifact: https://www.forecastaudit.dev
 
-The strongest current evidence supports a **sports-heavy analysis of liquid markets**, not a broad conclusion about every prediction-market category.
+![Dashboard overview placeholder](docs/assets/dashboard-overview.svg)
 
-Category-level recommendations from the current scored dataset:
+![Calibration and row-level audit placeholder](docs/assets/calibration-audit-placeholder.svg)
+
+The placeholders are intentionally labeled until fresh screenshots are captured from the deployed dashboard, so the README does not ship broken image links.
+
+## Data Quality And Caveats
+
+The strongest current evidence supports a **liquid, sports-heavy audit**, not a universal claim about every prediction-market category.
 
 | Category | n | Use in analysis |
 |---|---:|---|
@@ -62,23 +87,13 @@ Category-level recommendations from the current scored dataset:
 | Politics | 7 | Too small for category-level claims |
 | Finance | 1 | Drop from category-level analysis |
 
-The pipeline now supports explicit `30m`, `1d`, and `7d` snapshot fields (probability, observed timestamp, target timestamp, source, and quality label). In the current cached rebuild, only `30m` snapshots are populated; `1d` and `7d` remain a required backfill step when live API access is available.
+Important limitations:
 
-## Methodology
-
-**Scope.** Resolved binary YES/NO contracts on Polymarket and Kalshi with at least $100k traded volume.
-
-**Forecast definition.** The primary forecast is the last non-trivial YES price between 0.02 and 0.98 observed at least 30 minutes before close. The schema also carries 1-day and 7-day snapshot slots for explicit horizon auditing.
-
-**Metrics.**
-
-- Brier score
-- Log loss
-- 10-percentage-point calibration buckets
-- Bootstrap confidence intervals for platform-level Brier
-- Baselines using always-50%, category base rate, logistic regression, and gradient-boosted trees on structural features
-
-**Category handling.** Markets are assigned to a canonical taxonomy using platform metadata, tags, mapping rules, and a review queue. Sparse categories are flagged separately from categories with enough support for comparison.
+- The current dataset is dominated by sports markets, so overall performance is heavily weighted toward that category.
+- Only sports currently has enough observations on both platforms for a meaningful platform/category comparison.
+- The $100k volume threshold selects markets with active price discovery; illiquid contracts are out of scope.
+- Bootstrap intervals assume independent markets, but related contracts from the same event can be correlated.
+- Baselines use structural features only. Event-specific models would need richer market text, timing, news, and domain features.
 
 ## Reproduce Locally
 
@@ -112,38 +127,24 @@ Polymarket collection can run without private credentials. Kalshi trade-history 
 
 ## Technical Architecture
 
-The pipeline runs as:
-
 1. Ingest resolved markets and historical prices from Polymarket and Kalshi.
-2. Normalize market categories with platform metadata, taxonomy rules, and explicit overrides.
-3. Extract forecast snapshots at controlled pre-close horizons.
+2. Normalize categories using platform metadata, tags, taxonomy rules, and explicit overrides.
+3. Extract controlled pre-close forecast snapshots.
 4. Score forecasts and baselines with reusable metric functions.
-5. Write dashboard-ready data and render an editorial static dashboard.
+5. Export dashboard-ready data and render the static browser dashboard.
 
-## Project Structure
+Key files:
 
-- `src/collect_polymarket.py`: Polymarket event and CLOB price-history collection
-- `src/ingest_kalshi_resolved.py`: Kalshi resolved-market ingestion
-- `src/forecast_snapshots.py`: shared forecast snapshot and pre-close cutoff logic
-- `src/kalshi_forecasts.py`: Kalshi trade-history forecast extraction
-- `src/category_mapping.py`: category normalization
-- `src/data_quality.py`: data-quality and category-eligibility summaries
+- `src/forecast_snapshots.py`: shared pre-close snapshot logic
+- `src/build_accuracy_dataset.py`: scoring dataset build
 - `src/build_dashboard_data.py`: dashboard payload generation
+- `src/data_quality.py`: category eligibility and data-quality reporting
 - `static_dashboard/`: browser-rendered dashboard
-- `.github/workflows/tests.yml`: CI workflow for pytest
-- `LICENSE`: MIT license
-
-## Limitations
-
-- The current dataset is dominated by sports markets.
-- Only sports currently has enough observations on both platforms for a meaningful platform/category comparison.
-- Some Kalshi rows are missing open-time metadata, limiting lead-time analysis.
-- Bootstrap intervals assume independent markets, but related contracts from the same event can be correlated.
-- The baseline models use only structural features. Event-specific modeling would require richer features.
+- `tests/`: pytest coverage for scoring, exports, categories, and dashboard payload shape
 
 ## Next Improvements
 
-- Backfill the dataset with live `1d` and `7d` snapshot extraction now that the schema paths are in place.
+- Backfill live `1d` and `7d` snapshot extraction now that the schema paths are in place.
 - Expand category coverage before making non-sports category claims.
 - Separate single-market binary contracts from multileg or parlay-style markets.
 - Add matched event-type comparisons across platforms.
