@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forecastaudit.dev/schemas/raw-manifest.schema.json",
+  "title": "Immutable Raw Response Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "build_id", "protocol_id", "candidate_records_sha256", "created_at", "collector_commit", "records"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "build_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "protocol_id": {"type": "string"},
+    "candidate_records_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "collector_commit": {"type": "string", "minLength": 7},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "platform",
+          "record_type",
+          "endpoint",
+          "request_params",
+          "retrieved_at",
+          "raw_response_path",
+          "sha256",
+          "content_bytes",
+          "schema_version",
+          "collector_commit"
+        ],
+        "properties": {
+          "platform": {"enum": ["polymarket", "kalshi"]},
+          "record_type": {"enum": ["market_inventory", "event_inventory", "price_history", "trade_history", "trade_history_bundle", "historical_cutoff"]},
+          "endpoint": {"type": "string", "pattern": "^https://"},
+          "request_params": {"type": "object"},
+          "retrieved_at": {"type": "string", "format": "date-time"},
+          "raw_response_path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"
+          },
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "content_bytes": {"type": "integer", "minimum": 0},
+          "schema_version": {"type": "string"},
+          "collector_commit": {"type": "string", "minLength": 7}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "prediction-market-calibration-2026h1-v1",
+  "research_question": "Among independently grouped, non-parlay binary contracts that resolved during a fixed six-month observation window and had a verifiable Polymarket price 24 hours before trading closed, how well calibrated were the probabilities, measured with event-weighted Brier score and event-clustered uncertainty?",
+  "observation_window": {
+    "start_inclusive": "2026-01-01T00:00:00Z",
+    "end_exclusive": "2026-07-01T00:00:00Z",
+    "membership_timestamp": "resolved_at"
+  },
+  "forecast_horizon_seconds": 86400,
+  "max_snapshot_staleness_seconds": 21600,
+  "snapshot_staleness_sensitivity_seconds": [3600, 21600, 86400, 259200],
+  "forecast_boundary_precedence": [
+    "trading_closed_at",
+    "event_started_at",
+    "scheduled_close_at",
+    "resolved_at"
+  ],
+  "contract_selection": {
+    "primary_policy": "event_total_weight",
+    "sensitivity_policy": "one_contract_lexicographic_market_id"
+  },
+  "platforms": ["polymarket"],
+  "raw_schema_version": "1.0.0",
+  "analysis_schema_version": "1.0.0",
+  "collector_version": "rebuild-v1",
+  "allowed_snapshot_sources": [
+    "polymarket_clob_price_history"
+  ],
+  "forbidden_model_features": [
+    "final_volume",
+    "settlement_value",
+    "terminal_price",
+    "resolution_status_after_cutoff",
+    "updated_at_after_cutoff"
+  ],
+  "publication_gate": {
+    "minimum_events_per_platform": 50,
+    "require_zero_gate_failures": true,
+    "require_manifest_hash_verification": true,
+    "require_generated_claim_consistency": true
+  }
+}

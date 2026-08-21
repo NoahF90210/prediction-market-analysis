@@ -5,10 +5,9 @@ import os
 import time
 
 import requests
-from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"))
-
+# Secrets are read only from the process environment. This module never opens
+# a repository .env file or prints credential values.
 BASE_URL = os.environ.get("KALSHI_BASE_URL", "https://external-api.kalshi.com/trade-api/v2").rstrip("/")
 SESSION = requests.Session()
 

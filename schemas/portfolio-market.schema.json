@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forecastaudit.dev/schemas/portfolio-market.schema.json",
+  "title": "Compact portfolio market row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "build_id", "platform", "market_id", "event_id", "title",
+    "source_url", "source_endpoint", "probability", "probability_timestamp", "resolution",
+    "outcome", "resolution_timestamp", "outcome_source", "retrieved_at", "inclusion_status",
+    "exclusion_reasons", "input_row_number", "input_file_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "build_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "platform": {"type": ["string", "null"]},
+    "market_id": {"type": ["string", "null"]},
+    "event_id": {"type": ["string", "null"]},
+    "title": {"type": ["string", "null"]},
+    "source_url": {"type": ["string", "null"]},
+    "source_endpoint": {"type": ["string", "null"]},
+    "probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "probability_timestamp": {"type": ["string", "null"], "format": "date-time"},
+    "resolution": {"enum": ["YES", "NO", null]},
+    "outcome": {"type": ["integer", "null"], "minimum": 0, "maximum": 1},
+    "resolution_timestamp": {"type": ["string", "null"], "format": "date-time"},
+    "outcome_source": {"type": ["string", "null"]},
+    "retrieved_at": {"type": ["string", "null"], "format": "date-time"},
+    "inclusion_status": {"enum": ["included", "excluded"]},
+    "exclusion_reasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "input_row_number": {"type": "integer", "minimum": 1},
+    "input_file_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

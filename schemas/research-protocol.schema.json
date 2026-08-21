@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forecastaudit.dev/schemas/research-protocol.schema.json",
+  "title": "Prediction Market Research Protocol",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "research_question",
+    "observation_window",
+    "forecast_horizon_seconds",
+    "max_snapshot_staleness_seconds",
+    "snapshot_staleness_sensitivity_seconds",
+    "forecast_boundary_precedence",
+    "contract_selection",
+    "platforms",
+    "raw_schema_version",
+    "analysis_schema_version",
+    "collector_version",
+    "allowed_snapshot_sources",
+    "forbidden_model_features",
+    "publication_gate"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "protocol_id": {"type": "string", "minLength": 1},
+    "research_question": {"type": "string", "minLength": 1},
+    "observation_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start_inclusive", "end_exclusive", "membership_timestamp"],
+      "properties": {
+        "start_inclusive": {"type": "string", "format": "date-time"},
+        "end_exclusive": {"type": "string", "format": "date-time"},
+        "membership_timestamp": {"const": "resolved_at"}
+      }
+    },
+    "forecast_horizon_seconds": {"type": "integer", "const": 86400},
+    "max_snapshot_staleness_seconds": {"type": "integer", "minimum": 0},
+    "snapshot_staleness_sensitivity_seconds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "forecast_boundary_precedence": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["trading_closed_at", "event_started_at", "scheduled_close_at", "resolved_at"]}
+    },
+    "contract_selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary_policy", "sensitivity_policy"],
+      "properties": {
+        "primary_policy": {"const": "event_total_weight"},
+        "sensitivity_policy": {"const": "one_contract_lexicographic_market_id"}
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["polymarket", "kalshi"]}
+    },
+    "raw_schema_version": {"type": "string"},
+    "analysis_schema_version": {"type": "string"},
+    "collector_version": {"type": "string"},
+    "allowed_snapshot_sources": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "forbidden_model_features": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "publication_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum_events_per_platform", "require_zero_gate_failures", "require_manifest_hash_verification", "require_generated_claim_consistency"],
+      "properties": {
+        "minimum_events_per_platform": {"type": "integer", "minimum": 1},
+        "require_zero_gate_failures": {"type": "boolean"},
+        "require_manifest_hash_verification": {"type": "boolean"},
+        "require_generated_claim_consistency": {"type": "boolean"}
+      }
+    }
+  }
+}

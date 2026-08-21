@@ -8,6 +8,8 @@ __pycache__/
 .matplotlib/
 .claude/
 data/raw/
+data/derived/
+.firecrawl/
 .pytest_cache/
 data/cleaned/accuracy_baseline_*.csv
 data/cleaned/accuracy_calibration.csv

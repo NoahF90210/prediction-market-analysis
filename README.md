@@ -1,152 +1,186 @@
-# Forecast Audit: Prediction Market Accuracy
+# Prediction Market Probability Check
 
 [![Tests](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml/badge.svg)](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml)
 
-**Summary:** I built a deployed data product that audits whether Polymarket and Kalshi prices were actually good forecasts before outcomes were known.
+> **Current data status: `validated_real_sample`.** The public dashboard uses 500 resolved Polymarket contracts from the frozen 2026 H1 window, with 125 rows passing the pre-result timestamp, provenance, binary-contract, and exclusion checks across 78 event groups.
+> Results are descriptive for this bounded sample only.
 
-**Were prediction markets actually accurate forecasts before outcomes were known?**
+## The question
 
-Prediction markets claim to turn crowd belief into probabilities. This project tests that claim on **769 resolved, high-volume contracts** from Polymarket and Kalshi, then ships the results as a browser dashboard. It audits resolved YES/NO contracts using only pre-close prices. The short answer: in this liquid, sports-heavy sample, market-implied probabilities were meaningfully better than naive baselines, especially at the extremes, but the evidence is not broad enough to claim all prediction markets or all categories are well-calibrated.
+> **Were pre-result prediction-market probabilities informative about what happened?**
 
-**Live dashboard:** https://www.forecastaudit.dev
+The portfolio dashboard answers that question with three views:
 
-## Portfolio Snapshot
+1. **Probability ranges vs. outcomes** — when markets said 60–80%, how often did the event actually happen?
+2. **Simple accuracy and coverage** — how many rows were usable, and how often did the probability point in the correct direction at a 50% threshold?
+3. **Searchable source table** — probability, outcome, timestamp, platform, title, inclusion status, and source for every submitted row.
 
-An end-to-end public data product: ingestion, category normalization, leakage-resistant snapshot extraction, scoring, baseline comparison, data-quality checks, tests, and a deployed editorial dashboard. It is designed to be quickly understandable: collect real market data, avoid leakage, score forecast accuracy, and show the findings clearly.
+Brier score, log loss, clustered bootstrap intervals, learned baselines, and event-weighted estimands are not required to understand the main product. The repository retains that machinery as an optional research appendix.
 
-| What to inspect | Current result |
-|---|---:|
-| Scored contracts | 769 resolved binary contracts |
-| Platforms | Polymarket: 365, Kalshi: 404 |
-| Liquidity rule | Each scored contract has at least $100k traded volume |
-| Combined scored volume | $815.1M |
-| Primary forecast | Last non-trivial YES price at least 30 minutes before close |
-| Overall Brier score | 0.1397 |
-| Overall log loss | 0.4216 |
-| Always-50% Brier baseline | 0.2500 |
-| Gradient-boosted structural baseline | 0.2405 Brier |
+## Data status contract
 
-What this demonstrates:
+The dashboard always exposes one of three states:
 
-- Built an end-to-end Python analytics pipeline for **769 resolved prediction-market contracts** across Polymarket and Kalshi.
-- Designed a leakage-resistant scoring rule using the last non-trivial YES price at least **30 minutes before close**, so markets are scored before outcomes are effectively known.
-- Evaluated forecast quality with **Brier score, log loss, calibration buckets, bootstrap confidence intervals, and baseline models**.
-- Added data-quality checks that separate strong cross-platform claims from descriptive-only categories.
-- Deployed a polished dashboard for filtering individual contracts, inspecting calibration, and comparing platform/category performance, backed by committed `static_dashboard/data.js` so reviewers can reproduce the audit without API credentials.
+| State | Meaning |
+|---|---|
+| `fixture_only` | Synthetic rows are being used to test the software. No empirical claim is safe. |
+| `data_pending` | A real file was supplied, but no row passed every fail-closed check. |
+| `validated_real_sample` | At least one real row passed the normalized contract. Results are descriptive only for that bounded sample. |
 
-## Key Findings
+Even `validated_real_sample` does **not** support a platform ranking, causal claim, population estimate, or trading-edge claim.
 
-- **Markets beat simple baselines in this sample.** The market Brier score was **0.1397**, compared with **0.2500** for an always-50% forecast and **0.2405** for a gradient-boosted baseline using volume, lead time, category, and platform.
-- **Forecasts were most reliable at the extremes.** Buckets below 20% and above 80% tracked realized outcomes closely; mid-range YES probabilities showed mild overconfidence.
-- **Platform differences should be read cautiously.** Polymarket's point Brier score was lower than Kalshi's in the dashboard payload, but the sample is sports-heavy and bootstrap intervals overlap.
-- **Volume and lead time are associated with lower error.** The dashboard shows lower average Brier scores for higher-volume and longer-lead-time buckets, but this is observational, not causal.
+## Current bounded result
 
-## Methodology In Plain English
+The current public build includes 125 of 500 submitted rows, for 25.0% coverage.
 
-Prediction markets often look accurate near the end because the outcome may already be obvious. This audit asks a stricter question: what did the market imply **before** the close?
+The simple 50% direction check is correct for 64.8% of included rows.
 
-```text
-Resolved YES/NO contracts
-        |
-        v
-Keep liquid markets only ($100k+ volume)
-        |
-        v
-Find the last non-trivial YES price at least 30 minutes before close
-        |
-        v
-Compare that probability with the final YES/NO outcome
-        |
-        v
-Score accuracy with Brier, log loss, calibration, confidence intervals, and baselines
+The included rows have a 27.2% observed YES rate and a 38.1% average submitted probability.
+
+The unclustered Brier appendix value is 0.162 against an always-50% reference value of 0.250.
+
+These values are descriptive summaries of this bounded Polymarket sample.
+
+They are not evidence that prediction markets are universally accurate, that Polymarket outperforms another platform, or that a trading strategy has an edge.
+
+The source table keeps excluded rows visible with their gate reasons.
+
+## Bounded real-data import
+
+The default portfolio path supports one platform first: **Polymarket**. It accepts a user-supplied normalized `.csv` or `.json` file, validates every row, keeps invalid rows as explicit exclusions, and writes deterministic artifacts.
+
+Required fields for an included row:
+
+| Field | Contract |
+|---|---|
+| `platform` | Must be `polymarket` |
+| `market_id` | Stable market identifier |
+| `event_id` | Optional; defaults to `market_id` |
+| `title` | Human-readable market question |
+| `source_url` | HTTPS market or source URL |
+| `source_endpoint` | HTTPS API endpoint or evidence URL; defaults to `source_url` |
+| `probability` | Number from 0 through 1 |
+| `probability_timestamp` | UTC-compatible timestamp observed before resolution |
+| `outcome` | `YES`/`NO`, `1`/`0`, or boolean |
+| `resolution_timestamp` | UTC-compatible resolution timestamp |
+| `outcome_source` | Resolution source URL or clear source description |
+| `retrieved_at` | Optional retrieval timestamp |
+
+Example JSON:
+
+```json
+{
+  "scope": "Twenty resolved Polymarket markets selected by a documented bounded rule.",
+  "rows": [
+    {
+      "platform": "polymarket",
+      "market_id": "12345",
+      "event_id": "event-987",
+      "title": "Will the event happen?",
+      "source_url": "https://polymarket.com/event/example",
+      "source_endpoint": "https://gamma-api.polymarket.com/markets/12345",
+      "probability": 0.64,
+      "probability_timestamp": "2026-06-01T12:00:00Z",
+      "outcome": "YES",
+      "resolution_timestamp": "2026-06-02T12:00:00Z",
+      "outcome_source": "https://polymarket.com/event/example",
+      "retrieved_at": "2026-06-03T12:00:00Z"
+    }
+  ]
+}
 ```
 
-The primary forecast is the last YES price between `0.02` and `0.98` observed at least 30 minutes before market close. That rule excludes terminal prices that may reflect information that was already effectively resolved, especially in sports and short-window contracts.
-
-The pipeline also has schema fields for `1d` and `7d` snapshots. In the current committed dashboard build, the populated and audited horizon is `30m`; the longer horizons are marked as future backfill work.
-
-## Dashboard Preview
-
-The live dashboard is the main artifact: https://www.forecastaudit.dev
-
-![Dashboard overview placeholder](docs/assets/dashboard-overview.svg)
-
-![Calibration and row-level audit placeholder](docs/assets/calibration-audit-placeholder.svg)
-
-The placeholders are intentionally labeled until fresh screenshots are captured from the deployed dashboard, so the README does not ship broken image links.
-
-## Data Quality And Caveats
-
-The strongest current evidence supports a **liquid, sports-heavy audit**, not a universal claim about every prediction-market category.
-
-| Category | n | Use in analysis |
-|---|---:|---|
-| Sports | 583 | Cross-platform comparison is supported |
-| Crypto | 118 | Descriptive only; Kalshi-only in current scored sample |
-| Elections | 36 | Descriptive only; mostly Polymarket |
-| Commodities | 17 | Too small for category-level claims |
-| Geopolitics | 7 | Too small for category-level claims |
-| Politics | 7 | Too small for category-level claims |
-| Finance | 1 | Drop from category-level analysis |
-
-Important limitations:
-
-- The current dataset is dominated by sports markets, so overall performance is heavily weighted toward that category.
-- Only sports currently has enough observations on both platforms for a meaningful platform/category comparison.
-- The $100k volume threshold selects markets with active price discovery; illiquid contracts are out of scope.
-- Bootstrap intervals assume independent markets, but related contracts from the same event can be correlated.
-- Baselines use structural features only. Event-specific models would need richer market text, timing, news, and domain features.
-
-## Reproduce Locally
-
-The deployed dashboard uses the committed `static_dashboard/data.js` payload, so it can be served from a fresh clone without API credentials.
+Build a real bounded sample:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python app.py
+python3 -m src.portfolio.cli import-normalized \
+  --input path/to/polymarket_sample.json
 ```
 
-Open http://127.0.0.1:8050.
+Generated artifacts:
 
-Run the test suite:
+- `data/derived/portfolio/portfolio_rows.json`
+- `data/derived/portfolio/portfolio_rows.csv`
+- `data/derived/portfolio/portfolio_summary.json`
+- `static_dashboard/data.js`
+
+Each output row includes the input file SHA-256, deterministic build ID, `inclusion_status`, and `exclusion_reasons`.
+
+## Fail-closed checks
+
+A row is excluded rather than guessed when it has:
+
+- a malformed row shape;
+- a missing or unsupported platform;
+- a missing market ID or title;
+- a missing or invalid HTTPS source;
+- a missing or invalid probability;
+- a missing probability or resolution timestamp;
+- a probability timestamp at or after resolution;
+- a missing outcome or outcome source;
+- a duplicate platform/market identifier.
+
+Excluded rows remain visible in the table and count against coverage.
+
+## Main analysis
+
+For included rows, the compact analysis calculates:
+
+- five fixed probability ranges: 0–20%, 20–40%, 40–60%, 60–80%, and 80–100%;
+- the average probability in each range;
+- the observed YES rate in each range;
+- directional hit rate using a stated 50% threshold;
+- submitted, included, and excluded row counts;
+- missing-data coverage and exclusion reasons.
+
+The optional technical appendix reports Brier score and the plain always-50% baseline. More complex research methods stay isolated under `src/rebuild/` and are not part of the default public story.
+
+## Reproduce the fixture-only dashboard
 
 ```bash
-source .venv/bin/activate
-python -m pytest -q
+python3 -m src.portfolio.cli build-fixture
 ```
 
-Optional API-backed rebuild:
+The fixture source is `data/fixtures/portfolio_normalized.json`. Its probabilities and outcomes are synthetic test values, not empirical findings.
+
+## Run locally
 
 ```bash
-cp .env.example .env
-python src/build_accuracy_dataset.py
-python src/build_dashboard_data.py
+python3 app.py
 ```
 
-Polymarket collection can run without private credentials. Kalshi trade-history backfills require Kalshi API credentials in `.env`; Supabase variables are only needed for warehouse sync tasks.
+Open `http://127.0.0.1:8050`.
 
-## Technical Architecture
+## Validate
 
-1. Ingest resolved markets and historical prices from Polymarket and Kalshi.
-2. Normalize categories using platform metadata, tags, taxonomy rules, and explicit overrides.
-3. Extract controlled pre-close forecast snapshots.
-4. Score forecasts and baselines with reusable metric functions.
-5. Export dashboard-ready data and render the static browser dashboard.
+```bash
+make validate
+```
 
-Key files:
+Validation runs Python compilation, the full test suite, repository claim checks, both deterministic fixture paths, and schema/provenance checks.
 
-- `src/forecast_snapshots.py`: shared pre-close snapshot logic
-- `src/build_accuracy_dataset.py`: scoring dataset build
-- `src/build_dashboard_data.py`: dashboard payload generation
-- `src/data_quality.py`: category eligibility and data-quality reporting
-- `static_dashboard/`: browser-rendered dashboard
-- `tests/`: pytest coverage for scoring, exports, categories, and dashboard payload shape
+## Project structure
 
-## Next Improvements
+### Default portfolio path
 
-- Backfill live `1d` and `7d` snapshot extraction now that the schema paths are in place.
-- Expand category coverage before making non-sports category claims.
-- Separate single-market binary contracts from multileg or parlay-style markets.
-- Add matched event-type comparisons across platforms.
+- `src/portfolio/contracts.py` — CSV/JSON loading, normalization, timestamps, inclusion status, duplicates, and deterministic build IDs
+- `src/portfolio/analysis.py` — probability ranges, observed rates, hit rate, coverage, and optional simple baseline
+- `src/portfolio/pipeline.py` — schema validation and deterministic JSON/CSV/dashboard artifacts
+- `src/portfolio/cli.py` — `build-fixture` and `import-normalized`
+- `schemas/portfolio-market.schema.json` — normalized output contract
+- `tests/test_portfolio_pipeline.py` — deterministic and malformed-row coverage
+- `static_dashboard/` — compact three-view React dashboard
+
+### Optional research appendix
+
+- `src/rebuild/` — content-addressed API provenance, fixed-horizon snapshot selection, event grouping, clustered uncertainty, and research publication gates
+- `data/fixtures/provenance_complete/` — synthetic provenance fixture for the research path
+- `docs/research_protocol.md` — advanced protocol details
+
+## Claim boundary
+
+The repository currently supports a software and methodology claim only:
+
+> Built a deterministic Python and React workflow that validates bounded prediction-market rows, fails closed on missing or post-result evidence, summarizes probability ranges against outcomes, reports coverage, and keeps source-level records auditable.
+
+It does not currently support a numerical claim about real market accuracy.

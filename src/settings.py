@@ -3,10 +3,9 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-
 ROOT = Path(__file__).resolve().parents[1]
-load_dotenv(ROOT / ".env")
+# Deliberately do not auto-load .env. Callers must supply environment variables
+# explicitly so validation and fixture builds never read local secret files.
 
 RAW_DIR = ROOT / "data" / "raw"
 CLEAN_DIR = ROOT / "data" / "cleaned"

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forecastaudit.dev/schemas/evaluation-summary.schema.json",
+  "title": "Event-weighted Evaluation Summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "protocol_id", "build_id", "validation_status", "contract_count", "event_count", "platforms", "sensitivities"],
+  "$defs": {
+    "nullableBrier": {
+      "oneOf": [{"type": "null"}, {"type": "number", "minimum": 0, "maximum": 1}]
+    },
+    "nullableLoss": {
+      "oneOf": [{"type": "null"}, {"type": "number", "minimum": 0}]
+    },
+    "interval": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {"type": ["number", "null"]},
+        {"type": ["number", "null"]}
+      ]
+    }
+  },
+  "properties": {
+    "schema_version": {"type": "string"},
+    "protocol_id": {"type": "string"},
+    "build_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "validation_status": {"enum": ["fixture_only", "blocked", "validated_real_sample"]},
+    "contract_count": {"type": "integer", "minimum": 0},
+    "event_count": {"type": "integer", "minimum": 0},
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "platform", "contract_count", "event_count", "brier", "log_loss",
+          "brier_ci", "log_loss_ci", "baseline_50_brier",
+          "historical_prevalence_brier", "comparison_scope"
+        ],
+        "properties": {
+          "platform": {"enum": ["polymarket", "kalshi"]},
+          "contract_count": {"type": "integer", "minimum": 0},
+          "event_count": {"type": "integer", "minimum": 0},
+          "brier": {"$ref": "#/$defs/nullableBrier"},
+          "log_loss": {"$ref": "#/$defs/nullableLoss"},
+          "brier_ci": {"$ref": "#/$defs/interval"},
+          "log_loss_ci": {"$ref": "#/$defs/interval"},
+          "baseline_50_brier": {"$ref": "#/$defs/nullableBrier"},
+          "historical_prevalence_brier": {"$ref": "#/$defs/nullableBrier"},
+          "comparison_scope": {"const": "descriptive_only"}
+        }
+      }
+    },
+    "sensitivities": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "max_snapshot_staleness_seconds", "contract_selection_policy",
+          "contract_count", "event_count", "brier", "log_loss"
+        ],
+        "properties": {
+          "max_snapshot_staleness_seconds": {"type": "integer", "minimum": 0},
+          "contract_selection_policy": {
+            "enum": ["event_total_weight", "one_contract_lexicographic_market_id"]
+          },
+          "contract_count": {"type": "integer", "minimum": 0},
+          "event_count": {"type": "integer", "minimum": 0},
+          "brier": {"$ref": "#/$defs/nullableBrier"},
+          "log_loss": {"$ref": "#/$defs/nullableLoss"}
+        }
+      }
+    }
+  }
+}
