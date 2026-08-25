@@ -1,6 +1,6 @@
 # Prediction Market Analysis
 
-**[Open the live dashboard](https://forecastaudit.dev)** · **[View the source on GitHub](https://github.com/NoahF90210/prediction-market-analysis)**
+**[Open the live dashboard](https://forecastaudit.dev)** 
 
 Prediction Market Analysis is an open-source study of whether Polymarket's pre-result YES probabilities lined up with what happened.
 
