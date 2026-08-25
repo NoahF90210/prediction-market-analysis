@@ -2,34 +2,24 @@
 venv/
 .venv/
 __pycache__/
+.pytest_cache/
 .DS_Store
 .home/
 .ipython/
 .matplotlib/
-.claude/
-data/raw/
-data/checkpoints/
-data/derived/
-.firecrawl/
-.pytest_cache/
-data/cleaned/accuracy_baseline_*.csv
-data/cleaned/accuracy_calibration.csv
-data/cleaned/accuracy_markets_scored.csv
-data/cleaned/accuracy_platform_metric_ci.csv
-data/cleaned/accuracy_summary_*.csv
-data/cleaned/category_review_queue.csv
-data/cleaned/polymarket_markets.csv
-data/cleaned/markets.csv
-CLAUDE.md
-data/cleaned/
+notebooks/
 
 # Local research and agent artifacts
 .rpiv/
 .hermes/
 .cursor/
 
-# Generated analysis outputs
+# Generated local data
+data/raw/
+data/checkpoints/
+data/derived/
 data/audit/
 data/real/
 data/processed/
 data/results/
+data/cleaned/

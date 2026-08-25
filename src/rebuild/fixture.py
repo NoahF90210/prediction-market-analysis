@@ -32,17 +32,9 @@ def _candidate(
     explicit_conditional: bool = False,
     explicit_complement: bool = False,
 ) -> CollectedCandidate:
-    source = "polymarket_clob_price_history" if platform == "polymarket" else "kalshi_trade_history"
-    market_endpoint = (
-        "https://gamma-api.polymarket.com/events"
-        if platform == "polymarket"
-        else "https://api.elections.kalshi.com/trade-api/v2/historical/markets"
-    )
-    history_endpoint = (
-        "https://clob.polymarket.com/prices-history"
-        if platform == "polymarket"
-        else "https://api.elections.kalshi.com/trade-api/v2/historical/trades"
-    )
+    source = "polymarket_clob_price_history"
+    market_endpoint = "https://gamma-api.polymarket.com/events"
+    history_endpoint = "https://clob.polymarket.com/prices-history"
     market_payload = {
         "platform": platform,
         "market_id": market_id,
@@ -54,21 +46,10 @@ def _candidate(
         "resolution": resolution,
         "final_volume": "1000.00",
     }
-    history_point: dict[str, Any]
-    if platform == "polymarket":
-        history_point = {"t": observed_at, "p": probability}
-        history_payload: Any = {"history": [history_point]}
-        time_keys = ["t"]
-        price_keys = ["p"]
-    else:
-        history_point = {
-            "created_time": observed_at,
-            "yes_price_dollars": f"{probability:.4f}",
-            "trade_id": f"trade-{market_id}",
-        }
-        history_payload = {"trades": [history_point]}
-        time_keys = ["created_time"]
-        price_keys = ["yes_price_dollars"]
+    history_point: dict[str, Any] = {"t": observed_at, "p": probability}
+    history_payload: Any = {"history": [history_point]}
+    time_keys = ["t"]
+    price_keys = ["p"]
 
     market_provenance = store.write_response(
         platform=platform,
@@ -80,7 +61,7 @@ def _candidate(
     )
     history_provenance = store.write_response(
         platform=platform,
-        record_type="price_history" if platform == "polymarket" else "trade_history",
+        record_type="price_history",
         endpoint=history_endpoint,
         request_params={"fixture_market_id": market_id, "at_or_before": boundary},
         payload=history_payload,
@@ -114,7 +95,7 @@ def _candidate(
         "cutoff_volume_source": "fixture_cutoff_ledger",
         "final_volume": 1000.0,
         "final_volume_source": "fixture_final_market_record",
-        "volume_unit": "USD" if platform == "polymarket" else "contracts",
+        "volume_unit": "USD",
         "explicit_multileg": explicit_multileg,
         "explicit_conditional": explicit_conditional,
         "explicit_complement": explicit_complement,

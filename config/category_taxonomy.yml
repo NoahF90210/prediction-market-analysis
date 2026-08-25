@@ -119,20 +119,6 @@ platform_category_map:
     commodities: commodities
     weather: weather
     mentions: mentions
-  kalshi:
-    elections: elections
-    politics: politics
-    sports: sports
-    culture: culture
-    crypto: crypto
-    commodities: commodities
-    climate: climate
-    economics: economics
-    financials: finance
-    companies: companies
-    tech & science: science_tech
-    mentions: mentions
-
 mapping_rules:
   elections:
     - president

@@ -19,7 +19,7 @@
   "properties": {
     "schema_version": {"type": "string"},
     "build_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-    "platform": {"enum": ["polymarket", "kalshi"]},
+    "platform": {"const": "polymarket"},
     "market_id": {"type": "string", "minLength": 1},
     "event_id": {"type": "string", "minLength": 1},
     "event_group_id": {"type": "string", "minLength": 1},

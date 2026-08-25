@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from src.portfolio.pipeline import build_portfolio
-from src.rebuild.collectors import KalshiCollector, PolymarketCollector
+from src.rebuild.collectors import PolymarketCollector
 from src.rebuild.gates import write_candidates
 from src.rebuild.pipeline import build_fixture_analysis, build_real_analysis
 from src.rebuild.portfolio_bridge import load_analysis_rows, write_portfolio_input
@@ -19,24 +19,13 @@ def _collect(args: argparse.Namespace) -> int:
     output = Path(args.output)
     raw_root = output / "raw"
     store = RawResponseStore(raw_root, protocol, commit=collector_commit(ROOT))
-    candidates = []
     max_pages = None if args.max_pages == 0 else args.max_pages
     max_markets = None if args.max_markets == 0 else args.max_markets
-    if args.platform in {"polymarket", "both"}:
-        candidates.extend(
-            PolymarketCollector(protocol, store).collect(
-                max_event_pages=max_pages,
-                max_markets=max_markets,
-                after_cursor=args.after_cursor,
-            )
-        )
-    if args.platform in {"kalshi", "both"}:
-        candidates.extend(
-            KalshiCollector(protocol, store).collect(
-                max_market_pages=max_pages,
-                max_markets=max_markets,
-            )
-        )
+    candidates = PolymarketCollector(protocol, store).collect(
+        max_event_pages=max_pages,
+        max_markets=max_markets,
+        after_cursor=args.after_cursor,
+    )
     candidate_hash = write_candidates(output / "candidate_records.json", candidates)
     manifest = store.write_manifest(
         output / "manifest.json",
@@ -45,7 +34,7 @@ def _collect(args: argparse.Namespace) -> int:
     print(
         json.dumps(
             {
-                "platform": args.platform,
+                "platform": "polymarket",
                 "candidate_count": len(candidates),
                 "raw_record_count": len(manifest["records"]),
                 "build_id": manifest["build_id"],
@@ -144,8 +133,7 @@ def build_parser() -> argparse.ArgumentParser:
     publish.add_argument("--dashboard", default=str(ROOT / "static_dashboard" / "data.js"))
     publish.set_defaults(func=_publish_dashboard)
 
-    collect = subparsers.add_parser("collect", help="Collect immutable public API responses without scoring")
-    collect.add_argument("--platform", choices=("polymarket", "kalshi", "both"), required=True)
+    collect = subparsers.add_parser("collect", help="Collect immutable public Polymarket API responses without scoring")
     collect.add_argument("--output", default=str(ROOT / "data" / "raw" / "rebuild"))
     collect.add_argument("--max-pages", type=int, default=1, help="Safety cap; use 0 only for a reviewed full collection")
     collect.add_argument("--max-markets", type=int, default=3, help="Safety cap on history requests; use 0 for all eligible markets")

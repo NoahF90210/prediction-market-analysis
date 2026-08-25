@@ -51,8 +51,8 @@ def collector_commit(root: Path) -> str:
     source_paths.extend(
         path
         for path in [
-            root / "src" / "accuracy.py",
-            root / "src" / "category_mapping.py",
+            root / "src" / "rebuild" / "normalization.py",
+            root / "src" / "rebuild" / "categories.py",
             root / "config" / "research_protocol.json",
             root / "config" / "category_taxonomy.yml",
             root / "config" / "category_overrides.csv",
@@ -143,7 +143,7 @@ class RawResponseStore:
         payload: Any,
         retrieved_at: dt.datetime | None = None,
     ) -> RawRecord:
-        if platform not in {"polymarket", "kalshi"}:
+        if platform != "polymarket":
             raise ProvenanceError(f"Unsupported platform: {platform}")
         if not endpoint.startswith("https://"):
             raise ProvenanceError("Raw endpoints must use HTTPS")

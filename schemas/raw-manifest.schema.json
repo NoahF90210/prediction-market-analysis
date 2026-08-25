@@ -30,8 +30,8 @@
           "collector_commit"
         ],
         "properties": {
-          "platform": {"enum": ["polymarket", "kalshi"]},
-          "record_type": {"enum": ["market_inventory", "event_inventory", "price_history", "trade_history", "trade_history_bundle", "historical_cutoff"]},
+          "platform": {"const": "polymarket"},
+          "record_type": {"enum": ["market_inventory", "event_inventory", "price_history"]},
           "endpoint": {"type": "string", "pattern": "^https://"},
           "request_params": {"type": "object"},
           "retrieved_at": {"type": "string", "format": "date-time"},

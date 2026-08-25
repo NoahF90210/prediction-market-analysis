@@ -43,7 +43,7 @@
           "historical_prevalence_brier", "comparison_scope"
         ],
         "properties": {
-          "platform": {"enum": ["polymarket", "kalshi"]},
+          "platform": {"const": "polymarket"},
           "contract_count": {"type": "integer", "minimum": 0},
           "event_count": {"type": "integer", "minimum": 0},
           "brier": {"$ref": "#/$defs/nullableBrier"},

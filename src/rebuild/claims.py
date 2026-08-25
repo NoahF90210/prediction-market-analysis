@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import ast
 import datetime as dt
 import json
 import re
@@ -45,19 +44,6 @@ def _parse_timestamp(value: Any) -> dt.datetime | None:
     return parsed.astimezone(dt.timezone.utc)
 
 
-def _legacy_generator_errors() -> list[str]:
-    errors: list[str] = []
-    legacy_generator = (ROOT / "src" / "build_dashboard_data.py").read_text()
-    try:
-        tree = ast.parse(legacy_generator)
-        main_function = next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "main")
-    except (SyntaxError, StopIteration):
-        return ["legacy_dashboard_generator_invalid"]
-    if not main_function.body or not isinstance(main_function.body[0], ast.Raise):
-        errors.append("legacy_dashboard_generator_not_quarantined")
-    return errors
-
-
 def claim_consistency_errors() -> list[str]:
     errors: list[str] = []
     for path in PUBLIC_CLAIM_SURFACES:
@@ -65,7 +51,6 @@ def claim_consistency_errors() -> list[str]:
         for claim in QUARANTINED_CLAIMS:
             if claim.lower() in text.lower():
                 errors.append(f"quarantined_claim:{path.relative_to(ROOT)}:{claim}")
-    errors.extend(_legacy_generator_errors())
     try:
         payload = load_dashboard_payload()
     except (OSError, ValueError, json.JSONDecodeError) as exc:

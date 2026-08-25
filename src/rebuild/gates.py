@@ -9,9 +9,9 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Iterable
 
-from src.accuracy import normalize_probability, to_float
-from src.category_mapping import classify_market
+from src.rebuild.categories import classify_market
 from src.rebuild.collectors import CollectedCandidate
+from src.rebuild.normalization import normalize_probability, to_float
 from src.rebuild.protocol import Protocol, canonical_json_bytes, parse_utc, utc_iso
 from src.rebuild.provenance import RawRecord
 

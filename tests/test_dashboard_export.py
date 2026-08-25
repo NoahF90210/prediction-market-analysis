@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
-
-from src.build_dashboard_data import main as legacy_dashboard_main
 from src.rebuild.claims import claim_consistency_errors, load_dashboard_payload
 
 
@@ -37,11 +34,6 @@ def test_technical_values_are_secondary_to_main_summary() -> None:
     assert "brier_score" in payload["summary"]
     assert "limitations" in payload
     assert "related markets" in " ".join(payload["limitations"]).lower()
-
-
-def test_legacy_result_generator_is_runtime_quarantined() -> None:
-    with pytest.raises(RuntimeError, match="Legacy dashboard result generation is quarantined"):
-        legacy_dashboard_main()
 
 
 def test_public_claim_surfaces_are_consistent() -> None:

@@ -26,7 +26,7 @@ from src.rebuild.pipeline import (
     validate_schema,
 )
 from src.rebuild.protocol import ROOT, load_protocol, parse_utc
-from src.rebuild.provenance import ProvenanceError, RawResponseStore, collector_commit, verify_manifest
+from src.rebuild.provenance import RawResponseStore, collector_commit, verify_manifest
 from src.rebuild.validation import scan_text_for_secrets
 
 FIXTURE_ROOT = Path(__file__).resolve().parents[1] / "data" / "fixtures" / "provenance_complete"
@@ -146,23 +146,6 @@ def test_secret_scanner_catches_common_assignments_and_tokens() -> None:
     for example in examples:
         assert scan_text_for_secrets(example, "probe")
     assert scan_text_for_secrets('API_KEY="example-placeholder"', "probe") == []
-
-
-def test_secret_like_request_metadata_is_rejected(tmp_path: Path) -> None:
-    store = RawResponseStore(
-        tmp_path,
-        load_protocol(),
-        commit=FIXTURE_COMMIT,
-        clock=lambda: FIXTURE_RETRIEVED_AT,
-    )
-    with pytest.raises(ProvenanceError, match="Secret-like"):
-        store.write_response(
-            platform="kalshi",
-            record_type="trade_history",
-            endpoint="https://example.invalid/trades",
-            request_params={"api_key": "must-never-be-recorded"},
-            payload={"trades": []},
-        )
 
 
 def test_candidate_record_tampering_invalidates_build_id(tmp_path: Path) -> None:

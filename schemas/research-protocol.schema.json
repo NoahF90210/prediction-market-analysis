@@ -63,7 +63,7 @@
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": {"enum": ["polymarket", "kalshi"]}
+      "items": {"const": "polymarket"}
     },
     "raw_schema_version": {"type": "string"},
     "analysis_schema_version": {"type": "string"},

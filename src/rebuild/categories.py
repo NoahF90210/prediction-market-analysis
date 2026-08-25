@@ -9,7 +9,7 @@ from typing import Iterable
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 CONFIG_DIR = ROOT / "config"
 TAXONOMY_PATH = CONFIG_DIR / "category_taxonomy.yml"
 OVERRIDES_PATH = CONFIG_DIR / "category_overrides.csv"
@@ -246,14 +246,3 @@ def classify_market(
         raw_platform_category=raw_platform_category,
         raw_tags=tags_payload,
     )
-
-
-def comparable_categories(df, min_markets_per_platform: int = 20) -> set[str]:
-    if df.empty or "platform" not in df.columns or "category" not in df.columns:
-        return set()
-    eligible = df[df["include_in_analysis"]].groupby(["category", "platform"], observed=True).size().unstack(fill_value=0)
-    return {
-        category
-        for category, row in eligible.iterrows()
-        if len([count for count in row if count >= min_markets_per_platform]) >= 2
-    }
