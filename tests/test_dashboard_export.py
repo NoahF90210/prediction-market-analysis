@@ -1,4 +1,4 @@
-"""Honesty checks for the compact portfolio dashboard payload."""
+"""Honesty checks for the frozen broad-analysis dashboard payload."""
 
 from __future__ import annotations
 
@@ -8,66 +8,35 @@ from src.build_dashboard_data import main as legacy_dashboard_main
 from src.rebuild.claims import claim_consistency_errors, load_dashboard_payload
 
 
-def test_dashboard_uses_explicit_portfolio_data_status() -> None:
+def test_dashboard_uses_verified_real_analysis_status() -> None:
     payload = load_dashboard_payload()
-    assert payload["mode"] == "portfolio"
-    assert payload["data_status"] in {
-        "fixture_only",
-        "data_pending",
-        "validated_real_sample",
-    }
+    assert payload["data_status"] == "validated_real_sample"
+    assert payload["summary"]["included_count"] == 75036
+    assert payload["summary"]["event_count"] == 14678
 
 
-def test_default_dashboard_matches_the_verified_corpus_status() -> None:
-    payload = load_dashboard_payload()
-    if payload["data_status"] == "fixture_only":
-        assert payload["descriptive_claims_safe"] is False
-        assert "synthetic" in payload["status_message"].lower()
-        assert "fixture" in payload["claim_boundary"].lower()
-    else:
-        assert payload["data_status"] == "validated_real_sample"
-        assert payload["descriptive_claims_safe"] is True
-        assert payload["summary"]["included_count"] > 0
-        assert "bounded sample" in payload["claim_boundary"].lower()
-
-
-def test_dashboard_exposes_the_three_primary_views() -> None:
+def test_dashboard_exposes_primary_buckets_and_robustness() -> None:
     payload = load_dashboard_payload()
     assert len(payload["buckets"]) == 5
-    assert payload["summary"]["submitted_count"] == len(payload["rows"])
-    assert {
-        "included_count",
-        "excluded_count",
-        "coverage_rate",
-        "directional_hit_rate",
-    } <= payload["summary"].keys()
-    assert payload["rows"]
+    assert sum(item["count"] for item in payload["buckets"]) == payload["summary"]["included_count"]
+    assert payload["robustness"]["included_count"] == payload["summary"]["event_count"]
+    assert payload["evidence_sample"]
 
 
-def test_market_table_rows_include_auditable_public_fields() -> None:
+def test_evidence_rows_include_auditable_public_fields() -> None:
     payload = load_dashboard_payload()
-    included = [row for row in payload["rows"] if row["inclusion_status"] == "included"]
-    assert included
     required = {
-        "probability",
-        "outcome",
-        "probability_timestamp",
-        "platform",
-        "title",
-        "source_url",
-        "resolution_timestamp",
-        "outcome_source",
-        "inclusion_status",
+        "market_id", "title", "probability", "resolution",
+        "probability_timestamp", "resolution_timestamp", "market_url",
     }
-    assert all(required <= row.keys() for row in included)
+    assert all(required <= row.keys() for row in payload["evidence_sample"])
 
 
-def test_advanced_methodology_is_isolated_to_optional_appendix() -> None:
+def test_technical_values_are_secondary_to_main_summary() -> None:
     payload = load_dashboard_payload()
-    assert "technical_appendix" in payload
-    assert "brier_score" in payload["technical_appendix"]
-    assert "brier" not in payload["summary"]
-    assert "log_loss" not in payload["summary"]
+    assert "brier_score" in payload["summary"]
+    assert "limitations" in payload
+    assert "related markets" in " ".join(payload["limitations"]).lower()
 
 
 def test_legacy_result_generator_is_runtime_quarantined() -> None:
