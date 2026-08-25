@@ -1,186 +1,145 @@
 # Prediction Market Probability Check
 
-[![Tests](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml/badge.svg)](https://github.com/NoahF90210/prediction-market-analysis/actions/workflows/tests.yml)
+A reproducible analysis of whether Polymarket's pre-result YES probabilities matched what actually happened.
 
-> **Current data status: `validated_real_sample`.** The public dashboard uses 500 resolved Polymarket contracts from the frozen 2026 H1 window, with 125 rows passing the pre-result timestamp, provenance, binary-contract, and exclusion checks across 78 event groups.
-> Results are descriptive for this bounded sample only.
+**Takeaway: in the pooled market view, 24-hour probabilities were close overall, with the largest miss in the middle range.**
+
+Twenty-four hours before resolution, Polymarket probabilities were broadly informative, especially at the extremes.
+The largest weakness was the middle range, where markets predicted YES about 49% of the time but YES happened about 40% of the time.
 
 ## The question
 
-> **Were pre-result prediction-market probabilities informative about what happened?**
+> When Polymarket says an outcome has a certain probability, does that outcome happen about that often?
 
-The portfolio dashboard answers that question with three views:
+This project uses a simple, understandable test.
+It compares the probability observed 24 hours before resolution with the final YES or NO outcome.
 
-1. **Probability ranges vs. outcomes** — when markets said 60–80%, how often did the event actually happen?
-2. **Simple accuracy and coverage** — how many rows were usable, and how often did the probability point in the correct direction at a 50% threshold?
-3. **Searchable source table** — probability, outcome, timestamp, platform, title, inclusion status, and source for every submitted row.
+## Result in one sentence
 
-Brier score, log loss, clustered bootstrap intervals, learned baselines, and event-weighted estimands are not required to understand the main product. The repository retains that machinery as an optional research appendix.
+Across **75,036 qualifying YES/NO markets** resolved during 2025, the average predicted YES probability was **27.1%**, while YES occurred **24.6%** of the time.
 
-## Data status contract
+The largest mismatch appeared in the 40% to 60% range, where markets predicted YES about **49.4%** of the time but YES occurred about **39.8%** of the time.
 
-The dashboard always exposes one of three states:
+The careful conclusion is that Polymarket's 24-hour probabilities were **broadly informative**, not that every probability was perfectly accurate.
 
-| State | Meaning |
-|---|---|
-| `fixture_only` | Synthetic rows are being used to test the software. No empirical claim is safe. |
-| `data_pending` | A real file was supplied, but no row passed every fail-closed check. |
-| `validated_real_sample` | At least one real row passed the normalized contract. Results are descriptive only for that bounded sample. |
+## Dataset
 
-Even `validated_real_sample` does **not** support a platform ranking, causal claim, population estimate, or trading-edge claim.
+The analysis uses Polymarket records resolved between **January 1, 2025 00:00 UTC** and **January 1, 2026 00:00 UTC**, with the end boundary exclusive.
 
-## Current bounded result
+The inventory contained **1,495,875 unique market IDs** after keyset pagination and deduplication.
 
-The current public build includes 125 of 500 submitted rows, for 25.0% coverage.
+The analytical candidate set contained **92,875 canonical YES/NO markets** with resolved outcomes and verified `closedTime` values inside the window.
 
-The simple 50% direction check is correct for 64.8% of included rows.
+The final included dataset contains **75,036 markets across 14,678 events** after requiring a usable pre-resolution price snapshot.
 
-The included rows have a 27.2% observed YES rate and a 38.1% average submitted probability.
+Named-outcome markets such as `Texas/ASU`, `Over/Under`, and `Up/Down` were excluded rather than guessed into a YES/NO mapping.
 
-The unclustered Brier appendix value is 0.162 against an always-50% reference value of 0.250.
+Categories were not used as eligibility filters.
 
-These values are descriptive summaries of this bounded Polymarket sample.
+The raw Gamma category field was missing in this inventory, but raw tags are retained for future descriptive analysis.
 
-They are not evidence that prediction markets are universally accurate, that Polymarket outperforms another platform, or that a trading strategy has an edge.
+## What the numbers mean
 
-The source table keeps excluded rows visible with their gate reasons.
+- **Average prediction** is the average YES probability assigned by Polymarket within a probability range.
+- **Observed YES frequency** is the share of those markets that ultimately resolved YES.
+- **Gap** is observed YES frequency minus average prediction.
+- A negative gap means YES happened less often than predicted.
+- A positive gap means YES happened more often than predicted.
 
-## Bounded real-data import
+## Probability buckets
 
-The default portfolio path supports one platform first: **Polymarket**. It accepts a user-supplied normalized `.csv` or `.json` file, validates every row, keeps invalid rows as explicit exclusions, and writes deterministic artifacts.
+| Probability range | Markets | Average prediction | Observed YES frequency | Gap |
+|---|---:|---:|---:|---:|
+| 0% to under 20% | 38,153 | 3.64% | 3.00% | -0.64 percentage points |
+| 20% to under 40% | 13,025 | 28.66% | 25.32% | -3.34 percentage points |
+| 40% to under 60% | 14,139 | 49.35% | 39.77% | -9.58 percentage points |
+| 60% to under 80% | 3,750 | 69.01% | 71.65% | +2.64 percentage points |
+| 80% to 100% | 5,969 | 94.64% | 95.31% | +0.67 percentage points |
 
-Required fields for an included row:
+The low and high probability ranges are relatively close to their observed frequencies.
+The middle range shows the largest market-level overprediction of YES.
 
-| Field | Contract |
-|---|---|
-| `platform` | Must be `polymarket` |
-| `market_id` | Stable market identifier |
-| `event_id` | Optional; defaults to `market_id` |
-| `title` | Human-readable market question |
-| `source_url` | HTTPS market or source URL |
-| `source_endpoint` | HTTPS API endpoint or evidence URL; defaults to `source_url` |
-| `probability` | Number from 0 through 1 |
-| `probability_timestamp` | UTC-compatible timestamp observed before resolution |
-| `outcome` | `YES`/`NO`, `1`/`0`, or boolean |
-| `resolution_timestamp` | UTC-compatible resolution timestamp |
-| `outcome_source` | Resolution source URL or clear source description |
-| `retrieved_at` | Optional retrieval timestamp |
+Here is the 40% to 60% bucket in plain English.
+We found 14,139 markets where the forecast put YES somewhere between 40% and 60%.
+Averaging those individual forecasts gives 49.4%, so these markets were basically saying “about a coin flip.”
+YES actually happened in 39.8% of them, or about 4 out of 10.
 
-Example JSON:
+## Related-market robustness check
 
-```json
-{
-  "scope": "Twenty resolved Polymarket markets selected by a documented bounded rule.",
-  "rows": [
-    {
-      "platform": "polymarket",
-      "market_id": "12345",
-      "event_id": "event-987",
-      "title": "Will the event happen?",
-      "source_url": "https://polymarket.com/event/example",
-      "source_endpoint": "https://gamma-api.polymarket.com/markets/12345",
-      "probability": 0.64,
-      "probability_timestamp": "2026-06-01T12:00:00Z",
-      "outcome": "YES",
-      "resolution_timestamp": "2026-06-02T12:00:00Z",
-      "outcome_source": "https://polymarket.com/event/example",
-      "retrieved_at": "2026-06-03T12:00:00Z"
-    }
-  ]
-}
-```
+Markets are grouped into Polymarket events, and one event can contain many related markets.
 
-Build a real bounded sample:
+The primary result gives every qualifying market one row of weight.
 
-```bash
-python3 -m src.portfolio.cli import-normalized \
-  --input path/to/polymarket_sample.json
-```
+A simple robustness check selects one deterministic market per event.
 
-Generated artifacts:
+| Analysis | Markets | Average prediction | Observed YES frequency | Gap |
+|---|---:|---:|---:|---:|
+| All qualifying markets | 75,036 | 27.10% | 24.58% | -2.53 percentage points |
+| One market per event | 14,678 | 37.13% | 37.98% | +0.84 percentage points |
 
-- `data/derived/portfolio/portfolio_rows.json`
-- `data/derived/portfolio/portfolio_rows.csv`
-- `data/derived/portfolio/portfolio_summary.json`
-- `static_dashboard/data.js`
+This changes the sign of the overall gap.
 
-Each output row includes the input file SHA-256, deterministic build ID, `inclusion_status`, and `exclusion_reasons`.
+The appropriate conclusion is therefore not that Polymarket has one universal calibration number.
 
-## Fail-closed checks
+The defensible conclusion is that the market-level result is sensitive to how related markets are weighted, with the clearest mismatch appearing in the middle probability range of the pooled market analysis.
 
-A row is excluded rather than guessed when it has:
+## Method
 
-- a malformed row shape;
-- a missing or unsupported platform;
-- a missing market ID or title;
-- a missing or invalid HTTPS source;
-- a missing or invalid probability;
-- a missing probability or resolution timestamp;
-- a probability timestamp at or after resolution;
-- a missing outcome or outcome source;
-- a duplicate platform/market identifier.
+1. Enumerate the closed Polymarket market inventory through the official Gamma keyset endpoint.
+2. Keep canonical YES/NO markets whose verified `closedTime` falls inside the 2025 UTC window.
+3. Use the YES token's official CLOB price history.
+4. Select the latest observed price at or before 24 hours before `closedTime`.
+5. Exclude missing or more-than-168-hour-stale snapshots with explicit reasons.
+6. Compare the selected probability with the final YES or NO outcome.
 
-Excluded rows remain visible in the table and count against coverage.
+The primary result is descriptive.
+It is not a claim about trading profit, causality, universal accuracy, or future performance.
 
-## Main analysis
+## Limitations
 
-For included rows, the compact analysis calculates:
+- Related markets from the same event remain separate in the primary analysis.
+- The one-market-per-event check shows that weighting choices matter.
+- Markets with missing or stale price history are excluded from the final analysis.
+- The analysis covers one platform and one completed calendar year.
+- The Gamma category field was missing in the collected inventory.
+- Named outcomes were excluded rather than mapped heuristically.
 
-- five fixed probability ranges: 0–20%, 20–40%, 40–60%, 60–80%, and 80–100%;
-- the average probability in each range;
-- the observed YES rate in each range;
-- directional hit rate using a stated 50% threshold;
-- submitted, included, and excluded row counts;
-- missing-data coverage and exclusion reasons.
+## Dashboard
 
-The optional technical appendix reports Brier score and the plain always-50% baseline. More complex research methods stay isolated under `src/rebuild/` and are not part of the default public story.
-
-## Reproduce the fixture-only dashboard
-
-```bash
-python3 -m src.portfolio.cli build-fixture
-```
-
-The fixture source is `data/fixtures/portfolio_normalized.json`. Its probabilities and outcomes are synthetic test values, not empirical findings.
-
-## Run locally
+Run the local dashboard with:
 
 ```bash
 python3 app.py
 ```
 
-Open `http://127.0.0.1:8050`.
+Then open [http://127.0.0.1:8050](http://127.0.0.1:8050).
 
-## Validate
+The dashboard presents the headline result, bucket comparison, robustness check, exclusion summary, limitations, and a small linked evidence sample.
+
+## Reproducibility artifacts
+
+The repository tracks the compact publication outputs used by the README and dashboard.
+
+- `config/analysis.json` contains the approved analytical rules.
+- `data/results/summary.json` contains the primary summary.
+- `data/results/probability_buckets.csv` contains the primary bucket result.
+- `data/results/robustness_one_market_per_event.json` contains the event-level robustness check.
+- `data/results/data_quality.json` contains reconciled quality totals.
+- `static_dashboard/data.js` contains the generated dashboard payload.
+
+The complete normalized rows, exclusion ledger, raw API responses, and checkpoints remain local evidence artifacts because they are large collection outputs.
+They are recorded and hashed in the local freeze artifact at `.hermes/artifacts/polymarket-dataset-freeze.md`.
+
+## Official sources
+
+- [Polymarket markets and events](https://docs.polymarket.com/concepts/markets-events)
+- [Gamma keyset market pagination](https://docs.polymarket.com/api-reference/markets/list-markets-keyset-pagination)
+- [CLOB price history](https://docs.polymarket.com/api-reference/markets/get-prices-history)
+
+## Validation
 
 ```bash
 make validate
 ```
 
-Validation runs Python compilation, the full test suite, repository claim checks, both deterministic fixture paths, and schema/provenance checks.
-
-## Project structure
-
-### Default portfolio path
-
-- `src/portfolio/contracts.py` — CSV/JSON loading, normalization, timestamps, inclusion status, duplicates, and deterministic build IDs
-- `src/portfolio/analysis.py` — probability ranges, observed rates, hit rate, coverage, and optional simple baseline
-- `src/portfolio/pipeline.py` — schema validation and deterministic JSON/CSV/dashboard artifacts
-- `src/portfolio/cli.py` — `build-fixture` and `import-normalized`
-- `schemas/portfolio-market.schema.json` — normalized output contract
-- `tests/test_portfolio_pipeline.py` — deterministic and malformed-row coverage
-- `static_dashboard/` — compact three-view React dashboard
-
-### Optional research appendix
-
-- `src/rebuild/` — content-addressed API provenance, fixed-horizon snapshot selection, event grouping, clustered uncertainty, and research publication gates
-- `data/fixtures/provenance_complete/` — synthetic provenance fixture for the research path
-- `docs/research_protocol.md` — advanced protocol details
-
-## Claim boundary
-
-The repository currently supports a software and methodology claim only:
-
-> Built a deterministic Python and React workflow that validates bounded prediction-market rows, fails closed on missing or post-result evidence, summarizes probability ranges against outcomes, reports coverage, and keeps source-level records auditable.
-
-It does not currently support a numerical claim about real market accuracy.
+The current local validation suite passes with 82 tests.

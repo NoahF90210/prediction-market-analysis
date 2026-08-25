@@ -1,0 +1,14 @@
+{
+  "analysis_scope": "all included canonical YES/NO Polymarket markets; categories retained only as metadata",
+  "included_market_count": 75036,
+  "unique_event_count": 14678,
+  "overall_average_predicted_probability": 0.27102917932725623,
+  "overall_observed_yes_frequency": 0.24576203422357268,
+  "overall_percentage_point_gap": -0.025267145103683553,
+  "directional_hit_rate_at_0_5": 0.836971586971587,
+  "brier_score": 0.10585979396889493,
+  "bucket_count_sum": 75036,
+  "category_counts": {
+    "missing": 75036
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "selection_rule": "Within each event_id, select the lexicographically smallest market_id.",
+  "included_market_count": 14678,
+  "unique_event_count": 14678,
+  "average_predicted_probability": 0.3713190829813326,
+  "observed_yes_frequency": 0.3797520098106009,
+  "percentage_point_gap": 0.008432926829268328,
+  "directional_hit_rate_at_0_5": 0.8000408775037471,
+  "brier_score": 0.12626061086319662,
+  "buckets": [
+    {
+      "bucket": "[0.0, 0.2)",
+      "market_count": 5693,
+      "average_predicted_probability": 0.03257219392236079,
+      "observed_yes_frequency": 0.037238714210433864,
+      "percentage_point_gap": 0.004666520288073073
+    },
+    {
+      "bucket": "[0.2, 0.4)",
+      "market_count": 2018,
+      "average_predicted_probability": 0.30718681863230923,
+      "observed_yes_frequency": 0.3280475718533201,
+      "percentage_point_gap": 0.020860753221010886
+    },
+    {
+      "bucket": "[0.4, 0.6)",
+      "market_count": 3490,
+      "average_predicted_probability": 0.49659441260744985,
+      "observed_yes_frequency": 0.48681948424068766,
+      "percentage_point_gap": -0.009774928366762192
+    },
+    {
+      "bucket": "[0.6, 0.8)",
+      "market_count": 1447,
+      "average_predicted_probability": 0.6889982722874913,
+      "observed_yes_frequency": 0.7304768486523843,
+      "percentage_point_gap": 0.04147857636489294
+    },
+    {
+      "bucket": "[0.8, 1.0]",
+      "market_count": 2030,
+      "average_predicted_probability": 0.9432463054187192,
+      "observed_yes_frequency": 0.9576354679802955,
+      "percentage_point_gap": 0.014389162561576296
+    }
+  ]
+}

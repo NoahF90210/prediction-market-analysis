@@ -8,6 +8,7 @@ __pycache__/
 .matplotlib/
 .claude/
 data/raw/
+data/checkpoints/
 data/derived/
 .firecrawl/
 .pytest_cache/

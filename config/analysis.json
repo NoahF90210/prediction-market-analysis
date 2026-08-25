@@ -1,0 +1,11 @@
+{
+  "platform": "polymarket",
+  "resolution_start": "2025-01-01T00:00:00Z",
+  "resolution_end": "2026-01-01T00:00:00Z",
+  "snapshot_hours_before_resolution": 24,
+  "maximum_snapshot_age_hours": 168,
+  "probability_buckets": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+  "include_related_markets": true,
+  "require_binary_outcomes": true,
+  "require_resolved_status": true
+}
