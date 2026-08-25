@@ -25,4 +25,4 @@ serve:
 	$(PYTHON) app.py
 
 clean-derived:
-	rm -rf data/derived/portfolio data/derived/rebuild
+	rm -rf data/derived/portfolio data/derived/rebuild data/audit data/real data/processed data/results

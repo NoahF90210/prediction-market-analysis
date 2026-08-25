@@ -22,3 +22,14 @@ data/cleaned/polymarket_markets.csv
 data/cleaned/markets.csv
 CLAUDE.md
 data/cleaned/
+
+# Local research and agent artifacts
+.rpiv/
+.hermes/
+.cursor/
+
+# Generated analysis outputs
+data/audit/
+data/real/
+data/processed/
+data/results/

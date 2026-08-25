@@ -1,6 +1,7 @@
 services:
   - type: web
     name: prediction-market-accuracy
+    branch: main
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:server --bind 0.0.0.0:$PORT

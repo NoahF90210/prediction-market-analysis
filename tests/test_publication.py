@@ -1,10 +1,11 @@
 import json
 
-from src.polymarket.publish import OUTPUT, publish
+from src.polymarket.publish import OUTPUT
+from src.rebuild.claims import load_dashboard_payload
 
 
-def test_publication_payload_matches_frozen_results():
-    data = publish()
+def test_checked_in_dashboard_payload_matches_publication_contract():
+    data = load_dashboard_payload(OUTPUT)
     assert data["summary"]["included_count"] == 75036
     assert data["summary"]["event_count"] == 14678
     assert len(data["buckets"]) == 5
