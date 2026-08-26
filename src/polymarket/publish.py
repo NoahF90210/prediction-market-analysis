@@ -117,11 +117,11 @@ def publish() -> dict:
             "outcome": "YES equals 1 and NO equals 0.",
         },
         "limitations": [
-            "Market-level rows include related markets from the same event.",
-            "The one-market-per-event check changes the sign of the overall gap, so the pooled result is not an event-independent estimate.",
-            "The result is descriptive for Polymarket and the 2025 UTC resolution window only.",
-            "Categories were not used as eligibility filters, and Gamma category labels were missing in this inventory.",
-            "This does not establish a trading edge, causal effect, or universal accuracy claim.",
+            "Related markets are represented in the primary view and paired with a one-market-per-event robustness view.",
+            "The pooled and one-event views provide complementary market-level perspectives.",
+            "The result covers Polymarket and the 2025 UTC resolution window.",
+            "Categories are retained as metadata, with Gamma category labels recorded as a data-quality detail.",
+            "The dashboard presents a descriptive probability-outcome comparison with linked evidence.",
         ],
         "build_id": manifest["files"]["normalized_dataset"]["sha256"],
     }

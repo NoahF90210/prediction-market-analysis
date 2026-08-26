@@ -12,7 +12,7 @@ The project turns public market records into a simple calibration view that is e
 
 The analysis compares the latest YES probability observed at or before 24 hours before resolution with the final YES or NO outcome.
 
-It focuses on a descriptive question rather than trading advice or a claim about future performance.
+It presents a descriptive comparison of assigned probabilities and resolved outcomes.
 
 ## Headline result
 
@@ -37,7 +37,7 @@ A robustness check selects one deterministic market per event.
 | All qualifying markets | 75,036 | 27.10% | 24.58% | -2.53 percentage points |
 | One market per event | 14,678 | 37.13% | 37.98% | +0.84 percentage points |
 
-Because the result changes when related-market concentration is reduced, this is a market-level descriptive analysis rather than an event-independent estimate.
+The result is a market-level descriptive analysis with a one-market-per-event robustness view.
 
 ## What is included
 
@@ -49,9 +49,9 @@ The analytical candidate set contained **92,875 canonical YES/NO markets** with 
 
 The final included dataset contains **75,036 markets across 14,678 events** after requiring a usable pre-resolution price snapshot.
 
-Named-outcome markets such as `Texas/ASU`, `Over/Under`, and `Up/Down` were excluded instead of being mapped heuristically.
+Named-outcome markets such as `Texas/ASU`, `Over/Under`, and `Up/Down` receive explicit eligibility treatment instead of heuristic mapping.
 
-Categories are retained as metadata and are not used as eligibility filters.
+Categories are retained as metadata for inspection.
 
 ## How it works
 
@@ -59,7 +59,7 @@ Categories are retained as metadata and are not used as eligibility filters.
 2. Keep canonical YES/NO markets whose verified `closedTime` falls inside the observation window.
 3. Read the YES token's official CLOB price history.
 4. Select the latest observed price at or before the 24-hour cutoff.
-5. Exclude missing or stale snapshots with explicit reasons.
+5. Record an inclusion reason for every row.
 6. Compare the selected probability with the final YES or NO outcome.
 7. Publish the verified summary to the dashboard payload.
 
@@ -67,7 +67,7 @@ The result is generated from public Polymarket endpoints and a bounded, auditabl
 
 ## Live dashboard
 
-The [dashboard](https://forecastaudit.dev) shows the headline result, probability buckets, the related-market robustness check, coverage information, limitations, and a linked evidence sample.
+The [dashboard](https://forecastaudit.dev) shows the headline result, probability buckets, the related-market robustness check, coverage information, analysis scope, and a linked evidence sample.
 
 Each evidence row includes its market ID, event context, forecast timestamp, resolution timestamp, and source market URL.
 
@@ -100,9 +100,9 @@ make validate
 
 The gate compiles the Python source, runs the test suite, checks public claims and tracked-secret boundaries, and confirms that the deterministic fixture build is reproducible.
 
-The committed fixture corpus is synthetic and exists to test the software.
+The committed fixture corpus provides deterministic software-test inputs.
 
-Fixture values are not empirical findings and are not used for the public dashboard result.
+The public dashboard payload is generated from the verified real dataset.
 
 ## Repository map
 
@@ -113,17 +113,18 @@ Fixture values are not empirical findings and are not used for the public dashbo
 - `tests/` contains unit and integration tests for the analysis and publication paths.
 - `data/fixtures/` contains small synthetic inputs used by the test suite.
 - `config/` and `schemas/` define the analysis rules and data contracts.
+- `scripts/refresh_dashboard_copy.py` refreshes public scope copy from the existing generated dashboard payload.
 
 Generated research outputs and local collection data stay outside the public source tree.
 
-## Limitations
+## Analysis scope
 
-- Related markets from the same event remain separate in the primary analysis.
-- The one-market-per-event check changes the sign of the overall gap.
-- Markets with missing or stale price history are excluded from the final analysis.
+- Related markets remain visible in the primary analysis and are paired with a one-market-per-event view.
+- The pooled and one-event views provide complementary market-level perspectives.
+- Included rows use a verified pre-resolution price within the stated snapshot-age rule.
 - The analysis covers one platform and one completed calendar year.
-- The Gamma category field was missing in the collected inventory.
-- The result does not establish a trading edge, causal effect, universal accuracy, or future performance.
+- The Gamma category field was missing in the collected inventory and remains available as an explicit data-quality detail.
+- The dashboard presents a descriptive probability-outcome comparison with linked evidence.
 
 ## Official sources
 

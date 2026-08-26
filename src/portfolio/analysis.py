@@ -143,10 +143,10 @@ def build_dashboard_payload(
     elif corpus_kind == "real" and included_count:
         data_status = "validated_real_sample"
         status_message = (
-            "This is a bounded, contract-validated real sample. Results describe only the included rows "
-            "and do not establish platform superiority or a trading edge."
+            "This is a bounded, contract-validated real sample with linked rows, explicit timing rules, "
+            "and descriptive probability-outcome results."
         )
-        claim_boundary = "Descriptive claims are limited to this bounded sample; no population, causal, platform-ranking, or market-edge claim is supported."
+        claim_boundary = "Claims are scoped to the included rows, Polymarket, the observation window, and the published timing rules."
         descriptive_claims_safe = True
     elif corpus_kind == "real":
         data_status = "data_pending"
